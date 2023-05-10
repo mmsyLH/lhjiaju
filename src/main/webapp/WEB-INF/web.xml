@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         id="WebApp_ID" version="4.0">
+    <display-name>lhjiaju</display-name>
+    <!--配置过滤器-->
+
+    <filter>
+        <filter-name>AuthFilter</filter-name>
+        <filter-class>xyz.lhweb.furns.filter.AuthFilter</filter-class>
+        <!--设置放行-->
+        <init-param>
+            <param-name>excludedUrls</param-name>
+            <param-value>/views/manage/manage_login.jsp,/views/member/login.jsp,/views/member/tip.jsp</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>AuthFilter</filter-name>
+        <!--
+        1 配置哪些需要哪些不需要 分三种情况
+            在filter-mapping中url配置要拦截/验证
+            对于我们不去拦截的url,就不配置
+            对于要拦截的某些要放行的资源再重新配置
+        2
+        -->
+        <!--配置要拦截的-->
+        <url-pattern>/views/cart/*</url-pattern>
+        <url-pattern>/views/manage/*</url-pattern>
+        <url-pattern>/views/member/*</url-pattern>
+        <url-pattern>/views/order/*</url-pattern>
+        <url-pattern>/cartServlet</url-pattern>
+        <url-pattern>/manage/furnServlet</url-pattern>
+        <url-pattern>/orderServlet</url-pattern>
+    </filter-mapping>
+    <!--控制事务-->
+    <filter>
+        <filter-name>TransactionFilter</filter-name>
+        <filter-class>xyz.lhweb.furns.filter.TransactionFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>TransactionFilter</filter-name>
+        <!--对全部请求都进行事务管理-->
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+
+    <servlet>
+        <servlet-name>FurnServlet</servlet-name>
+        <servlet-class>xyz.lhweb.furns.web.FurnServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminServlet</servlet-name>
+        <servlet-class>xyz.lhweb.furns.web.AdminServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CustomerFurnServlet</servlet-name>
+        <servlet-class>xyz.lhweb.furns.web.CustomerFurnServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>KaptchaServlet</servlet-name>
+        <servlet-class>com.google.code.kaptcha.servlet.KaptchaServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>KaptchaServlet</servlet-name>
+        <url-pattern>/kaptchaServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CustomerFurnServlet</servlet-name>
+        <url-pattern>/customerFurnServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminServlet</servlet-name>
+        <url-pattern>/adminServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FurnServlet</servlet-name>
+        <url-pattern>/manage/furnServlet</url-pattern>
+    </servlet-mapping>
+
+
+    <!--404错误页面-->
+    <error-page>
+        <error-code>404</error-code>
+        <location>/views/error/404.jsp</location>
+    </error-page>
+    <!--500错误页面-->
+    <!--<error-page>-->
+    <!--    <error-code>500</error-code>-->
+    <!--    <location>/views/error/500.jsp</location>-->
+    <!--</error-page>-->
+
+
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+        <welcome-file>index.jsp</welcome-file>
+        <welcome-file>index.htm</welcome-file>
+        <welcome-file>default.html</welcome-file>
+        <welcome-file>default.jsp</welcome-file>
+        <welcome-file>default.htm</welcome-file>
+    </welcome-file-list>
+</web-app>
