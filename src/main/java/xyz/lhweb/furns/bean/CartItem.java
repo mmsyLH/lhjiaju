@@ -3,7 +3,7 @@ package xyz.lhweb.furns.bean;
 import java.math.BigDecimal;
 
 /**
- * 车项目
+ * 购物项
  *
  * @author 罗汉
  * @date 2023/04/07

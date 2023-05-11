@@ -9,9 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d4ed239-aeac-4834-9a20-13be139fb094" name="Changes" comment="测试1">
-      <change afterPath="$PROJECT_DIR$/home_furnishing.sql" afterDir="false" />
+    <list default="true" id="7d4ed239-aeac-4834-9a20-13be139fb094" name="Changes" comment="家居数据库">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/bean/CartItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/bean/CartItem.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,11 +81,11 @@
       <recent name="xyz.lhweb.furns.web" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\JavaWorksparce\ecilpseWorkspace\lhjiaju" />
       <recent name="F:\JavaWorksparce\ecilpseWorkspace\lhjiaju\src\main\webapp\assets\images\logo" />
       <recent name="F:\JavaWorksparce\ecilpseWorkspace\lhjiaju\src\main\webapp\views\manage" />
       <recent name="F:\JavaWorksparce\ecilpseWorkspace\lhjiaju\src\main\webapp\WEB-INF\lib" />
       <recent name="F:\JavaWorksparce\ecilpseWorkspace\lhjiaju\src\main\webapp\WEB-INF" />
-      <recent name="F:\JavaWorksparce\ecilpseWorkspace\lhjiaju\src\main\webapp\views" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="F:\JavaWorksparce\ecilpseWorkspace\lhjiaju\src\main\webapp\views\customer" />
@@ -332,7 +332,7 @@
       <workItem from="1683644338922" duration="1665000" />
       <workItem from="1683690944490" duration="5800000" />
       <workItem from="1683706391495" duration="3848000" />
-      <workItem from="1683763310745" duration="2306000" />
+      <workItem from="1683763310745" duration="2796000" />
     </task>
     <task id="LOCAL-00001" summary="测试1">
       <created>1683771492301</created>
@@ -341,7 +341,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683771492302</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="家居数据库">
+      <created>1683772007310</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1683772007310</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -360,7 +367,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="测试1" />
-    <option name="LAST_COMMIT_MESSAGE" value="测试1" />
+    <MESSAGE value="家居数据库" />
+    <option name="LAST_COMMIT_MESSAGE" value="家居数据库" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
