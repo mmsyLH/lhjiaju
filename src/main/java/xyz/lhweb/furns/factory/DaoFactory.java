@@ -1,6 +1,5 @@
 package xyz.lhweb.furns.factory;
 
-import xyz.lhweb.furns.bean.OrderItem;
 import xyz.lhweb.furns.dao.FurnDao;
 import xyz.lhweb.furns.dao.MemberDAO;
 import xyz.lhweb.furns.dao.OrderDAo;

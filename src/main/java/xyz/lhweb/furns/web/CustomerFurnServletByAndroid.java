@@ -7,6 +7,7 @@ import xyz.lhweb.furns.service.impl.FurnServiceImpl;
 import xyz.lhweb.furns.utils.DataUtils;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -18,7 +19,8 @@ import java.io.IOException;
  * @author 罗汉
  * @date 2023/04/02
  */
-public class CustomerFurnServlet extends BasicServlet {
+@WebServlet("/customerFurnServletByAndroid")
+public class CustomerFurnServletByAndroid extends BasicServlet {
     //定义一个FurnService属性
     private FurnService furnService = new FurnServiceImpl();
 
@@ -78,10 +80,5 @@ public class CustomerFurnServlet extends BasicServlet {
         req.getRequestDispatcher("/views/customer/index.jsp")
                 .forward(req, resp);
     }
-    /*
-安卓测试
-* */
-    protected void text(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.getWriter().write("hello");
-    }
+
 }
