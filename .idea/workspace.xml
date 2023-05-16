@@ -9,12 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d4ed239-aeac-4834-9a20-13be139fb094" name="Changes" comment="订单页面以及错误信息提示页的修改">
+    <list default="true" id="7d4ed239-aeac-4834-9a20-13be139fb094" name="Changes" comment="中文简介">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/filter/AuthFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/filter/AuthFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/web/CustomerFurnServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/web/CustomerFurnServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/web/MemberServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/web/MemberServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/member/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/member/login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/filter/TransactionFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/filter/TransactionFilter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,11 +82,11 @@
       <recent name="xyz.lhweb.furns.web" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\JavaWorksparce\ecilpseWorkspace\2203840110_luohan" />
       <recent name="F:\JavaWorksparce\ecilpseWorkspace\lhjiaju" />
       <recent name="F:\JavaWorksparce\ecilpseWorkspace\lhjiaju\src\main\webapp\assets\images\logo" />
       <recent name="F:\JavaWorksparce\ecilpseWorkspace\lhjiaju\src\main\webapp\views\manage" />
       <recent name="F:\JavaWorksparce\ecilpseWorkspace\lhjiaju\src\main\webapp\WEB-INF\lib" />
-      <recent name="F:\JavaWorksparce\ecilpseWorkspace\lhjiaju\src\main\webapp\WEB-INF" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="F:\JavaWorksparce\ecilpseWorkspace\lhjiaju\src\main\webapp\views\customer" />
@@ -360,7 +358,7 @@
       <workItem from="1684109371708" duration="2979000" />
       <workItem from="1684115314777" duration="4611000" />
       <workItem from="1684202296664" duration="490000" />
-      <workItem from="1684203120869" duration="3500000" />
+      <workItem from="1684203120869" duration="4668000" />
     </task>
     <task id="LOCAL-00001" summary="测试1">
       <created>1683771492301</created>
@@ -397,7 +395,21 @@
       <option name="project" value="LOCAL" />
       <updated>1684204861992</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="自动登录功能">
+      <created>1684206834520</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1684206834520</updated>
+    </task>
+    <task id="LOCAL-00007" summary="中文简介">
+      <created>1684206863974</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1684206863974</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -420,7 +432,9 @@
     <MESSAGE value="修改购物项" />
     <MESSAGE value="更改数据库名、项目名等符合期末项目要求" />
     <MESSAGE value="订单页面以及错误信息提示页的修改" />
-    <option name="LAST_COMMIT_MESSAGE" value="订单页面以及错误信息提示页的修改" />
+    <MESSAGE value="自动登录功能" />
+    <MESSAGE value="中文简介" />
+    <option name="LAST_COMMIT_MESSAGE" value="中文简介" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
