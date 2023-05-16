@@ -3,7 +3,7 @@
 ---
 
 # 前言
-韩老师javaweb阶段的家具商城（之后ssm还是用的这个页面）
+韩老师javaweb阶段的家具商城（之后写ssm还是用的这个页面）
 `jsp+mvc模式+servlet+druid连接池+ThreadLocal+mysql实现卖家居的网上商城`
 开发环境：
 服务器：tomcat 9.0
