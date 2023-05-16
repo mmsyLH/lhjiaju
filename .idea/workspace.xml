@@ -9,9 +9,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d4ed239-aeac-4834-9a20-13be139fb094" name="Changes" comment="家居数据库">
+    <list default="true" id="7d4ed239-aeac-4834-9a20-13be139fb094" name="Changes" comment="修改购物项">
+      <change afterPath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/web/CustomerFurnServletByAndroid.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/lhjiaju.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/lhjiaju.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/bean/CartItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/bean/CartItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lhjiaju.iml" beforeDir="false" afterPath="$PROJECT_DIR$/2203840110_luohan.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/factory/DaoFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/factory/DaoFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/web/CustomerFurnServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/web/CustomerFurnServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/web/OrderServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/web/OrderServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/error/500.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/error/500.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +76,7 @@
     "jdk.selected.JAVA_MODULE": "1.8",
     "js.last.introduce.type": "VAR",
     "last_directory_selection": "F:/JavaWorksparce/ecilpseWorkspace/lhjiaju/src/main/java/xyz/lhweb/furns/test",
-    "last_opened_file_path": "F:/JavaWorksparce/ecilpseWorkspace/lhjiaju",
+    "last_opened_file_path": "F:/JavaWorksparce/ecilpseWorkspace/2203840110_luohan",
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15619047",
@@ -102,7 +110,7 @@
   <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.24_lhjiaju">
     <configuration name="CartTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="xyz.lhweb.furns.test.CartTest" />
-      <module name="lhjiaju" />
+      <module name="2203840110_luohan" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="xyz.lhweb.furns.test.*" />
@@ -115,7 +123,7 @@
     </configuration>
     <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="xyz.lhweb.furns.test.Main" />
-      <module name="lhjiaju" />
+      <module name="2203840110_luohan" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="xyz.lhweb.furns.test.*" />
@@ -128,7 +136,7 @@
     </configuration>
     <configuration name="MysqlToBeans" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="xyz.lhweb.furns.utils.MysqlToBeans" />
-      <module name="lhjiaju" />
+      <module name="2203840110_luohan" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="xyz.lhweb.furns.utils.*" />
@@ -141,7 +149,7 @@
     </configuration>
     <configuration name="OrderItemTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="xyz.lhweb.furns.test.OrderItemTest" />
-      <module name="lhjiaju" />
+      <module name="2203840110_luohan" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="xyz.lhweb.furns.test.*" />
@@ -154,7 +162,7 @@
     </configuration>
     <configuration name="OrderTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="xyz.lhweb.furns.test.OrderTest" />
-      <module name="lhjiaju" />
+      <module name="2203840110_luohan" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="xyz.lhweb.furns.test.*" />
@@ -165,21 +173,34 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="2203840110_luohan" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="2203840110_luohan" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Tomcat 9.0.24_lhjiaju" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.24" ALTERNATIVE_JRE_ENABLED="false">
-      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8088/lhjiaju" />
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8888/2203840110_luohan" />
       <option name="UPDATE_ON_FRAME_DEACTIVATION" value="true" />
       <option name="UPDATE_CLASSES_ON_FRAME_DEACTIVATION" value="true" />
       <deployment>
         <artifact name="lhjiaju">
           <settings>
-            <option name="CONTEXT_PATH" value="/lhjiaju" />
+            <option name="CONTEXT_PATH" value="/2203840110_luohan" />
           </settings>
         </artifact>
       </deployment>
       <server-settings>
         <option name="BASE_DIRECTORY_NAME" value="79594bb0-9f23-4150-b46c-d7683f5904a7" />
-        <option name="HTTP_PORT" value="8088" />
-        <option name="JNDI_PORT" value="1069" />
+        <option name="HTTP_PORT" value="8888" />
+        <option name="JNDI_PORT" value="1999" />
       </server-settings>
       <predefined_log_file enabled="true" id="Tomcat" />
       <predefined_log_file enabled="true" id="Tomcat Catalina" />
@@ -332,7 +353,19 @@
       <workItem from="1683644338922" duration="1665000" />
       <workItem from="1683690944490" duration="5800000" />
       <workItem from="1683706391495" duration="3848000" />
-      <workItem from="1683763310745" duration="2796000" />
+      <workItem from="1683763310745" duration="3506000" />
+      <workItem from="1683793503381" duration="3352000" />
+      <workItem from="1683807152296" duration="1785000" />
+      <workItem from="1683869247451" duration="602000" />
+      <workItem from="1683877751653" duration="5342000" />
+      <workItem from="1683901529293" duration="227000" />
+      <workItem from="1683901772938" duration="4099000" />
+      <workItem from="1684065765542" duration="2378000" />
+      <workItem from="1684109261082" duration="69000" />
+      <workItem from="1684109371708" duration="2979000" />
+      <workItem from="1684115314777" duration="4611000" />
+      <workItem from="1684202296664" duration="490000" />
+      <workItem from="1684203120869" duration="976000" />
     </task>
     <task id="LOCAL-00001" summary="测试1">
       <created>1683771492301</created>
@@ -348,7 +381,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683772007310</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="修改购物项">
+      <created>1683772457672</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1683772457672</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -368,7 +408,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="测试1" />
     <MESSAGE value="家居数据库" />
-    <option name="LAST_COMMIT_MESSAGE" value="家居数据库" />
+    <MESSAGE value="修改购物项" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改购物项" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
