@@ -4,13 +4,11 @@ import xyz.lhweb.furns.bean.Cart;
 import xyz.lhweb.furns.bean.Member;
 import xyz.lhweb.furns.service.OrderService;
 import xyz.lhweb.furns.service.impl.OrderServiceImpl;
-import xyz.lhweb.furns.utils.JDBCUtilsByDruid;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
-import java.math.BigDecimal;
 
 @WebServlet("/orderServlet")
 public class OrderServlet extends BasicServlet {

@@ -7,6 +7,7 @@ import xyz.lhweb.furns.service.impl.FurnServiceImpl;
 import xyz.lhweb.furns.utils.DataUtils;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -18,7 +19,8 @@ import java.io.IOException;
  * @author 罗汉
  * @date 2023/04/02
  */
-public class CustomerFurnServlet extends BasicServlet {
+@WebServlet("/customerFurnServletByAndroid")
+public class CustomerFurnServletByAndroid extends BasicServlet {
     //定义一个FurnService属性
     private FurnService furnService = new FurnServiceImpl();
 
@@ -70,18 +72,13 @@ public class CustomerFurnServlet extends BasicServlet {
         //将page放入到request域
         // System.out.println("page:"+page);
         req.setAttribute("page", page);
-        // for (Furn item : page.getItems()) {
-            // System.out.println(item);
-        // }
-        // System.out.println("page"+page);
+        for (Furn item : page.getItems()) {
+            System.out.println(item);
+        }
+        System.out.println("page"+page);
         //请求转发到furn_manage.jsp
         req.getRequestDispatcher("/views/customer/index.jsp")
                 .forward(req, resp);
     }
-    /*
-安卓测试
-* */
-    protected void text(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.getWriter().write("hello");
-    }
+
 }

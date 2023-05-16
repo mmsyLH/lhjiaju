@@ -125,11 +125,10 @@
                 <!-- Header Logo Start -->
                 <div class="col-auto align-self-center">
                     <div class="header-logo">
-                        <a href="index.html"><img src="assets/images/logo/logo.png" alt="Site Logo"/></a>
+                        <a href="index.jsp"><img src="assets/images/logo/logo.png" alt="Site Logo"/></a>
                     </div>
                 </div>
                 <!-- Header Logo End -->
-
             </div>
         </div>
     </div>
@@ -179,8 +178,10 @@
                                         <input type="password" name="userpassword" placeholder="Password"/>
                                         <div class="button-box">
                                             <div class="login-toggle-btn">
-                                                <input type="checkbox"/>
-                                                <a class="flote-none" href="javascript:void(0)">Remember me</a>
+                                                <label>
+                                                    <input type="checkbox" name="autoLogin"/>
+                                                    <a class="flote-none" href="javascript:void(0)">autoLogin</a>
+                                                </label>
                                                 <a href="#">Forgot Password?</a>
                                             </div>
                                             <button type="submit"><span>Login</span></button>
