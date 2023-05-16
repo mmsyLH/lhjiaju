@@ -70,10 +70,10 @@ public class CustomerFurnServlet extends BasicServlet {
         //将page放入到request域
         // System.out.println("page:"+page);
         req.setAttribute("page", page);
-        for (Furn item : page.getItems()) {
-            System.out.println(item);
-        }
-        System.out.println("page"+page);
+        // for (Furn item : page.getItems()) {
+            // System.out.println(item);
+        // }
+        // System.out.println("page"+page);
         //请求转发到furn_manage.jsp
         req.getRequestDispatcher("/views/customer/index.jsp")
                 .forward(req, resp);

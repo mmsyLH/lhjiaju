@@ -48,9 +48,24 @@ public class MemberServlet extends BasicServlet {
     protected void login(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // System.out.println("loginServlet被调用");
         String username = request.getParameter("username");
-        String userpassword = request.getParameter("userpassword");
+        String password = request.getParameter("userpassword");
         // System.out.println("用户名："+username+"密码："+userpassword);
-        Member member = memberService.login(new Member(null, username, userpassword, null));
+
+        // 自动登录
+        String autoLogin = request.getParameter("autoLogin");
+        if (autoLogin != null) {
+            Cookie autoLoginCookie = new Cookie("autoLoginCookie", username + "@" + password);
+            autoLoginCookie.setPath("/");
+            autoLoginCookie.setMaxAge(60 * 60 * 24 * 7);
+            response.addCookie(autoLoginCookie);
+        } else {
+            Cookie autoLoginCookie = new Cookie("autoLoginCookie", "");
+            autoLoginCookie.setPath("/");
+            autoLoginCookie.setMaxAge(0);
+            response.addCookie(autoLoginCookie);
+        }
+
+        Member member = memberService.login(new Member(null, username, password, null));
         if (member == null) {
             // System.out.println("登录失败");
             request.setAttribute("username", username);

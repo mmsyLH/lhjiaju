@@ -2,11 +2,14 @@ package xyz.lhweb.furns.filter;
 
 import com.google.gson.Gson;
 import xyz.lhweb.furns.bean.Member;
+import xyz.lhweb.furns.service.impl.MemberServiceImpl;
 import xyz.lhweb.furns.utils.WebUtils;
 
 import javax.servlet.*;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -38,20 +41,46 @@ public class AuthFilter implements Filter {
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         HttpServletResponse response = (HttpServletResponse) servletResponse;
+        HttpSession session = request.getSession();
         // 得到请求的url
         // StringBuffer requestURL = request.getRequestURL();
         // System.out.println("requestURL:"+requestURL);
         String url = request.getServletPath();
         System.out.println("url:" + url);
 
+        Cookie[] cookies = request.getCookies();
+        Cookie findCookie = null;
+        if (cookies!=null){
+            for (Cookie cookie : cookies) {
+                if ("autoLoginCookie".equals(cookie.getName())) {
+                    // System.out.println("autoLoginCookie");
+                    findCookie = cookie;
+                }
+            }
+        }
+        if (findCookie != null) {
+            String[] msg = findCookie.getValue().split("@");
+            Member login = new Member();
+            login.setUsername(msg[0]);
+            login.setPassword(msg[1]);
+            System.out.println("AuthFilter_login:"+login);
+            boolean existsUsername = new MemberServiceImpl().isExistsUsername(login.getUsername());
+            if (existsUsername) {// 放行
+                System.out.println(getClass().getName()+"放行");
+                session.setAttribute("member", login);
+                session.setMaxInactiveInterval(10 * 60);
+            }
+        }
+
+
+
+
         // 判断是否要验证
         if (!excludedUrls.contains(url)) {
-
             // 得到session中的member对象
             Member member = (Member) request.getSession().getAttribute("member");
             // Null说明该用户并没有登录过
             if (member == null) {
-
                 //判断是不是ajax请求
                 if(!WebUtils.isAjaxRequest(request)){
                     request.getRequestDispatcher("/views/member/login.jsp").forward(servletRequest, servletResponse);
@@ -61,7 +90,6 @@ public class AuthFilter implements Filter {
                     String resJson = new Gson().toJson(resMap);
                     servletResponse.getWriter().write(resJson);
                 }
-
                 // 下面代码不走了
                 return;
             }
