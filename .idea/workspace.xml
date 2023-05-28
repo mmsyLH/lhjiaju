@@ -2,17 +2,80 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="lhjiaju" />
+      <artifact name="2203840110_luohan:Web exploded" />
     </artifacts-to-build>
   </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d4ed239-aeac-4834-9a20-13be139fb094" name="Changes" comment="中文简介">
+    <list default="true" id="7d4ed239-aeac-4834-9a20-13be139fb094" name="Changes" comment="添加了点击logo自动跳转首页的功能">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/2203840110_luohan_Web_exploded.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/a/404.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/a/commoditiesDetails.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/a/header.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/a/home.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/a/include.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/a/login.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/a/myCart.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/a/myOrder.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/a/payOrder.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/a/register.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/a/showCommodities.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/a/successBuy.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/a/updateCustomer.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/lhjiaju.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/druid.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/bean/Cart.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/bean/CartItem.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/bean/Furn.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/bean/Member.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/bean/Order.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/bean/OrderItem.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/bean/Page.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/dao/BasicDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/dao/FurnDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/dao/MemberDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/dao/OrderDAo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/dao/OrderItemDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/dao/impl/FurnDaoImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/dao/impl/MemberDAOImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/dao/impl/OrderDaoImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/dao/impl/OrderItemImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/factory/DaoFactory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/filter/AuthFilter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/filter/TransactionFilter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/service/FurnService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/service/MemberService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/service/OrderService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/service/impl/FurnServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/service/impl/MemberServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/service/impl/OrderServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/test/CartTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/test/FurnTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/test/JDBCTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/test/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/test/MemberTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/test/OrderItemTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/test/OrderTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/utils/DataUtils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/utils/JDBCUtilsByDruid.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/utils/MysqlToBeans.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/utils/WebUtils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/web/AdminServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/web/AndroidTestServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/web/BasicServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/web/CartServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/web/CustomerFurnServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/web/FurnServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/web/MemberServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/web/OrderServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/dao/OrderDAo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/dao/OrderDAo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/factory/DaoFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/factory/DaoFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/filter/AuthFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/filter/AuthFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/filter/TransactionFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/filter/TransactionFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/web/BasicServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/web/BasicServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/web/CustomerFurnServletByAndroid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/web/CustomerFurnServletByAndroid.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,16 +128,17 @@
     "OverrideImplement.generate.javadoc": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "jdk.selected.JAVA_MODULE": "1.8",
     "js.last.introduce.type": "VAR",
     "last_directory_selection": "F:/JavaWorksparce/ecilpseWorkspace/lhjiaju/src/main/java/xyz/lhweb/furns/test",
-    "last_opened_file_path": "F:/JavaWorksparce/ecilpseWorkspace/2203840110_luohan",
+    "last_opened_file_path": "C:/Users/Administrator/Desktop/765198323147920jsp在线商城项目",
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15619047",
     "project.structure.side.proportion": "0.2809756",
-    "settings.editor.selected.configurable": "preferences.keymap"
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -166,25 +230,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="2203840110_luohan" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="2203840110_luohan" />
-      <option name="filePath" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Tomcat 9.0.24_lhjiaju" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.24" ALTERNATIVE_JRE_ENABLED="false">
       <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8888/2203840110_luohan" />
-      <option name="UPDATE_ON_FRAME_DEACTIVATION" value="true" />
-      <option name="UPDATE_CLASSES_ON_FRAME_DEACTIVATION" value="true" />
+      <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
-        <artifact name="lhjiaju">
+        <artifact name="2203840110_luohan:Web exploded">
           <settings>
             <option name="CONTEXT_PATH" value="/2203840110_luohan" />
           </settings>
@@ -264,9 +314,7 @@
         </SHUTDOWN>
       </ConfigurationWrapper>
       <method v="2">
-        <option name="BuildArtifacts" enabled="true">
-          <artifact name="lhjiaju" />
-        </option>
+        <option name="BuildArtifacts" enabled="false" />
       </method>
     </configuration>
     <list>
@@ -358,7 +406,24 @@
       <workItem from="1684109371708" duration="2979000" />
       <workItem from="1684115314777" duration="4611000" />
       <workItem from="1684202296664" duration="490000" />
-      <workItem from="1684203120869" duration="4668000" />
+      <workItem from="1684203120869" duration="4972000" />
+      <workItem from="1684236576255" duration="297000" />
+      <workItem from="1684390257423" duration="1750000" />
+      <workItem from="1684401739321" duration="99000" />
+      <workItem from="1684402199790" duration="325000" />
+      <workItem from="1684723881828" duration="1883000" />
+      <workItem from="1684814643695" duration="1262000" />
+      <workItem from="1684823072607" duration="1457000" />
+      <workItem from="1684825378191" duration="1235000" />
+      <workItem from="1684916567382" duration="1377000" />
+      <workItem from="1684979421571" duration="2445000" />
+      <workItem from="1684988576193" duration="644000" />
+      <workItem from="1685003477520" duration="1018000" />
+      <workItem from="1685161249110" duration="647000" />
+      <workItem from="1685195631849" duration="555000" />
+      <workItem from="1685196547456" duration="1830000" />
+      <workItem from="1685199145069" duration="4966000" />
+      <workItem from="1685232023270" duration="1321000" />
     </task>
     <task id="LOCAL-00001" summary="测试1">
       <created>1683771492301</created>
@@ -409,7 +474,21 @@
       <option name="project" value="LOCAL" />
       <updated>1684206863974</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="把自动登录的过滤器设置到了事务管理之前，解决了刚开始启动网页时的第一个页面没有自动登录的bug">
+      <created>1684207875648</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1684207875648</updated>
+    </task>
+    <task id="LOCAL-00009" summary="添加了点击logo自动跳转首页的功能">
+      <created>1684208099242</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1684208099242</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -434,14 +513,16 @@
     <MESSAGE value="订单页面以及错误信息提示页的修改" />
     <MESSAGE value="自动登录功能" />
     <MESSAGE value="中文简介" />
-    <option name="LAST_COMMIT_MESSAGE" value="中文简介" />
+    <MESSAGE value="把自动登录的过滤器设置到了事务管理之前，解决了刚开始启动网页时的第一个页面没有自动登录的bug" />
+    <MESSAGE value="添加了点击logo自动跳转首页的功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加了点击logo自动跳转首页的功能" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/web/BasicServlet.java</url>
-          <line>36</line>
+          <line>37</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>

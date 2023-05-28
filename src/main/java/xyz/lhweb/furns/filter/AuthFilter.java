@@ -42,7 +42,6 @@ public class AuthFilter implements Filter {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         HttpServletResponse response = (HttpServletResponse) servletResponse;
         // HttpSession session = request.getSession();
-
         // 得到请求的url
         // StringBuffer requestURL = request.getRequestURL();
         // System.out.println("requestURL:"+requestURL);

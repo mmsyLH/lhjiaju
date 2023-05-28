@@ -1,5 +1,6 @@
 package xyz.lhweb.furns.web;
 
+import com.google.gson.Gson;
 import xyz.lhweb.furns.bean.Furn;
 import xyz.lhweb.furns.bean.Page;
 import xyz.lhweb.furns.service.FurnService;
@@ -67,18 +68,10 @@ public class CustomerFurnServletByAndroid extends BasicServlet {
             url.append("&name=").append(name);
         }
         page.setUrl(url.toString());
-        // System.out.println(url);
-        // System.out.println(page);
-        //将page放入到request域
-        // System.out.println("page:"+page);
-        req.setAttribute("page", page);
-        for (Furn item : page.getItems()) {
-            System.out.println(item);
-        }
-        System.out.println("page"+page);
-        //请求转发到furn_manage.jsp
-        req.getRequestDispatcher("/views/customer/index.jsp")
-                .forward(req, resp);
+
+        Gson gson = new Gson();
+        String pageJson = gson.toJson(page);
+        resp.getWriter().write(pageJson);
     }
 
 }

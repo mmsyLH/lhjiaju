@@ -28,7 +28,6 @@ public class DaoFactory {
         return new FurnDaoImpl();
     }
 
-
     /**
      * 得到用户DAO
      *
