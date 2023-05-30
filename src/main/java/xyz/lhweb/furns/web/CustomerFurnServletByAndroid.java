@@ -59,7 +59,6 @@ public class CustomerFurnServletByAndroid extends BasicServlet {
         if(null==name){
             name="";
         }
-
         //调用service方法, 获取Page对象
         Page<Furn> page = furnService.pageByName(pageNo, pageSize,name);
         //根据

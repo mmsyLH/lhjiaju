@@ -9,72 +9,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d4ed239-aeac-4834-9a20-13be139fb094" name="Changes" comment="添加了点击logo自动跳转首页的功能">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/2203840110_luohan_Web_exploded.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/a/404.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/a/commoditiesDetails.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/a/header.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/a/home.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/a/include.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/a/login.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/a/myCart.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/a/myOrder.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/a/payOrder.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/a/register.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/a/showCommodities.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/a/successBuy.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/a/updateCustomer.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/lhjiaju.xml" beforeDir="false" />
+    <list default="true" id="7d4ed239-aeac-4834-9a20-13be139fb094" name="Changes" comment="基础设置更新">
+      <change afterPath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/bean/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/dao/UserDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/dao/impl/UserDAOImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/web/UserServletByAndroid.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/druid.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/bean/Cart.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/bean/CartItem.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/bean/Furn.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/bean/Member.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/bean/Order.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/bean/OrderItem.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/bean/Page.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/dao/BasicDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/dao/FurnDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/dao/MemberDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/dao/OrderDAo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/dao/OrderItemDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/dao/impl/FurnDaoImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/dao/impl/MemberDAOImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/dao/impl/OrderDaoImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/dao/impl/OrderItemImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/factory/DaoFactory.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/filter/AuthFilter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/filter/TransactionFilter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/service/FurnService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/service/MemberService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/service/OrderService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/service/impl/FurnServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/service/impl/MemberServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/service/impl/OrderServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/test/CartTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/test/FurnTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/test/JDBCTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/test/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/test/MemberTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/test/OrderItemTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/test/OrderTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/utils/DataUtils.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/utils/JDBCUtilsByDruid.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/utils/MysqlToBeans.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/utils/WebUtils.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/web/AdminServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/web/AndroidTestServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/web/BasicServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/web/CartServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/web/CustomerFurnServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/web/FurnServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/web/MemberServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/xyz/lhweb/furns/web/OrderServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/dao/OrderDAo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/dao/OrderDAo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/bean/Furn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/bean/Furn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/bean/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/bean/Member.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/factory/DaoFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/factory/DaoFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/filter/AuthFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/filter/AuthFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/web/BasicServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/web/BasicServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/web/CustomerFurnServletByAndroid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/web/CustomerFurnServletByAndroid.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -87,9 +32,9 @@
       <list>
         <option value="HTML File" />
         <option value="Jsp File" />
-        <option value="Interface" />
         <option value="Class" />
         <option value="AnnotationType" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -133,7 +78,7 @@
     "jdk.selected.JAVA_MODULE": "1.8",
     "js.last.introduce.type": "VAR",
     "last_directory_selection": "F:/JavaWorksparce/ecilpseWorkspace/lhjiaju/src/main/java/xyz/lhweb/furns/test",
-    "last_opened_file_path": "C:/Users/Administrator/Desktop/765198323147920jsp在线商城项目",
+    "last_opened_file_path": "F:/JavaWorksparce/ecilpseWorkspace/2203840110_luohan/src/main/java/xyz/lhweb/furns/bean",
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15619047",
@@ -146,11 +91,11 @@
       <recent name="xyz.lhweb.furns.web" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\JavaWorksparce\ecilpseWorkspace\2203840110_luohan\src\main\java\xyz\lhweb\furns\bean" />
       <recent name="F:\JavaWorksparce\ecilpseWorkspace\2203840110_luohan" />
       <recent name="F:\JavaWorksparce\ecilpseWorkspace\lhjiaju" />
       <recent name="F:\JavaWorksparce\ecilpseWorkspace\lhjiaju\src\main\webapp\assets\images\logo" />
       <recent name="F:\JavaWorksparce\ecilpseWorkspace\lhjiaju\src\main\webapp\views\manage" />
-      <recent name="F:\JavaWorksparce\ecilpseWorkspace\lhjiaju\src\main\webapp\WEB-INF\lib" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="F:\JavaWorksparce\ecilpseWorkspace\lhjiaju\src\main\webapp\views\customer" />
@@ -159,9 +104,10 @@
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="xyz.lhweb.furns.web" />
+      <recent name="xyz.lhweb.furns.service.impl" />
+      <recent name="xyz.lhweb.furns.dao.impl" />
       <recent name="xyz.lhweb.furns.test" />
       <recent name="xyz.lhweb.furns.dao" />
-      <recent name="xyz.lhweb.furns.utils" />
     </key>
   </component>
   <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.24_lhjiaju">
@@ -423,7 +369,15 @@
       <workItem from="1685195631849" duration="555000" />
       <workItem from="1685196547456" duration="1830000" />
       <workItem from="1685199145069" duration="4966000" />
-      <workItem from="1685232023270" duration="1321000" />
+      <workItem from="1685232023270" duration="5526000" />
+      <workItem from="1685264777085" duration="662000" />
+      <workItem from="1685279244833" duration="495000" />
+      <workItem from="1685279923050" duration="1056000" />
+      <workItem from="1685318432766" duration="2092000" />
+      <workItem from="1685322616590" duration="937000" />
+      <workItem from="1685331237336" duration="982000" />
+      <workItem from="1685414610992" duration="668000" />
+      <workItem from="1685415977385" duration="8750000" />
     </task>
     <task id="LOCAL-00001" summary="测试1">
       <created>1683771492301</created>
@@ -488,7 +442,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684208099242</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="基础设置更新">
+      <created>1685233659673</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1685233659673</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -515,7 +476,8 @@
     <MESSAGE value="中文简介" />
     <MESSAGE value="把自动登录的过滤器设置到了事务管理之前，解决了刚开始启动网页时的第一个页面没有自动登录的bug" />
     <MESSAGE value="添加了点击logo自动跳转首页的功能" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加了点击logo自动跳转首页的功能" />
+    <MESSAGE value="基础设置更新" />
+    <option name="LAST_COMMIT_MESSAGE" value="基础设置更新" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
