@@ -20,7 +20,7 @@ public class UserDAOImpl extends BasicDAO<User> implements UserDao {
      */
     @Override
     public User queryUserByUsername(String username) {
-        String sql = "SELECT `id`,`username`,`password`,`email`, `hobbys ` FROM `user` " +
+        String sql = "SELECT * FROM `user` " +
                 " WHERE `username`=?";
         return querySingle(sql, User.class, username);
     }
@@ -33,10 +33,10 @@ public class UserDAOImpl extends BasicDAO<User> implements UserDao {
      */
     @Override
     public int saveUser(User user) {
-        String sql = " INSERT INTO `user`(`username`,`password`,`email`,`hobbys`) \n"
-                + " VALUES(?,MD5(?),?);";
+        String sql = " INSERT INTO `user`(`username`,`password`,`email`,`hobbys`,`sex`) \n"
+                + " VALUES(?,MD5(?),?,?,?);";
         return update(sql, user.getUsername(), user.getPassword(),
-                user.getEmail(),user.getHobbys());
+                user.getEmail(),user.getHobbys(),user.getSex()  );
     }
 
     /**
@@ -48,7 +48,7 @@ public class UserDAOImpl extends BasicDAO<User> implements UserDao {
      */
     @Override
     public User queryUserByUsernameAndPassword(String username, String password) {
-        String sql = "SELECT `id`,`username`,`password`,`email`,`hobbys` FROM `user` " +
+        String sql = "SELECT * FROM `user` " +
                 " WHERE `username`=? and `password`=md5(?)";
         return querySingle(sql, User.class, username, password);
     }

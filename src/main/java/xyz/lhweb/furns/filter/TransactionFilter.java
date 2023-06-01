@@ -54,7 +54,7 @@ public class TransactionFilter implements Filter {
             System.out.println("AuthFilter_login:"+login);
             boolean existsUsername = new MemberServiceImpl().isExistsUsername(login.getUsername());
             if (existsUsername) {// 放行
-                System.out.println(getClass().getName()+"放行");
+                // System.out.println(getClass().getName()+"放行");
                 session.setAttribute("member", login);
                 session.setMaxInactiveInterval(10 * 60);
                 Member member = (Member)session.getAttribute("member");

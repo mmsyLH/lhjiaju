@@ -21,7 +21,7 @@ public abstract class BasicServlet extends HttpServlet {
         response.setContentType("text/html;charset=utf-8");
         // System.out.println("BasicServlet_doPost");
         String action = request.getParameter("action");
-        // System.out.println(action);
+        System.out.println(action);
         //使用反射获取到当前对象的方法
         //1 this 就是请求的那一个真实servlet
         //System.out.println(this); 

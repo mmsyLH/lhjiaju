@@ -12,15 +12,25 @@ public class User {
     private String password; // 密码
     private String email; // 邮箱
     private String hobbys; // 兴趣爱好
+    private String sex;
     public User() {
     }
 
-    public User(Integer id, String username, String password, String email, String hobbys) {
+    public User(Integer id, String username, String password, String email, String hobbys, String sex) {
         this.id = id;
         this.username = username;
         this.password = password;
         this.email = email;
         this.hobbys = hobbys;
+        this.sex = sex;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
     }
 
     public int getId() {

@@ -26,28 +26,13 @@ public class CustomerFurnServletByAndroid extends BasicServlet {
     private FurnService furnService = new FurnServiceImpl();
 
     /**
-     * 这里仍然是一个分页请求家居信息的API/方法
+     * 安卓用的
      *
-     * @param req
-     * @param resp
-     * @throws ServletException
-     * @throws IOException
+     * @param req  要求事情
+     * @param resp 分别地
+     * @throws ServletException servlet异常
+     * @throws IOException      ioexception
      */
-    protected void page(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        // System.out.println("page");
-        //这里的业务逻辑和后台分页显示家居信息非常相似
-        int pageNo = DataUtils.parseInt(req.getParameter("pageNo"), 1);
-        int pageSize = DataUtils.parseInt(req.getParameter("pageSize"), Page.PAGE_SIZE);
-        //调用service方法, 获取Page对象
-        Page<Furn> page = furnService.page(pageNo, pageSize);
-        // System.out.println(page);
-        //将page放入到request域
-        req.setAttribute("page", page);
-        //请求转发到furn_manage.jsp
-        req.getRequestDispatcher("/views/customer/index.jsp")
-                .forward(req, resp);
-    }
-
     protected void pageByName(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         // System.out.println("page");
         //这里的业务逻辑和后台分页显示家居信息非常相似
