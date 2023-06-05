@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="2203840110_luohan:Web exploded">
+    <output-path>$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.wst.server.core/tmp1/wtpwebapps/lhjiaju/artifacts/2203840110_luohan_Web_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="2203840110_luohan/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="2203840110_luohan" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

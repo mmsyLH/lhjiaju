@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="assets/css/vendor/vendor.min.css"/>
     <link rel="stylesheet" href="assets/css/plugins/plugins.min.css"/>
     <link rel="stylesheet" href="assets/css/style.min.css">
+
     <%--    引入jquery--%>
     <script type="text/javascript" src="script/jquery-3.6.0.min.js"></script>
     <script type="text/javascript">
@@ -30,6 +31,7 @@
 </head>
 
 <body>
+
 <!-- Header Area start  -->
 <div class="header section">
     <!-- Header Top  End -->
@@ -40,7 +42,7 @@
                 <!-- Header Logo Start -->
                 <div class="col-auto align-self-center">
                     <div class="header-logo">
-                        <a href="index.html"><img src="assets/images/logo/logo.png" alt="Site Logo"/></a>
+                        <a href="index.jsp"><img src="assets/images/logo/logo.png" alt="Site Logo"/></a>
                     </div>
                 </div>
                 <!-- Header Logo End -->
@@ -79,7 +81,7 @@
                 <!-- Header Logo Start -->
                 <div class="col-auto align-self-center">
                     <div class="header-logo">
-                        <a href="index.html"><img width="280px" src="assets/images/logo/logo.png" alt="Site Logo"/></a>
+                        <a href="index.jsp"><img width="280px" src="assets/images/logo/logo.png" alt="Site Logo"/></a>
                     </div>
                 </div>
                 <!-- Header Logo End -->
@@ -115,7 +117,8 @@
                             <c:forEach items="${requestScope.page.items}" var="furn">
                                 <tr>
                                     <td class="product-thumbnail">
-                                        <a href="#"><img class="img-responsive ml-3"
+                                        <a href="#">
+                                            <img class="img-responsive ml-3"
                                                          src="${furn.imgPath}"
                                                          alt=""/></a>
                                     </td>

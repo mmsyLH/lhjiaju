@@ -1,13 +1,7 @@
 package xyz.lhweb.furns.factory;
 
-import xyz.lhweb.furns.dao.FurnDao;
-import xyz.lhweb.furns.dao.MemberDAO;
-import xyz.lhweb.furns.dao.OrderDAo;
-import xyz.lhweb.furns.dao.OrderItemDao;
-import xyz.lhweb.furns.dao.impl.FurnDaoImpl;
-import xyz.lhweb.furns.dao.impl.MemberDAOImpl;
-import xyz.lhweb.furns.dao.impl.OrderDaoImpl;
-import xyz.lhweb.furns.dao.impl.OrderItemImpl;
+import xyz.lhweb.furns.dao.*;
+import xyz.lhweb.furns.dao.impl.*;
 
 
 /**
@@ -27,7 +21,6 @@ public class DaoFactory {
     public static FurnDao getFurnDao() {
         return new FurnDaoImpl();
     }
-
 
     /**
      * 得到用户DAO
@@ -55,5 +48,12 @@ public class DaoFactory {
     public static OrderDAo getOrderDAo() {
         return new OrderDaoImpl();
     }
-
+    /**
+     * 得到UserDAO
+     *
+     * @return {@link OrderDAo}
+     */
+    public static UserDao getUserDAo() {
+        return new UserDAOImpl();
+    }
 }

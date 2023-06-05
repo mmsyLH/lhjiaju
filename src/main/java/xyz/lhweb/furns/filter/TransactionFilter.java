@@ -1,8 +1,14 @@
 package xyz.lhweb.furns.filter;
 
+import xyz.lhweb.furns.bean.Member;
+import xyz.lhweb.furns.service.impl.MemberServiceImpl;
 import xyz.lhweb.furns.utils.JDBCUtilsByDruid;
 
 import javax.servlet.*;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
@@ -21,6 +27,41 @@ public class TransactionFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
+        HttpServletRequest request = (HttpServletRequest) servletRequest;
+        HttpServletResponse response = (HttpServletResponse) servletResponse;
+        HttpSession session = request.getSession();
+        // 得到请求的url
+        // StringBuffer requestURL = request.getRequestURL();
+        // System.out.println("requestURL:"+requestURL);
+        String url = request.getServletPath();
+        // System.out.println("url:" + url);
+
+        Cookie[] cookies = request.getCookies();
+        Cookie findCookie = null;
+        if (cookies!=null){
+            for (Cookie cookie : cookies) {
+                if ("autoLoginCookie".equals(cookie.getName())) {
+                    // System.out.println("autoLoginCookie");
+                    findCookie = cookie;
+                }
+            }
+        }
+        if (findCookie != null) {
+            String[] msg = findCookie.getValue().split("@");
+            Member login = new Member();
+            login.setUsername(msg[0]);
+            login.setPassword(msg[1]);
+            // System.out.println("AuthFilter_login:"+login);
+            boolean existsUsername = new MemberServiceImpl().isExistsUsername(login.getUsername());
+            if (existsUsername) {// 放行
+                // System.out.println(getClass().getName()+"放行");
+                session.setAttribute("member", login);
+                session.setMaxInactiveInterval(10 * 60);
+                Member member = (Member)session.getAttribute("member");
+                // System.out.println("AuthFilter_member:"+member);
+            }
+        }
+
         try {
             //放行
             filterChain.doFilter(servletRequest, servletResponse);

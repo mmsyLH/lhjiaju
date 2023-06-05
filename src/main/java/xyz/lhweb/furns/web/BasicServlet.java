@@ -18,12 +18,13 @@ public abstract class BasicServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //解决接受到的数据是乱码的问题
         request.setCharacterEncoding("utf-8");
+        response.setContentType("text/html;charset=utf-8");
         // System.out.println("BasicServlet_doPost");
         String action = request.getParameter("action");
-        // System.out.println(action);
+        System.out.println(action);
         //使用反射获取到当前对象的方法
         //1 this 就是请求的那一个真实servlet
-        //System.out.println(this);
+        //System.out.println(this); 
         //2 declaredMethod 方法对象就是当前请求的的servlet对应的action名字
         try {
             Method declaredMethod =

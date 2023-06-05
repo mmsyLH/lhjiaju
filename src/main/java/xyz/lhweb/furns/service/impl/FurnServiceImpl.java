@@ -1,11 +1,14 @@
 package xyz.lhweb.furns.service.impl;
 
+import sun.misc.BASE64Encoder;
 import xyz.lhweb.furns.bean.Furn;
 import xyz.lhweb.furns.bean.Page;
 import xyz.lhweb.furns.dao.FurnDao;
 import xyz.lhweb.furns.factory.DaoFactory;
 import xyz.lhweb.furns.service.FurnService;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.util.List;
 
 /**
@@ -156,8 +159,42 @@ public class FurnServiceImpl implements FurnService {
         //OK => 但是注意这里隐藏一个坑, 现在你看不到, 后面会暴露
         int begin=(pageNo-1)*pageSize;
         List<Furn> pageItems = furnDao.getPageItemsByname(begin, pageSize,name);
+        //这里获取图片路绝对径将图片转换为base64
+        // for (Furn fun:pageItems){
+        //     //遍历明细 获取明细中图片路径并转换为文件流
+        //     //直接将路径写死了 这是绝对路径  其实可以上网上找 获取服务器目录的代码
+        //     String strImg = fun.getImgPath();//图片路径  我写了一份的 没事算了 后期你再找 你自己可以改造
+        //     String StrSystemUrl = "F:\\JavaWorksparce\\ecilpseWorkspace\\2203840110_luohan\\src\\main\\webapp\\";
+        //     //转base64的代码我就不写了 直接上网上找这种代码 没必要写 网上大把
+        //     //其实 图片可以压缩的 还可以用代码裁剪 具体可以网上搜索资料
+        //     try {
+        //         String strBase64 = encodeBase64File(StrSystemUrl+strImg );
+        //         fun.setImgPath(strBase64);
+        //     }catch (Exception exception){
+        //         //这里不能反回null 了 不然一张图片有问题会影响其他的数据
+        //         //直接跳出当前循环即可
+        //         continue;
+        //     }
+        //     //File file = new File(StrSystemUrl+strImg);这是根据绝对路径找到文件并转换成文件流
+        // }
         page.setItems(pageItems);
         return page;
     }
+
+    /**
+     * <p>将文件转成base64 字符串</p>
+     * @param path 文件路径
+     * @return
+     * @throws Exception
+     */
+    public static String encodeBase64File(String path) throws Exception {
+        File file = new File(path);
+        FileInputStream inputFile = new FileInputStream(file);
+        byte[] buffer = new byte[(int)file.length()];
+        inputFile.read(buffer);
+        inputFile.close();
+        return new BASE64Encoder().encode(buffer);
+    }
+
 
 }
