@@ -9,35 +9,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d4ed239-aeac-4834-9a20-13be139fb094" name="Changes" comment="安卓的登录、注册、分页功能完善">
-      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/css/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/manage/manage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/webContexts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
+    <list default="true" id="7d4ed239-aeac-4834-9a20-13be139fb094" name="Changes" comment="修改完小bug">
+      <change afterPath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/bean/InfoText.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/order/order_info.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/order/order_list.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2203840110_luohan.iml" beforeDir="false" afterPath="$PROJECT_DIR$/2203840110_luohan.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/filter/TransactionFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/filter/TransactionFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/a/404.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/a/commoditiesDetails.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/a/header.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/a/home.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/a/include.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/a/login.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/a/myCart.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/a/myOrder.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/a/payOrder.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/a/register.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/a/showCommodities.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/a/successBuy.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/a/updateCustomer.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/css/style.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/css/style.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/manage/furn_add.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/manage/furn_add.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/manage/furn_manage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/manage/furn_manage.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/manage/furn_update.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/manage/furn_update.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/manage/manage_login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/manage/manage_login.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/manage/manage_menu.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/manage/manage_menu.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/bean/CartItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/bean/CartItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/dao/OrderDAo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/dao/OrderDAo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/dao/OrderItemDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/dao/OrderItemDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/dao/impl/OrderDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/dao/impl/OrderDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/dao/impl/OrderItemImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/dao/impl/OrderItemImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/service/OrderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/service/impl/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/service/impl/OrderServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/web/OrderServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/web/OrderServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/order/checkout.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/order/checkout.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,36 +70,36 @@
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;OverrideImplement.generate.javadoc&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
-    &quot;js.last.introduce.type&quot;: &quot;VAR&quot;,
-    &quot;last_directory_selection&quot;: &quot;F:/JavaWorksparce/ecilpseWorkspace/lhjiaju/src/main/java/xyz/lhweb/furns/test&quot;,
-    &quot;last_opened_file_path&quot;: &quot;F:/JavaWorksparce/ecilpseWorkspace/2203840110_luohan/src/main/webapp/views/manage&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15619047&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2809756&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "OverrideImplement.generate.javadoc": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "jdk.selected.JAVA_MODULE": "1.8",
+    "js.last.introduce.type": "VAR",
+    "last_directory_selection": "F:/JavaWorksparce/ecilpseWorkspace/lhjiaju/src/main/java/xyz/lhweb/furns/test",
+    "last_opened_file_path": "F:/JavaWorksparce/ecilpseWorkspace/2203840110_luohan/src/main/webapp/views/order",
+    "list.type.of.created.stylesheet": "CSS",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.15619047",
+    "project.structure.side.proportion": "0.2809756",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="xyz.lhweb.furns.web" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\JavaWorksparce\ecilpseWorkspace\2203840110_luohan\src\main\webapp\views\order" />
       <recent name="F:\JavaWorksparce\ecilpseWorkspace\2203840110_luohan\src\main\webapp\views\manage" />
       <recent name="F:\JavaWorksparce\ecilpseWorkspace\2203840110_luohan\src\main\webapp\assets\css\manage" />
       <recent name="F:\JavaWorksparce\ecilpseWorkspace\2203840110_luohan\src\main\webapp\assets\css" />
       <recent name="F:\JavaWorksparce\ecilpseWorkspace\2203840110_luohan\src\main\webapp\assets\js\manage" />
-      <recent name="F:\JavaWorksparce\ecilpseWorkspace\2203840110_luohan\src\main\webapp\WEB-INF\lib" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="F:\JavaWorksparce\ecilpseWorkspace\2203840110_luohan\src\main\webapp\assets\css" />
@@ -123,11 +108,11 @@
       <recent name="F:\JavaWorksparce\ecilpseWorkspace\lhjiaju\src\main\java" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="xyz.lhweb.furns.bean" />
       <recent name="xyz.lhweb.furns.test" />
       <recent name="xyz.lhweb.furns.web" />
       <recent name="xyz.lhweb.furns.service.impl" />
       <recent name="xyz.lhweb.furns.dao.impl" />
-      <recent name="xyz.lhweb.furns.dao" />
     </key>
   </component>
   <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.24_lhjiaju">
@@ -427,7 +412,7 @@
       <workItem from="1685593386767" duration="99000" />
       <workItem from="1685608330403" duration="10584000" />
       <workItem from="1685774361342" duration="73000" />
-      <workItem from="1685923567204" duration="161000" />
+      <workItem from="1685923567204" duration="2206000" />
     </task>
     <task id="LOCAL-00001" summary="测试1">
       <created>1683771492301</created>
@@ -513,7 +498,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685589728188</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="修改完小bug">
+      <created>1685923863502</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1685923863503</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -543,7 +535,8 @@
     <MESSAGE value="基础设置更新" />
     <MESSAGE value="对安卓的注册请求" />
     <MESSAGE value="安卓的登录、注册、分页功能完善" />
-    <option name="LAST_COMMIT_MESSAGE" value="安卓的登录、注册、分页功能完善" />
+    <MESSAGE value="修改完小bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改完小bug" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

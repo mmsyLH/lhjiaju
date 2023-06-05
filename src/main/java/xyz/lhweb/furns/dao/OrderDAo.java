@@ -16,5 +16,12 @@ public interface OrderDAo {
      * @return int
      */
     int saveOrder(Order order);
+    /**
+     * 通过oid查询订单
+     *
+     * @param oid oid
+     * @return {@link Order}
+     */
+    Order queryOrderByOid(String oid);
 }
 

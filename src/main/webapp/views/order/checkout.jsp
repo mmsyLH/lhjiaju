@@ -76,8 +76,8 @@
                 <div class="login-register-wrapper">
                     <div class="login-register-tab-list nav">
                         <%--当点击订单已生成，可以显示订单信息 --%>
-                        <a class="active" href="index.jsp">
-                            <h4>订单已结算, 订单号-${sessionScope.orderId}</h4>
+                        <a class="active" href="orderServlet?action=showOrderInfo&orderId=${sessionScope.orderId}">
+                            <h4>订单已结算, 订单号-${sessionScope.orderId}<br>点击跳转到订单页进行支付</h4>
                         </a>
                     </div>
                 </div>

@@ -1,7 +1,10 @@
 package xyz.lhweb.furns.dao;
 
+import xyz.lhweb.furns.bean.CartItem;
 import xyz.lhweb.furns.bean.Order;
 import xyz.lhweb.furns.bean.OrderItem;
+
+import java.util.List;
 
 /**
  * 订单项DAO
@@ -18,4 +21,15 @@ public interface OrderItemDao {
      * @return int
      */
     int saveOrder(OrderItem orderItem);
+
+    /**
+     * 通过id获取订单信息
+     * 根据订单id查询订单详情
+     *
+     * @param begin    开始
+     * @param pageSize 页面大小
+     * @param oid      项id
+     * @return {@link List}<{@link CartItem}>
+     */
+    List<CartItem> getOrderInfoById(int begin, int pageSize, String oid);
 }

@@ -1,7 +1,9 @@
 package xyz.lhweb.furns.web;
 
 import xyz.lhweb.furns.bean.Cart;
+import xyz.lhweb.furns.bean.CartItem;
 import xyz.lhweb.furns.bean.Member;
+import xyz.lhweb.furns.bean.User;
 import xyz.lhweb.furns.service.OrderService;
 import xyz.lhweb.furns.service.impl.OrderServiceImpl;
 
@@ -9,6 +11,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.util.List;
 
 @WebServlet("/orderServlet")
 public class OrderServlet extends BasicServlet {
@@ -43,5 +46,40 @@ public class OrderServlet extends BasicServlet {
         request.getSession().setAttribute("orderId",orderId);
         // orderService.saveOrder(cart,)
         response.sendRedirect(request.getContextPath()+"/views/order/checkout.jsp");
+    }
+    /**
+     * 显示订单信息
+     *
+     * @param request  请求
+     * @param response 响应
+     * @throws ServletException servlet异常
+     * @throws IOException      ioexception
+     */
+    protected void showOrderInfo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String orderId = request.getParameter("orderId");
+        System.out.println(orderId);
+        request.setAttribute("orderId", orderId);
+
+        orderService.queryOrderByOid(orderId);
+
+        // 订单项
+        // List<CartItem> orderItems = orderService.getOrderInfoById(0, 5, orderId);
+        // request.setAttribute("orderItems", orderItems);
+        // // System.out.println("orderServlet_orderItems:"+orderItems);
+        //
+        // // 总金额
+        // double totalPrices = 0;
+        // for (CartItem orderItem : orderItems) {
+        //     totalPrices += orderItem.getTotalPrice();
+        // }
+        // request.setAttribute("totalPrices", totalPrices);
+        // // 显示个人信息 可设置更改
+        // User loginUser = (User) request.getSession().getAttribute("loginUser");
+        // User user = userService.queryUserByUsername(loginUser.getUsername());
+        // InfoText infoText = new InfoText(order.getAddress(), order.getName(), user.getTelephone(), totalPrices, order.getState());
+        // System.out.println("orderServlet_infoText:" + infoText);
+        // request.setAttribute("InfoText", infoText);
+        // // 页面转发
+        // request.getRequestDispatcher("/jsp/order_info.jsp").forward(request, response);
     }
 }

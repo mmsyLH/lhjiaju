@@ -1,6 +1,10 @@
 package xyz.lhweb.furns.service;
 
 import xyz.lhweb.furns.bean.Cart;
+import xyz.lhweb.furns.bean.CartItem;
+import xyz.lhweb.furns.bean.Order;
+
+import java.util.List;
 
 /**
  * 订单服务
@@ -18,4 +22,22 @@ public interface OrderService {
 	 * @return {@link String}
 	 */
 	String saveOrder(Cart cart, int memberId);
+	/**
+	 * 通过oid查询订单
+	 *
+	 * @param oid oid
+	 * @return {@link Order}
+	 */
+	Order queryOrderByOid(String oid);
+
+	/**
+	 * 通过id获取订单信息
+	 * 根据订单id查询订单详情
+	 *
+	 * @param begin    开始
+	 * @param pageSize 页面大小
+	 * @param oid      项id
+	 * @return {@link List}<{@link CartItem}>
+	 */
+	List<CartItem> getOrderInfoById(int begin, int pageSize, String oid);
 }

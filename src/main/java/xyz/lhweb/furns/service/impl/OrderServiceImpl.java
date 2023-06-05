@@ -8,10 +8,7 @@ import xyz.lhweb.furns.dao.OrderItemDao;
 import xyz.lhweb.furns.factory.DaoFactory;
 import xyz.lhweb.furns.service.OrderService;
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 /**
  * 订单服务实现
@@ -82,5 +79,30 @@ public class OrderServiceImpl extends BasicDAO<Order> implements OrderService {
         // 清空购物车
         cart.clear();
         return orderId;
+    }
+
+    /**
+     * 通过oid查询订单
+     *
+     * @param oid oid
+     * @return {@link Order}
+     */
+    @Override
+    public Order queryOrderByOid(String oid) {
+        return orderDAo.queryOrderByOid(oid);
+    }
+
+    /**
+     * 通过id获取订单信息
+     * 根据订单id查询订单详情
+     *
+     * @param begin    开始
+     * @param pageSize 页面大小
+     * @param oid      项id
+     * @return {@link List}<{@link CartItem}>
+     */
+    @Override
+    public List<CartItem> getOrderInfoById(int begin, int pageSize, String oid) {
+        return orderItemDAo.getOrderInfoById(begin, pageSize, oid);
     }
 }

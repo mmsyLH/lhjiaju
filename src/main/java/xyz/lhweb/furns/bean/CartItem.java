@@ -9,6 +9,15 @@ import java.math.BigDecimal;
  * @date 2023/04/07
  */
 public class CartItem {
+    private String pimage;
+
+    public String getPimage() {
+        return pimage;
+    }
+
+    public void setPimage(String pimage) {
+        this.pimage = pimage;
+    }
     private Integer id;
     private String name;
     private BigDecimal price;
@@ -69,7 +78,8 @@ public class CartItem {
     @Override
     public String toString() {
         return "CartItem{" +
-                "id=" + id +
+                "pimage='" + pimage + '\'' +
+                ", id=" + id +
                 ", name='" + name + '\'' +
                 ", price=" + price +
                 ", count=" + count +
