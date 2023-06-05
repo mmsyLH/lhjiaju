@@ -34,7 +34,7 @@ public class TransactionFilter implements Filter {
         // StringBuffer requestURL = request.getRequestURL();
         // System.out.println("requestURL:"+requestURL);
         String url = request.getServletPath();
-        System.out.println("url:" + url);
+        // System.out.println("url:" + url);
 
         Cookie[] cookies = request.getCookies();
         Cookie findCookie = null;
@@ -51,14 +51,14 @@ public class TransactionFilter implements Filter {
             Member login = new Member();
             login.setUsername(msg[0]);
             login.setPassword(msg[1]);
-            System.out.println("AuthFilter_login:"+login);
+            // System.out.println("AuthFilter_login:"+login);
             boolean existsUsername = new MemberServiceImpl().isExistsUsername(login.getUsername());
             if (existsUsername) {// 放行
                 // System.out.println(getClass().getName()+"放行");
                 session.setAttribute("member", login);
                 session.setMaxInactiveInterval(10 * 60);
                 Member member = (Member)session.getAttribute("member");
-                System.out.println("AuthFilter_member:"+member);
+                // System.out.println("AuthFilter_member:"+member);
             }
         }
 
