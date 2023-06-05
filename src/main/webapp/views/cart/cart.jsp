@@ -163,7 +163,8 @@
                                     <tr>
                                         <td class="product-thumbnail">
                                             <a href="#"><img class="img-responsive ml-3"
-                                                             src="assets/images/product-image/1.jpg"
+                                                             <%--src="assets/images/product-image/1.jpg"--%>
+                                                             src="${not empty entry.value.pimage ? entry.value.pimage : 'assets/images/product-image/1.jpg'}"
                                                              alt=""/></a>
                                         </td>
                                         <td class="product-name"><a href="#">${entry.value.name}</a></td>

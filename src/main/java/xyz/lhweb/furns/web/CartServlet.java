@@ -43,6 +43,7 @@ public class CartServlet extends BasicServlet {
         // }
         // 根据furn构建cartitem
         CartItem cartItem = new CartItem(furn.getId(), furn.getName(), furn.getPrice(), 1, furn.getPrice());
+        cartItem.setPimage(furn.getImgPath());
         Cart cart = (Cart) request.getSession().getAttribute("cart");
         if (cart == null) {// 说明session中没有cart
             cart = new Cart();
@@ -58,6 +59,15 @@ public class CartServlet extends BasicServlet {
         System.out.println(referer);
         response.sendRedirect(referer);
     }
+
+    /**
+     * 通过ajax添加项
+     *
+     * @param request  请求
+     * @param response 响应
+     * @throws ServletException servlet异常
+     * @throws IOException      ioexception
+     */
     protected void addItemByAjax(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // 得到添加商品的家具信息
         int id = DataUtils.parseInt(request.getParameter("id"), 0);
@@ -69,6 +79,7 @@ public class CartServlet extends BasicServlet {
         // }
         // 根据furn构建cartitem
         CartItem cartItem = new CartItem(furn.getId(), furn.getName(), furn.getPrice(), 1, furn.getPrice());
+        cartItem.setPimage(furn.getImgPath());
         Cart cart = (Cart) request.getSession().getAttribute("cart");
         if (cart == null) {// 说明session中没有cart
             cart = new Cart();
