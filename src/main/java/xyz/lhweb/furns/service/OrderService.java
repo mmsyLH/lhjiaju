@@ -3,6 +3,7 @@ package xyz.lhweb.furns.service;
 import xyz.lhweb.furns.bean.Cart;
 import xyz.lhweb.furns.bean.CartItem;
 import xyz.lhweb.furns.bean.Order;
+import xyz.lhweb.furns.bean.Page;
 
 import java.util.List;
 
@@ -41,4 +42,5 @@ public interface OrderService {
 	 * @return {@link List}<{@link CartItem}>
 	 */
 	List<CartItem> getOrderInfoById(int begin, int pageSize, String oid);
+	Page<Order> pageByUid(int pageNo, int pageSize, Integer uid);
 }

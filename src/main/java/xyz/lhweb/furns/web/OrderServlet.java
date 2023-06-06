@@ -5,6 +5,7 @@ import xyz.lhweb.furns.service.MemberService;
 import xyz.lhweb.furns.service.OrderService;
 import xyz.lhweb.furns.service.impl.MemberServiceImpl;
 import xyz.lhweb.furns.service.impl.OrderServiceImpl;
+import xyz.lhweb.furns.utils.DataUtils;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -85,5 +86,16 @@ public class OrderServlet extends BasicServlet {
         request.setAttribute("InfoText", infoText);
         // // 页面转发
         request.getRequestDispatcher("/views/order/order_info.jsp").forward(request, response);
+    }
+    protected void showOrdersByuid(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int pageNo= DataUtils.parseInt(request.getParameter("pageNo"), 1);
+       int pageSize= DataUtils.parseInt(request.getParameter("pageSize"), Page.PAGE_SIZE);
+        Integer memberId = memberService.queryMemberByUsername(((Member) request.getSession().getAttribute("member")).getUsername()).getId();
+        request.setAttribute("page", orderService.pageByUid(pageNo, pageSize, memberId));
+        // request.setAttribute("page", orderService.pageByUid(DataUtils.parseInt(request.getParameter("pageNo"), 1),
+        //         DataUtils.parseInt(request.getParameter("pageSize"), Page.PAGE_SIZE),
+        //         memberService.queryMemberByUsername(((User) request.getSession().getAttribute("member")).getUsername()).getId()));
+        // 页面转发
+        request.getRequestDispatcher("/views/order/order_list.jsp").forward(request, response);
     }
 }

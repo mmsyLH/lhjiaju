@@ -9,6 +9,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 订单DAO实现
@@ -62,6 +64,78 @@ public class OrderDaoImpl extends BasicDAO<Order> implements OrderDAo {
         }
         return order;
     }
+
+    /**
+     * 通过uid查询记录条数
+     *
+     * @param uid uid
+     * @return int
+     */
+    @Override
+    public int getTotalRowByUid(Integer uid) {
+        int count = 0;
+        String sql = "SELECT COUNT(*) FROM `order` WHERE `id` =?";
+        try {
+            conn = JDBCUtilsByDruid.getConnection();
+            // String sql = "select * from student";
+            // String sql = "delete from Product where userid=?";
+            pstat = conn.prepareStatement(sql);
+            pstat.setInt(1, uid);
+            ResultSet rs = pstat.executeQuery();
+            if (rs.next()) {
+                count = rs.getInt(1);
+                // System.out.println("Table has " + count + " rows.");
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return count;
+    }
+
+    /**
+     * 通过uid显示订单
+     *
+     * @param begin
+     * @param pageSize
+     * @param memberId      memberId
+     * @return {@link List}<{@link Order}>
+     */
+    @Override
+    public List<Order> getPageItemsByUid(int begin, int pageSize, Integer memberId) {
+        List<Order> ordersList = new ArrayList<>();
+        try {
+            conn = JDBCUtilsByDruid.getConnection();
+            String sql = "SELECT * from `order` WHERE `member_id`=?   limit ?,?";
+            pstat = conn.prepareStatement(sql);
+            pstat.setInt(1, memberId);
+            pstat.setInt(2, begin);
+            pstat.setInt(3, pageSize);
+            res = pstat.executeQuery();
+            while (res.next()) {
+                Order orders = new Order();
+                toBean(orders);
+                ordersList.add(orders);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return ordersList;
+    }
+
+    /**
+     * 更新订单
+     *
+     * @param order 订单
+     * @return int
+     */
+    @Override
+    public int updateOrder(Order order) {
+        String sql = "update `order` set `create_time`=?, `price`=?, `status`=?, `member_id`=? where `id`=?";
+        return update(sql, order.getCreateTime(), order.getPrice(), order.getStatus(),
+                order.getMemberId(), order.getId());
+    }
+
     private void toBean(Order order) throws SQLException {
         order.setId(res.getString("id"));
         //getDate() 方法返回的是一个 java.sql.Date 类型的数据，而日期时间类型的数据应该使用 getTimestamp() 方法来获取。

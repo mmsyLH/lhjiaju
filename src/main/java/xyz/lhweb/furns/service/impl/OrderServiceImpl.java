@@ -105,4 +105,38 @@ public class OrderServiceImpl extends BasicDAO<Order> implements OrderService {
     public List<CartItem> getOrderInfoById(int begin, int pageSize, String oid) {
         return orderItemDAo.getOrderInfoById(begin, pageSize, oid);
     }
+
+    /**
+     * @param pageNo
+     * @param pageSize
+     * @param uid
+     * @return
+     */
+    @Override
+    public Page<Order> pageByUid(int pageNo, int pageSize, Integer memberId) {
+        // //先创建一个page对象，然后根据实际情况填充属性
+        Page<Order> page = new Page<>();
+        page.setPageNo(pageNo);
+        page.setPageSize(pageSize);
+        int totalRow = orderDAo.getTotalRowByUid(memberId);
+        // System.out.println("OrderServiceImpl_totalRow"+totalRow);
+        page.setTotalRow(totalRow);
+        //比如 6 2  =》  6 / 2 = 3
+        //比如 5 2  =》  5 / 2 = 2
+        int pageTotalCount=totalRow/pageSize;
+        if (totalRow%pageSize>0){
+            pageTotalCount+=1;
+        }
+        page.setPageTotalCount(pageTotalCount);
+        // private List<T> items;
+        //验证: pageNo = 1 pageSize = 3 => begin =0
+        //验证: pageNo = 3 pageSize = 2 => begin =4
+        //OK => 但是注意这里隐藏一个坑, 现在你看不到, 后面会暴露
+        int begin=(pageNo-1)*pageSize;
+        List<Order> pageItems = orderDAo.getPageItemsByUid(begin, pageSize,memberId);
+        // System.out.println("OrderServiceImpl_pageItems"+pageItems);
+        page.setItems(pageItems);
+        return page;
+
+    }
 }
