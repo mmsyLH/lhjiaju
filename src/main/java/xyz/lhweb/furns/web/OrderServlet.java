@@ -89,9 +89,10 @@ public class OrderServlet extends BasicServlet {
     }
     protected void showOrdersByuid(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int pageNo= DataUtils.parseInt(request.getParameter("pageNo"), 1);
-       int pageSize= DataUtils.parseInt(request.getParameter("pageSize"), Page.PAGE_SIZE);
+        int pageSize= DataUtils.parseInt(request.getParameter("pageSize"), 6);
         Integer memberId = memberService.queryMemberByUsername(((Member) request.getSession().getAttribute("member")).getUsername()).getId();
-        request.setAttribute("page", orderService.pageByUid(pageNo, pageSize, memberId));
+        Page<Order> orderPage = orderService.pageByUid(pageNo, pageSize, memberId);
+        request.setAttribute("page", orderPage);
         // request.setAttribute("page", orderService.pageByUid(DataUtils.parseInt(request.getParameter("pageNo"), 1),
         //         DataUtils.parseInt(request.getParameter("pageSize"), Page.PAGE_SIZE),
         //         memberService.queryMemberByUsername(((User) request.getSession().getAttribute("member")).getUsername()).getId()));

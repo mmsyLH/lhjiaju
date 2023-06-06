@@ -86,7 +86,7 @@
                             <a>欢迎: ${sessionScope.member.username}</a>
                         </div>
                         <div class="header-bottom-set dropdown">
-                            <a href="#">订单管理</a>
+                            <a href="orderServlet?action=showOrdersByuid">订单管理</a>
                         </div>
                         <div class="header-bottom-set dropdown">
                             <a href="#">安全退出</a>

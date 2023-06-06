@@ -9,19 +9,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d4ed239-aeac-4834-9a20-13be139fb094" name="Changes" comment="单个订单详情展示">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/css/bootstrap.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/css/style2.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/images/register.gif" afterDir="false" />
+    <list default="true" id="7d4ed239-aeac-4834-9a20-13be139fb094" name="Changes" comment="订单列表初步完成1">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/dao/OrderDAo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/dao/OrderDAo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/dao/impl/OrderDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/dao/impl/OrderDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/service/OrderService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/service/impl/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/service/impl/OrderServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/filter/TransactionFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/filter/TransactionFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/web/MemberServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/web/MemberServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/web/OrderServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/web/OrderServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/customer/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/customer/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/order/checkout.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/order/checkout.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/order/order_info.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/order/order_info.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/cart/cart.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/cart/cart.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/views/order/order_list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/order/order_list.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -418,7 +412,8 @@
       <workItem from="1685923567204" duration="9576000" />
       <workItem from="1685970826162" duration="899000" />
       <workItem from="1686013871629" duration="8807000" />
-      <workItem from="1686032951185" duration="2457000" />
+      <workItem from="1686032951185" duration="5700000" />
+      <workItem from="1686048878288" duration="562000" />
     </task>
     <task id="LOCAL-00001" summary="测试1">
       <created>1683771492301</created>
@@ -532,7 +527,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686021316751</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="订单列表初步完成1">
+      <created>1686035659580</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1686035659580</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -566,26 +568,28 @@
     <MESSAGE value="购物车商品项添加了图片路径，订单功能完成一部分" />
     <MESSAGE value="在购物车里的商品单向中设置了商品的图片显示，运用了三目运算符，如果图片存在就展示图片，否则展示1.jpg" />
     <MESSAGE value="单个订单详情展示" />
-    <option name="LAST_COMMIT_MESSAGE" value="单个订单详情展示" />
+    <MESSAGE value="订单列表初步完成1" />
+    <option name="LAST_COMMIT_MESSAGE" value="订单列表初步完成1" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/web/OrderServlet.java</url>
-          <line>79</line>
-          <option name="timeStamp" value="8" />
+          <line>90</line>
+          <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/web/OrderServlet.java</url>
-          <line>80</line>
-          <option name="timeStamp" value="9" />
+          <url>file://$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/web/MemberServlet.java</url>
+          <line>184</line>
+          <option name="timeStamp" value="12" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="java.util.HashMap$Node" memberName="key" />
+        <PinnedItemInfo parentTag="xyz.lhweb.furns.bean.Page" memberName="items" />
         <PinnedItemInfo parentTag="xyz.lhweb.furns.bean.Cart" memberName="items" />
       </pinned-members>
     </pin-to-top-manager>

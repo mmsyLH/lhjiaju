@@ -184,6 +184,19 @@ public class MemberServlet extends BasicServlet {
         // 重定向到网站首页-》 刷新首页
         HttpSession session = request.getSession();
         session.invalidate();
+        //清除自动登录的cookie
+        Cookie[] cookies = request.getCookies();
+        for (Cookie cookie: cookies) {
+            if (cookie.getName().equals("autoLoginCookie")) {
+                System.out.println("autoLoginCookie找到了，进行清除");
+                cookie.setMaxAge(0);
+                response.addCookie(cookie);
+                break;
+            }
+        }
+        // Cookie autoLoginCookie = new Cookie("autologin", "");
+        // autoLoginCookie.setMaxAge(0);
+        // response.addCookie(autoLoginCookie);
         // http://localhost:8080/lhjiaju
         response.sendRedirect(request.getContextPath());
     }

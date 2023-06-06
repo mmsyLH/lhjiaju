@@ -154,11 +154,12 @@
             <li><a>共 ${requestScope.page.pageTotalCount} 页</a></li>
         </ul>
     </div>
+</div>
     <!--  分页导航 End -->
 <!-- login area end -->
 
 <!-- Footer Area Start -->
-<div class="footer-area">
+<div class="footer-area" style="width: 100%">
     <div class="footer-container">
         <div class="footer-top">
             <div class="container">

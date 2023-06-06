@@ -41,7 +41,7 @@ public class TransactionFilter implements Filter {
         if (cookies!=null){
             for (Cookie cookie : cookies) {
                 if ("autoLoginCookie".equals(cookie.getName())) {
-                    // System.out.println("autoLoginCookie");
+                    // System.out.println("在TransactionFilter设置了autoLoginCookie");
                     findCookie = cookie;
                 }
             }
@@ -57,7 +57,7 @@ public class TransactionFilter implements Filter {
                 // System.out.println(getClass().getName()+"放行");
                 session.setAttribute("member", login);
                 session.setMaxInactiveInterval(10 * 60);
-                Member member = (Member)session.getAttribute("member");
+                // Member member = (Member)session.getAttribute("member");
                 // System.out.println("AuthFilter_member:"+member);
             }
         }

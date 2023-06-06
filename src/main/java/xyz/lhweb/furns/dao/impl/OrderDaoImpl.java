@@ -68,19 +68,19 @@ public class OrderDaoImpl extends BasicDAO<Order> implements OrderDAo {
     /**
      * 通过uid查询记录条数
      *
-     * @param uid uid
+     * @param member_id uid
      * @return int
      */
     @Override
-    public int getTotalRowByUid(Integer uid) {
+    public int getTotalRowByUid(Integer member_id) {
         int count = 0;
-        String sql = "SELECT COUNT(*) FROM `order` WHERE `id` =?";
+        String sql = "SELECT COUNT(*) FROM `order` WHERE `member_id` =?";
         try {
             conn = JDBCUtilsByDruid.getConnection();
             // String sql = "select * from student";
             // String sql = "delete from Product where userid=?";
             pstat = conn.prepareStatement(sql);
-            pstat.setInt(1, uid);
+            pstat.setInt(1, member_id);
             ResultSet rs = pstat.executeQuery();
             if (rs.next()) {
                 count = rs.getInt(1);
