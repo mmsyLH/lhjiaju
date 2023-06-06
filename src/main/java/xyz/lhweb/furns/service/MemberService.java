@@ -1,6 +1,7 @@
 package xyz.lhweb.furns.service;
 
 import xyz.lhweb.furns.bean.Member;
+import xyz.lhweb.furns.bean.User;
 
 /**
  * 会员服务
@@ -32,4 +33,6 @@ public interface MemberService {
      * @return 返回的是对应的db中的member对象，如果不存在,返回null
      */
      Member login(Member member);
+
+     Member queryMemberByUsername(String username);
 }

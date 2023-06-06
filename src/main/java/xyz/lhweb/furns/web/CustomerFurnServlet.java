@@ -49,7 +49,7 @@ public class CustomerFurnServlet extends BasicServlet {
         // System.out.println("page");
         //这里的业务逻辑和后台分页显示家居信息非常相似
         int pageNo = DataUtils.parseInt(req.getParameter("pageNo"), 1);
-        int pageSize = DataUtils.parseInt(req.getParameter("pageSize"), Page.PAGE_SIZE);
+        int pageSize = DataUtils.parseInt(req.getParameter("pageSize"), 4);
         //1 如果参数有name但是没有值,接受到的是"" 如果参数都没有 接受到的是null
         //2 把""和null合并处理
         String name = req.getParameter("name");

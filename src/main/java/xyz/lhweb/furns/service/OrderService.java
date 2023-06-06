@@ -15,13 +15,14 @@ import java.util.List;
 public interface OrderService {
 
 	/**
+	 * 保存订单
 	 * 保存订单 1 生成订单 2 订单是根据cart来生成的，cart在session中，通过web层，传入saveOrder 3 订单是和
 	 *
-	 * @param cart     车
-	 * @param memberId 会员id
+	 * @param cart       车
+	 * @param memberName 会员名字
 	 * @return {@link String}
 	 */
-	String saveOrder(Cart cart, int memberId);
+	String saveOrder(Cart cart, String memberName);
 	/**
 	 * 通过oid查询订单
 	 *

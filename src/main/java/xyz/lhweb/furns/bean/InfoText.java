@@ -1,5 +1,7 @@
 package xyz.lhweb.furns.bean;
 
+import java.math.BigDecimal;
+
 /**
  * 信息文本
  *
@@ -10,14 +12,14 @@ public class InfoText {
     private String address;
     private String name;
     private String telephone;
-    private double totalPrices;
+    private BigDecimal totalPrices;
     private Integer state;
 
 
     public InfoText() {
     }
 
-    public InfoText(String address, String name, String telephone, double totalPrices, Integer state) {
+    public InfoText(String address, String name, String telephone, BigDecimal totalPrices, Integer state) {
         this.address = address;
         this.name = name;
         this.telephone = telephone;
@@ -33,11 +35,11 @@ public class InfoText {
         this.state = state;
     }
 
-    public double getTotalPrices() {
+    public BigDecimal getTotalPrices() {
         return totalPrices;
     }
 
-    public void setTotalPrices(double totalPrices) {
+    public void setTotalPrices(BigDecimal totalPrices) {
         this.totalPrices = totalPrices;
     }
 

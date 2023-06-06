@@ -52,11 +52,11 @@ public class OrderItemImpl extends BasicDAO<OrderItem> implements OrderItemDao {
         List<CartItem> cartItem = new ArrayList<>();
         try {
             conn = JDBCUtilsByDruid.getConnection();
-            String sql = "SELECT p.pid,p.pimage, p.pname, p.shop_price, oi.count, oi.subtotal\n" +
-                    "FROM orders o\n" +
-                    "INNER JOIN orderitem oi ON o.oid = oi.oid\n" +
-                    "INNER JOIN product p ON oi.pid = p.pid\n" +
-                    "WHERE o.oid = ? LIMIT ? ,?";
+            String sql = "SELECT f.id,f.img_path, f.name, f.price, oi.count, oi.total_price\n" +
+                    "FROM `order` o\n" +
+                    "INNER JOIN order_item oi ON o.id = oi.order_id\n" +
+                    "INNER JOIN furn f ON oi.name = f.name\n" +
+                    "WHERE o.id = ? LIMIT ? ,?";
             pstat = conn.prepareStatement(sql);
             pstat.setString(1, oid);
             pstat.setInt(2, begin);
@@ -64,14 +64,13 @@ public class OrderItemImpl extends BasicDAO<OrderItem> implements OrderItemDao {
             res = pstat.executeQuery();
             while (res.next()) {
                 CartItem item = new CartItem();
-                // item.setPimage((res.getString("pimage")));
-                // item.setPid(Integer.parseInt(res.getString("pid")));
-                // item.setPname(res.getString("pname"));
-                // item.setShopPrice(res.getDouble("shop_price"));
-                // item.setCount(res.getInt("count"));
-                // item.setTotalPrice(res.getDouble("subtotal"));
+                item.setId(res.getInt("id"));
+                item.setPimage((res.getString("img_path")));
+                item.setName((res.getString("name")));
+                item.setPrice(res.getBigDecimal("total_price"));
+                item.setCount(res.getInt("count"));
+                item.setTotalPrice(res.getBigDecimal("total_price"));
                 cartItem.add(item);
-
             }
         } catch (SQLException e) {
             e.printStackTrace();

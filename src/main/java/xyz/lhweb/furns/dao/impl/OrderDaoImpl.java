@@ -43,7 +43,7 @@ public class OrderDaoImpl extends BasicDAO<Order> implements OrderDAo {
     public Order queryOrderByOid(String oid) {
         Order order = new Order();
         try {
-            String sql = "SELECT * from orders WHERE oid = ?";
+            String sql = "SELECT * from `order` WHERE id = ?";
             conn = JDBCUtilsByDruid.getConnection();
             pstat = conn.prepareStatement(sql);
             pstat.setString(1, oid);
@@ -63,12 +63,12 @@ public class OrderDaoImpl extends BasicDAO<Order> implements OrderDAo {
         return order;
     }
     private void toBean(Order order) throws SQLException {
-        order.setId(res.getString("oid"));
+        order.setId(res.getString("id"));
         //getDate() 方法返回的是一个 java.sql.Date 类型的数据，而日期时间类型的数据应该使用 getTimestamp() 方法来获取。
         // Date date=new Date(res.getTimestamp("ordertime").getTime());
-        order.setCreateTime(res.getTimestamp("ordertime"));
-        order.setPrice(res.getBigDecimal("total"));
-        order.setStatus(res.getInt("state"));
-        order.setMemberId(res.getInt("uid"));
+        order.setCreateTime(res.getTimestamp("create_time"));
+        order.setPrice(res.getBigDecimal("price"));
+        order.setStatus(res.getInt("status"));
+        order.setMemberId(res.getInt("member_id"));
     }
 }

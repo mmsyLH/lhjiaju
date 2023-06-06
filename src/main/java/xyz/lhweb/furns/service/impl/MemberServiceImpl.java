@@ -49,4 +49,13 @@ public class MemberServiceImpl extends BasicDAO<Member> implements MemberService
     public Member login(Member member) {
         return memberDAO.queryMemberByUsernameAndPassword(member.getUsername(), member.getPassword());
     }
+
+    /**
+     * @param username
+     * @return
+     */
+    @Override
+    public Member queryMemberByUsername(String username) {
+        return memberDAO.queryMemberByUsername(username);
+    }
 }

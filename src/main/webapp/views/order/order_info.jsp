@@ -120,14 +120,14 @@
                 <c:forEach items="${orderItems}" var="item">
                     <tr class="active">
                         <td width="60">
-                            <input type="hidden" name="id" value="${item.pid}">
+                            <input type="hidden" name="id" value="${item.id}">
                             <img src="${pageContext.request.contextPath}/assets/${item.pimage}" width="80" height="60">
                         </td>
                         <td>
-                            <a href="#">${item.pname}</a>
+                            <a href="#">${item.name}</a>
                         </td>
                         <td>
-                            ￥${item.shopPrice}
+                            ￥${item.price}
                         </td>
                         <td>
                                 ${item.count}

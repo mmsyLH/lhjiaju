@@ -18,7 +18,7 @@ public interface MemberDAO {
      * @param username 用户名
      * @return {@link Member}
      */
-    public Member queryMemberByUsername(String username);
+     Member queryMemberByUsername(String username);
 
     /**
      * 保存会员
@@ -26,7 +26,7 @@ public interface MemberDAO {
      * @param member 会员
      * @return int
      */
-    public int saveMember(Member member);
+     int saveMember(Member member);
 
     /**
      * 查询会员通过用户名和密码
@@ -35,7 +35,7 @@ public interface MemberDAO {
      * @param password 密码
      * @return 返回的对象，如果不存在，返回null
      */
-    public Member queryMemberByUsernameAndPassword
+     Member queryMemberByUsernameAndPassword
             (String username, String password);
 
 }

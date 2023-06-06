@@ -30,8 +30,8 @@ public class OrderTest {
         Cart cart = new Cart();
         cart.addItem(new CartItem(1, "北欧风格小桌子", new BigDecimal(200), 3, new BigDecimal(600)));
 
-        String orderId = service.saveOrder(cart, 1);
-        System.out.println("odrderId:"+orderId);
+        // String orderId = service.saveOrder(cart, 1);
+        // System.out.println("odrderId:"+orderId);
     }
 
     private static void daoSave(OrderDAo dao) {

@@ -1,20 +1,21 @@
 package xyz.lhweb.furns.web;
 
-import xyz.lhweb.furns.bean.Cart;
-import xyz.lhweb.furns.bean.CartItem;
-import xyz.lhweb.furns.bean.Member;
-import xyz.lhweb.furns.bean.User;
+import xyz.lhweb.furns.bean.*;
+import xyz.lhweb.furns.service.MemberService;
 import xyz.lhweb.furns.service.OrderService;
+import xyz.lhweb.furns.service.impl.MemberServiceImpl;
 import xyz.lhweb.furns.service.impl.OrderServiceImpl;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.List;
 
 @WebServlet("/orderServlet")
 public class OrderServlet extends BasicServlet {
+    private MemberService memberService=new MemberServiceImpl();
     private OrderService orderService=new OrderServiceImpl();
     protected void saveOrder(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //内容 业务逻辑 todo
@@ -42,7 +43,8 @@ public class OrderServlet extends BasicServlet {
         //     // throw new RuntimeException(e);
         // }
         //都不为空
-        String orderId =orderService.saveOrder(cart, member.getId());
+
+        String orderId =orderService.saveOrder(cart, member.getUsername());
         request.getSession().setAttribute("orderId",orderId);
         // orderService.saveOrder(cart,)
         response.sendRedirect(request.getContextPath()+"/views/order/checkout.jsp");
@@ -60,26 +62,28 @@ public class OrderServlet extends BasicServlet {
         System.out.println(orderId);
         request.setAttribute("orderId", orderId);
 
-        orderService.queryOrderByOid(orderId);
+        Order order = orderService.queryOrderByOid(orderId);
 
         // 订单项
-        // List<CartItem> orderItems = orderService.getOrderInfoById(0, 5, orderId);
-        // request.setAttribute("orderItems", orderItems);
-        // // System.out.println("orderServlet_orderItems:"+orderItems);
+        List<CartItem> orderItems = orderService.getOrderInfoById(0, 5, orderId);
+        request.setAttribute("orderItems", orderItems);
+        // System.out.println("orderServlet_orderItems:"+orderItems);
         //
         // // 总金额
-        // double totalPrices = 0;
-        // for (CartItem orderItem : orderItems) {
-        //     totalPrices += orderItem.getTotalPrice();
-        // }
-        // request.setAttribute("totalPrices", totalPrices);
+        BigDecimal totalPrices = BigDecimal.valueOf(0);
+        for (CartItem orderItem : orderItems) {
+            totalPrices = totalPrices.add(orderItem.getTotalPrice());
+        }
+        request.setAttribute("totalPrices", totalPrices);
         // // 显示个人信息 可设置更改
-        // User loginUser = (User) request.getSession().getAttribute("loginUser");
-        // User user = userService.queryUserByUsername(loginUser.getUsername());
-        // InfoText infoText = new InfoText(order.getAddress(), order.getName(), user.getTelephone(), totalPrices, order.getState());
+        Member loginUser = (Member) request.getSession().getAttribute("member");
+        Member user = memberService.queryMemberByUsername(loginUser.getUsername());
+
+
+        InfoText infoText = new InfoText("", user.getUsername(), "", totalPrices, order.getStatus());
         // System.out.println("orderServlet_infoText:" + infoText);
-        // request.setAttribute("InfoText", infoText);
+        request.setAttribute("InfoText", infoText);
         // // 页面转发
-        // request.getRequestDispatcher("/jsp/order_info.jsp").forward(request, response);
+        request.getRequestDispatcher("/views/order/order_info.jsp").forward(request, response);
     }
 }

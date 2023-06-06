@@ -1,11 +1,10 @@
 package xyz.lhweb.furns.service.impl;
 
 import xyz.lhweb.furns.bean.*;
-import xyz.lhweb.furns.dao.BasicDAO;
-import xyz.lhweb.furns.dao.FurnDao;
-import xyz.lhweb.furns.dao.OrderDAo;
-import xyz.lhweb.furns.dao.OrderItemDao;
+import xyz.lhweb.furns.dao.*;
+import xyz.lhweb.furns.dao.impl.MemberDAOImpl;
 import xyz.lhweb.furns.factory.DaoFactory;
+import xyz.lhweb.furns.service.MemberService;
 import xyz.lhweb.furns.service.OrderService;
 
 import java.util.*;
@@ -19,7 +18,7 @@ import java.util.*;
 public class OrderServiceImpl extends BasicDAO<Order> implements OrderService {
     private OrderDAo orderDAo = DaoFactory.getOrderDAo();
     private OrderItemDao orderItemDAo = DaoFactory.getOrderItemDao();
-
+    private MemberDAO memberDAO=new MemberDAOImpl();
     private FurnDao furnDao = DaoFactory.getFurnDao();
 
     /**
@@ -28,18 +27,19 @@ public class OrderServiceImpl extends BasicDAO<Order> implements OrderService {
      * 2 订单是根据cart来生成的，cart在session中，通过web层，传入saveOrder
      * 3 订单是和一个会员关联的
      *
-     * @param cart     车
-     * @param memberId 会员id
-     * @return {@link String} 订单编号
+     * @param cart       车
+     * @param memberName 会员名字
+     * @return {@link String}
      */
     @Override
-    public String saveOrder(Cart cart, int memberId) {
+    public String saveOrder(Cart cart, String memberName) {
         // 这里的业务逻辑相对综合
         // 完成任务时将 cart购物车的数据->以order和 orderItem形式保存到db
         // 1. 通过cart对象, 构建对应的Order对象
         // 先生成一个UUID, 表示当前的订单号, 订单号要保证是唯一
-        String orderId = System.currentTimeMillis() + "" + memberId;
-        Order order = new Order(orderId, new Date(), cart.getCartTotalPrice(), 0, memberId);
+        String orderId = System.currentTimeMillis() + "" + memberName;
+        Member member = memberDAO.queryMemberByUsername(memberName);
+        Order order = new Order(orderId, new Date(), cart.getCartTotalPrice(), 0, member.getId());
         // 保存order到数据表.
         orderDAo.saveOrder(order);
         // 2.通过cart对象 ,遍历出CartItem, 构建OrderItem对象， 并保存到对应的表order_item
