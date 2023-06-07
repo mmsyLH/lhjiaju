@@ -23,8 +23,6 @@ public class TransactionFilter implements Filter {
     public void init(FilterConfig filterConfig) throws ServletException {
 
     }
-
-
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
@@ -35,13 +33,12 @@ public class TransactionFilter implements Filter {
         // System.out.println("requestURL:"+requestURL);
         String url = request.getServletPath();
         // System.out.println("url:" + url);
-
         Cookie[] cookies = request.getCookies();
         Cookie findCookie = null;
         if (cookies!=null){
             for (Cookie cookie : cookies) {
                 if ("autoLoginCookie".equals(cookie.getName())) {
-                    // System.out.println("在TransactionFilter设置了autoLoginCookie");
+                    System.out.println("在TransactionFilter设置了autoLoginCookie");
                     findCookie = cookie;
                 }
             }
@@ -61,7 +58,6 @@ public class TransactionFilter implements Filter {
                 // System.out.println("AuthFilter_member:"+member);
             }
         }
-
         try {
             //放行
             filterChain.doFilter(servletRequest, servletResponse);

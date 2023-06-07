@@ -2,4 +2,4 @@
 <%--直接请求CustomerFurnServlet, 获取网站首页要显示的分页数据
  类似我们网站的入口页面
 --%>
-<jsp:forward page="/customerFurnServlet?action=pageByName&pageNo=1"></jsp:forward>
+<jsp:forward page="/customerFurnServlet?action=pageByName&pageNo=1&name="></jsp:forward>

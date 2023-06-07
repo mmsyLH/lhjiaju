@@ -205,7 +205,7 @@
                         <a >
                             <input type="submit" width="100" value="确认付款" name="submit" border="0"
                                    style="background: url('${pageContext.request.contextPath}/assets/images/register.gif') no-repeat scroll 0 0 rgba(0, 0, 0, 0);
-                                           height:35px;width:100px;color:white;">
+                                           height:35px;width:100px;color:white;" onclick="dj()">
                         </a>
 
                     </p>
@@ -295,5 +295,13 @@
 <script src="assets/js/plugins/plugins.min.js"></script>
 <!-- Main Js -->
 <script src="assets/js/main.js"></script>
+<script type="text/javascript">
+    function dj() {
+        var id = Math.round(Math.random() * 10000 + 1000);
+        window.open("http://120.78.240.231:8080/ssm-alipay/alipay/goPay.action?orderId=" + id + "&amount=" + ${InfoText.totalPrices} + "&name=商品&buyCounts=123213")
+        window.close();
+    }
+
+</script>
 </body>
 </html>

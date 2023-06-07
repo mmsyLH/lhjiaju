@@ -1,7 +1,15 @@
 package xyz.lhweb.furns.utils;
 
-import java.io.*;
-import java.sql.*;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -17,7 +25,7 @@ public class MysqlToBeans {
 	static String url = "jdbc:mysql://localhost:3306/home_furnishing?useUnicode=true&characterEncoding=utf8&autoReconnect=true&allowMultiQueries=true";
 	static String user = "root";
 	static String password = "root";
-	static String toUrl="F:\\JavaWorksparce\\ecilpseWorkspace\\lhjiaju\\src\\main\\java\\xyz\\lhweb\\furns\\bean\\";
+	static String toUrl = "F:\\JavaWorksparce\\ecilpseWorkspace\\lhjiaju\\src\\main\\java\\xyz\\lhweb\\furns\\bean\\";
 
 	static StringBuffer sb = new StringBuffer();
 
@@ -26,8 +34,6 @@ public class MysqlToBeans {
 	private static OutputStreamWriter osw = null;
 	private static BufferedWriter bw = null;
 	private static FileOutputStream fos = null;
-
-
 
 	/**
 	 * 写入数据
@@ -38,7 +44,7 @@ public class MysqlToBeans {
 	private static void writeData(String message, String className) {
 		// F:\JavaWorksparce\ecilpseWorkspace\01_10_luohan_03\src\main\java\bean
 		String file = toUrl + className + ".java";
-		//添加一个  如果表已经存在则跳过，
+		// 添加一个 如果表已经存在则跳过，
 		File javaFile = new File(file);
 		if (javaFile.exists()) {
 			System.out.println(className + "类已存在，跳过这个类的生成。");
@@ -57,14 +63,14 @@ public class MysqlToBeans {
 
 	}
 
-    /**
-     * 根据表名查到字段 名称类型
-     *
-     * @param tablename 表
-     * @param jbname    jbname
-     */
+	/**
+	 * 根据表名查到字段 名称类型
+	 *
+	 * @param tablename 表
+	 * @param jbname    jbname
+	 */
 
-    public static void getTableDetatils(String tablename, String jbname) {
+	public static void getTableDetatils(String tablename, String jbname) {
 		ResultSet rs = null;
 		try {
 			conn = DriverManager.getConnection(url, user, password);
