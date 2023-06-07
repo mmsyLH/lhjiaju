@@ -14,7 +14,11 @@ import xyz.lhweb.furns.service.UserService;
  * @date 2023/05/30
  */
 public class UserServiceImpl extends BasicDAO<User> implements UserService {
-    private UserDao userDAO = DaoFactory.getUserDAo();
+    private UserDao userDAO;
+
+    public UserServiceImpl() {
+        userDAO=DaoFactory.getInstance().getUserDAo();
+    }
 
     /**
      * 注册用户

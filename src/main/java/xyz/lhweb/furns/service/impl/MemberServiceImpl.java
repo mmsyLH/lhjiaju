@@ -14,7 +14,12 @@ import xyz.lhweb.furns.service.MemberService;
  * @date 2023/04/01
  */
 public class MemberServiceImpl extends BasicDAO<Member> implements MemberService {
-    private MemberDAO memberDAO= DaoFactory.getMemberDAO();
+    private MemberDAO memberDAO;
+
+    public MemberServiceImpl() {
+        memberDAO=DaoFactory.getInstance().getMemberDAO();
+    }
+
     /**
      * 注册会员
      *

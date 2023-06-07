@@ -16,10 +16,17 @@ import java.util.*;
  * @date 2023/04/08
  */
 public class OrderServiceImpl extends BasicDAO<Order> implements OrderService {
-    private OrderDAo orderDAo = DaoFactory.getOrderDAo();
-    private OrderItemDao orderItemDAo = DaoFactory.getOrderItemDao();
-    private MemberDAO memberDAO=new MemberDAOImpl();
-    private FurnDao furnDao = DaoFactory.getFurnDao();
+    private OrderDAo orderDAo;
+    private OrderItemDao orderItemDAo;
+    private MemberDAO memberDAO;
+    private FurnDao furnDao;
+
+    public OrderServiceImpl() {
+        orderDAo = DaoFactory.getInstance().getOrderDAo();
+        orderItemDAo = DaoFactory.getInstance().getOrderItemDao();
+        memberDAO = DaoFactory.getInstance().getMemberDAO();
+        furnDao = DaoFactory.getInstance().getFurnDao();
+    }
 
     /**
      * 保存订单

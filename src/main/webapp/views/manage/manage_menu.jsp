@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="assets/css/vendor/vendor.min.css"/>
     <link rel="stylesheet" href="assets/css/plugins/plugins.min.css"/>
     <link rel="stylesheet" href="assets/css/style.min.css">
+    <link rel="stylesheet" href="views/manage/index.css">
 </head>
 
 <body>
@@ -38,6 +39,12 @@
                         </div>
                         <div class="header-bottom-set dropdown">
                             <a href="pages/manager/manager.html">订单管理</a>
+                        </div>
+                        <div class="header-bottom-set dropdown">
+                            <a href="views/manage/furn_count.jsp">库存管理</a>
+                        </div>
+                        <div class="header-bottom-set dropdown">
+                            <a href="views/manage/index.jsp">index.jsp</a>
                         </div>
                     </div>
                 </div>

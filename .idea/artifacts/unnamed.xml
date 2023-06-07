@@ -1,0 +1,12 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="unnamed">
+    <output-path>$PROJECT_DIR$/../../../打包测试</output-path>
+    <root id="archive" name="unnamed.jar">
+      <element id="module-output" name="2203840110_luohan" />
+      <element id="library" level="project" name="lib5" />
+      <element id="library" level="project" name="junit-4.13.1" />
+      <element id="library" level="application" name="ionicons" />
+      <element id="javaee-facet-resources" facet="2203840110_luohan/web/Web" />
+    </root>
+  </artifact>
+</component>

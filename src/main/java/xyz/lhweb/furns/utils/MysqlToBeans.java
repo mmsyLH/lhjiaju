@@ -22,10 +22,10 @@ import java.util.List;
  */
 public class MysqlToBeans {
 	static String driver = "com.mysql.jdbc.Driver";
-	static String url = "jdbc:mysql://localhost:3306/home_furnishing?useUnicode=true&characterEncoding=utf8&autoReconnect=true&allowMultiQueries=true";
+	static String url = "jdbc:mysql://localhost:3306/2203840110_luohan?useUnicode=true&characterEncoding=utf8&autoReconnect=true&allowMultiQueries=true";
 	static String user = "root";
 	static String password = "root";
-	static String toUrl = "F:\\JavaWorksparce\\ecilpseWorkspace\\lhjiaju\\src\\main\\java\\xyz\\lhweb\\furns\\bean\\";
+	static String toUrl = "F:\\JavaWorksparce\\ecilpseWorkspace\\2203840110_luohan\\src\\main\\java\\xyz\\lhweb\\furns\\bean\\";
 
 	static StringBuffer sb = new StringBuffer();
 

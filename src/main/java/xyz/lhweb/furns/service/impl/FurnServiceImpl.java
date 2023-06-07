@@ -15,7 +15,11 @@ import xyz.lhweb.furns.service.FurnService;
  * @date 2023/04/01
  */
 public class FurnServiceImpl implements FurnService {
-	private FurnDao furnDao = DaoFactory.getFurnDao();
+	private FurnDao furnDao;
+
+	public FurnServiceImpl() {
+		furnDao=DaoFactory.getInstance().getFurnDao();
+	}
 
 	/**
 	 * 查询家具

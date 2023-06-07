@@ -24,5 +24,8 @@
     <orderEntry type="library" name="lib5" level="project" />
     <orderEntry type="library" name="junit-4.13.1" level="project" />
     <orderEntry type="library" name="ionicons" level="application" />
+    <orderEntry type="library" name="b99e675b6e" level="application" />
+    <orderEntry type="library" name="font-awesome" level="application" />
+    <orderEntry type="library" name="activation" level="project" />
   </component>
 </module>
