@@ -35,4 +35,13 @@ public interface MemberService {
      Member login(Member member);
 
      Member queryMemberByUsername(String username);
+    Member findByCode(String code);
+
+    /**
+     * 更新会员
+     *
+     * @param member 会员
+     * @return {@link Boolean}
+     */
+    Boolean updateMember(Member member);
 }

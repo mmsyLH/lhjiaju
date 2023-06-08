@@ -1,7 +1,11 @@
 package xyz.lhweb.furns.dao;
 
 
+import xyz.lhweb.furns.bean.Furn;
 import xyz.lhweb.furns.bean.Member;
+import xyz.lhweb.furns.bean.User;
+
+import java.sql.SQLException;
 
 /**
  * 会员DAO
@@ -37,5 +41,16 @@ public interface MemberDAO {
      */
      Member queryMemberByUsernameAndPassword
             (String username, String password);
+
+
+    /**
+     * 根据Code找到用户
+     *
+     * @param code 代码
+     * @return {@link Member}
+     */
+    Member findByCode(String code);
+
+     int updateMember(Member member);
 
 }

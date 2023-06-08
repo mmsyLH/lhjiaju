@@ -30,7 +30,7 @@ public class MemberTest {
     }
 
     private static void login(MemberService memberService) {
-        Member member = new Member(null, "admin", "admin", null);
+        Member member = new Member(null, "admin", "admin", null,null,null);
         Member login = memberService.login(member);
         System.out.println(login);
     }
@@ -54,7 +54,7 @@ public class MemberTest {
     }
 
     private static void daoSave(MemberDAO memberDAO) {
-        Member member1 = new Member(null, "lh11", "lh11", "1072344372@qq.com");
+        Member member1 = new Member(null, "lh11", "lh11", "1072344372@qq.com",null,null);
         int i = memberDAO.saveMember(member1);
         if (i == 1) {
             System.out.println("保存成功" + member1);
@@ -65,7 +65,7 @@ public class MemberTest {
 
 
     private static void serviceRegister(MemberService memberService) {
-        Member member3 = new Member(null, "lh13", "lh13", "1072344372@qq.com");
+        Member member3 = new Member(null, "lh13", "lh13", "1072344372@qq.com",null,null);
         boolean b = memberService.registerMember(member3);
         if (b) {
             System.out.println("注册成功" + member3);

@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 /**
  * 管理DAO
- *
+ * TODO 管理员功能尚未实现,仅实现登录功能
  * @author 罗汉
  * @date 2023/06/07
  */

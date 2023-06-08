@@ -22,7 +22,7 @@ public class MemberDAOImpl extends BasicDAO<Member> implements MemberDAO {
      */
     @Override
     public Member queryMemberByUsername(String username) {
-        String sql = "SELECT `id`,`username`,`password`,`email` FROM `member` " +
+        String sql = "SELECT `id`,`username`,`password`,`email`,`state`,`code` FROM `member` " +
                 " WHERE `username`=?";
         return querySingle(sql, Member.class, username);
     }
@@ -35,10 +35,10 @@ public class MemberDAOImpl extends BasicDAO<Member> implements MemberDAO {
      */
     @Override
     public int saveMember(Member member) {
-        String sql = " INSERT INTO `member`(`username`,`password`,`email`) \n" +
-                " VALUES(?,MD5(?), ?);";
+        String sql = " INSERT INTO `member`(`username`,`password`,`email`,`state`,`code`) \n" +
+                " VALUES(?,MD5(?), ?,?,?);";
         return update(sql, member.getUsername(),
-                member.getPassword(), member.getEmail());
+                member.getPassword(), member.getEmail(),member.getState(),member.getCode());
     }
 
     /**
@@ -50,8 +50,34 @@ public class MemberDAOImpl extends BasicDAO<Member> implements MemberDAO {
      */
     @Override
     public Member queryMemberByUsernameAndPassword(String username, String password) {
-        String sql = "SELECT `id`,`username`,`password`,`email` FROM `member` " +
+        String sql = "SELECT `id`,`username`,`password`,`email`,`state`,`code` FROM `member` " +
                 " WHERE `username`=? and `password`=md5(?)";
         return querySingle(sql, Member.class, username, password);
     }
+
+    /**
+     * 根据Code找到用户
+     *
+     * @param code 代码
+     * @return {@link Member}
+     */
+    @Override
+    public Member findByCode(String code) {
+        String sql = "select * from member where code = ?";
+        return querySingle(sql, Member.class, code);
+    }
+
+    /**
+     * 更新会员
+     *
+     * @param member 会员
+     * @return int
+     */
+    @Override
+    public int updateMember(Member member) {
+        String sql = "UPDATE `member` SET `username` = ? , `password` = ?, `email` = ? , "
+                + "`code` = ? , `state` = ? where `id`=?";
+        return update(sql,member.getUsername(),member.getPassword(),member.getEmail(),member.getCode(),member.getState(),member.getId());
+    }
+
 }

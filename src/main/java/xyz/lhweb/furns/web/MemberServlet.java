@@ -2,8 +2,12 @@ package xyz.lhweb.furns.web;
 
 import com.google.gson.Gson;
 import xyz.lhweb.furns.bean.Member;
+import xyz.lhweb.furns.bean.User;
 import xyz.lhweb.furns.service.MemberService;
+import xyz.lhweb.furns.service.UserService;
 import xyz.lhweb.furns.service.impl.MemberServiceImpl;
+import xyz.lhweb.furns.service.impl.UserServiceImpl;
+import xyz.lhweb.furns.utils.DataUtils;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -65,7 +69,7 @@ public class MemberServlet extends BasicServlet {
             response.addCookie(autoLoginCookie);
         }
 
-        Member member = memberService.login(new Member(null, username, password, null));
+        Member member = memberService.login(new Member(null, username, password, null,null,null));
         if (member == null) {
             // System.out.println("登录失败");
             request.setAttribute("username", username);
@@ -124,12 +128,12 @@ public class MemberServlet extends BasicServlet {
             // System.out.println(username+userpassword+email);
             // 判断用户名是否存在
             if (!memberService.isExistsUsername(username)) {
-                Member member = new Member(null, username, userpassword, email);
+                Member member = new Member(null, username, userpassword, email,0, DataUtils.getCode());
                 if (memberService.registerMember(member)) {
                     request.setAttribute("username", username);
                     request.setAttribute("url", request.getContextPath() + "/index.jsp");
                     request.setAttribute("second", 15);
-                    request.setAttribute("infomation", "注册成功,即将返回首页");
+                    request.setAttribute("infomation", "注册成功,收到邮件后请去邮箱激活！<br>即将返回首页");
                     request.getRequestDispatcher("/views/member/tip.jsp").forward(request, response);
                 } else {
                     // System.out.println(" 注册失败..." + member);
@@ -225,5 +229,33 @@ public class MemberServlet extends BasicServlet {
         String resJson = gson.toJson(resultMap);
         // 5 返回
         response.getWriter().write(resJson);
+    }
+
+
+    protected void active(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        try {
+            String code = request.getParameter("code");
+            MemberService memberService = new MemberServiceImpl();
+            Member member = memberService.findByCode(code);
+            if (member != null) {
+                member.setState(1);
+                member.setCode(null);
+                memberService.updateMember(member);
+                request.setAttribute("username", member.getUsername());
+                request.setAttribute("url", request.getContextPath() + "/index.jsp");
+                request.setAttribute("second", 3);
+                request.setAttribute("infomation", "激活成功！点击登录");
+                request.getRequestDispatcher("/views/member/tip.jsp").forward(request, response);
+            } else {
+                request.setAttribute("username", member.getUsername());
+                request.setAttribute("url", request.getContextPath() + "/index.jsp");
+                request.setAttribute("second", 3);
+                request.setAttribute("infomation", "激活失败！点击返回首页");
+                request.getRequestDispatcher("/views/member/tip.jsp").forward(request, response);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException();
+        }
     }
 }

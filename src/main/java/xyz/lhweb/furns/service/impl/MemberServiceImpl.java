@@ -6,6 +6,7 @@ import xyz.lhweb.furns.dao.MemberDAO;
 import xyz.lhweb.furns.dao.impl.MemberDAOImpl;
 import xyz.lhweb.furns.factory.DaoFactory;
 import xyz.lhweb.furns.service.MemberService;
+import xyz.lhweb.furns.utils.SendEmail;
 
 /**
  * 会员服务实现
@@ -28,7 +29,14 @@ public class MemberServiceImpl extends BasicDAO<Member> implements MemberService
      */
     @Override
     public boolean registerMember(Member member) {
-        return memberDAO.saveMember(member)==1;
+        int i = memberDAO.saveMember(member);
+        try {
+            SendEmail.sendMail(member.getEmail(), member.getCode());
+        } catch (Exception e) {
+            System.out.println("发送邮件异常:"+getClass().getName());
+            throw new RuntimeException(e);
+        }
+        return i==1;
     }
 
     /**
@@ -62,5 +70,25 @@ public class MemberServiceImpl extends BasicDAO<Member> implements MemberService
     @Override
     public Member queryMemberByUsername(String username) {
         return memberDAO.queryMemberByUsername(username);
+    }
+
+    /**
+     * @param code
+     * @return
+     */
+    @Override
+    public Member findByCode(String code) {
+        return memberDAO.findByCode(code);
+    }
+
+    /**
+     * 更新会员
+     *
+     * @param member 会员
+     * @return {@link Boolean}
+     */
+    @Override
+    public Boolean updateMember(Member member) {
+        return memberDAO.updateMember(member)==1;
     }
 }
