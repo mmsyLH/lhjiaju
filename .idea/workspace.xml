@@ -9,20 +9,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d4ed239-aeac-4834-9a20-13be139fb094" name="Changes" comment="邮箱功能实现1、dao工厂使用单例模式来完成2023.6.7">
-      <change afterPath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/utils/DBtest.java" afterDir="false" />
+    <list default="true" id="7d4ed239-aeac-4834-9a20-13be139fb094" name="Changes" comment="邮箱功能实现完善">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/css/manage/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/druid.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/druid.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/bean/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/bean/Member.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/dao/AdminDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/dao/AdminDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/dao/MemberDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/dao/MemberDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/dao/impl/MemberDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/dao/impl/MemberDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/service/MemberService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/service/MemberService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/service/impl/MemberServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/service/impl/MemberServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/test/MemberTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/test/MemberTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/test/UserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/test/UserTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/utils/SendEmail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/utils/SendEmail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/web/CustomerFurnServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/web/CustomerFurnServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/web/MemberServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/web/MemberServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/web/OrderServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/web/OrderServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/css/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/css/style2.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/js/manage/manage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/manage/furn_add.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/manage/furn_add.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/manage/furn_manage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/manage/furn_manage.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/manage/furn_update.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/manage/furn_update.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/manage/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/manage/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/manage/manage_login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/manage/manage_login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/manage/manage_menu.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/manage/manage_menu.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +84,7 @@
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
     &quot;js.last.introduce.type&quot;: &quot;VAR&quot;,
     &quot;last_directory_selection&quot;: &quot;F:/JavaWorksparce/ecilpseWorkspace/lhjiaju/src/main/java/xyz/lhweb/furns/test&quot;,
-    &quot;last_opened_file_path&quot;: &quot;F:/JavaWorksparce/ecilpseWorkspace/2203840110_luohan/src/main/webapp/WEB-INF/lib&quot;,
+    &quot;last_opened_file_path&quot;: &quot;F:/JavaWorksparce/ecilpseWorkspace/2203840110_luohan/src/main/webapp/views/manage&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
@@ -95,11 +98,11 @@
       <recent name="xyz.lhweb.furns.web" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\JavaWorksparce\ecilpseWorkspace\2203840110_luohan\src\main\webapp\views\manage" />
+      <recent name="F:\JavaWorksparce\ecilpseWorkspace\2203840110_luohan\src\main\webapp\assets\js\manage" />
+      <recent name="F:\JavaWorksparce\ecilpseWorkspace\2203840110_luohan\src\main\webapp\assets\css\manage" />
       <recent name="F:\JavaWorksparce\ecilpseWorkspace\2203840110_luohan\src\main\webapp\WEB-INF\lib" />
       <recent name="F:\JavaWorksparce\ecilpseWorkspace\2203840110_luohan\src\main\webapp\views\member" />
-      <recent name="F:\JavaWorksparce\ecilpseWorkspace\2203840110_luohan\src\main\webapp\views\manage" />
-      <recent name="F:\JavaWorksparce\ecilpseWorkspace\2203840110_luohan\src\main\webapp\views\order" />
-      <recent name="F:\JavaWorksparce\ecilpseWorkspace\2203840110_luohan\src\main\webapp\assets\css" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="F:\JavaWorksparce\ecilpseWorkspace\2203840110_luohan\src\main\webapp\assets\css" />
@@ -424,7 +427,8 @@
       <workItem from="1686130024533" duration="3102000" />
       <workItem from="1686134947564" duration="6180000" />
       <workItem from="1686187076598" duration="7477000" />
-      <workItem from="1686215426011" duration="4817000" />
+      <workItem from="1686215426011" duration="11314000" />
+      <workItem from="1686274914480" duration="6319000" />
     </task>
     <task id="LOCAL-00001" summary="测试1">
       <created>1683771492301</created>
@@ -566,7 +570,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686139731267</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="邮箱功能实现完善">
+      <created>1686229363596</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1686229363596</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -604,7 +615,8 @@
     <MESSAGE value="订单列表初步完成2" />
     <MESSAGE value="支付功能的完成" />
     <MESSAGE value="邮箱功能实现1、dao工厂使用单例模式来完成2023.6.7" />
-    <option name="LAST_COMMIT_MESSAGE" value="邮箱功能实现1、dao工厂使用单例模式来完成2023.6.7" />
+    <MESSAGE value="邮箱功能实现完善" />
+    <option name="LAST_COMMIT_MESSAGE" value="邮箱功能实现完善" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

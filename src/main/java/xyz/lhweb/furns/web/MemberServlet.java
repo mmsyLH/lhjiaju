@@ -92,7 +92,7 @@ public class MemberServlet extends BasicServlet {
                 return;
             }
             request.setAttribute("username", username);
-            request.setAttribute("url", request.getContextPath() + "/index.jsp");
+            request.setAttribute("url", request.getContextPath() + "/manage_menu.jsp");
             request.setAttribute("second", 10);
             // System.out.println("普通会员登录成");
             request.setAttribute("infomation", "登录成功,即将进入主页");
@@ -131,7 +131,7 @@ public class MemberServlet extends BasicServlet {
                 Member member = new Member(null, username, userpassword, email,0, DataUtils.getCode());
                 if (memberService.registerMember(member)) {
                     request.setAttribute("username", username);
-                    request.setAttribute("url", request.getContextPath() + "/index.jsp");
+                    request.setAttribute("url", request.getContextPath() + "/manage_menu.jsp");
                     request.setAttribute("second", 15);
                     request.setAttribute("infomation", "注册成功,收到邮件后请去邮箱激活！<br>即将返回首页");
                     request.getRequestDispatcher("/views/member/tip.jsp").forward(request, response);
@@ -242,13 +242,13 @@ public class MemberServlet extends BasicServlet {
                 member.setCode(null);
                 memberService.updateMember(member);
                 request.setAttribute("username", member.getUsername());
-                request.setAttribute("url", request.getContextPath() + "/index.jsp");
+                request.setAttribute("url", request.getContextPath() + "/manage_menu.jsp");
                 request.setAttribute("second", 3);
                 request.setAttribute("infomation", "激活成功！点击登录");
                 request.getRequestDispatcher("/views/member/tip.jsp").forward(request, response);
             } else {
                 request.setAttribute("username", member.getUsername());
-                request.setAttribute("url", request.getContextPath() + "/index.jsp");
+                request.setAttribute("url", request.getContextPath() + "/manage_menu.jsp");
                 request.setAttribute("second", 3);
                 request.setAttribute("infomation", "激活失败！点击返回首页");
                 request.getRequestDispatcher("/views/member/tip.jsp").forward(request, response);

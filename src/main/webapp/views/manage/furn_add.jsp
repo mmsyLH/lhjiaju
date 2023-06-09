@@ -3,17 +3,88 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>罗汉家居网购</title>
-    <base href="<%=request.getContextPath()+"/"%>">
-    <!-- 移动端适配 -->
+    <base href="<%=request.getContextPath() + "/"%>">
+    <link rel="stylesheet" href="assets/css/manage/style.css">
+    <%--    引入jquery--%>
+    <script type="text/javascript" src="script/jquery-3.6.0.min.js"></script>
+    <%--    右边样式--%>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <link rel="stylesheet" href="assets/css/vendor/vendor.min.css"/>
     <link rel="stylesheet" href="assets/css/plugins/plugins.min.css"/>
     <link rel="stylesheet" href="assets/css/style.min.css">
+    <script type="text/javascript">
+        $(function () {
+            // alert("引入jquery成功")
+            //绑定一个点击事件 基础选择器
+            $("a.deleteCss").click(function () {
+                //2个paremt找到tr          eq(1)第二个
+                var furnName = $(this).parent().parent().find("td:eq(1)").text();
+                //confirm 对话窗口
+                //点击确定返回ture,点击取消返回false
+                return confirm("你确定要删除[" + furnName + "]?");
+            })
+        })
+    </script>
 </head>
+<body id="body-pd">
+<div class="l-navbar" id="navbar">
+    <nav class="nav">
+        <div>
+            <div class="nav_brand">
+                <!-- <ion-icon name="menu-outline" class="nav_toggle" id="nav_toggle"></ion-icon> -->
+                <ion-icon name="menu-outline" class="nav_toggle" id="nav-toggle"></ion-icon>
+            </div>
+            <div class="nav_list">
+                <a href="views/manage/manage_menu.jsp" class="nav_link active" data-page="furn_add.jsp">
+                    <ion-icon name="home-outline" class="nav_icon"></ion-icon>
+                    <span class="nav_name">后台首页</span>
+                </a>
+                <a class="nav_link" data-page="furn_manage.jsp">
+                    <ion-icon name="chatbubbles-outline" class="nav_icon"></ion-icon>
+                    <span class="nav_name">订单管理</span>
+                </a>
+                <div class="nav_link collapse2" data-page="manage_login.jsp">
+                    <ion-icon name="folder-outline" class="nav_icon"></ion-icon>
+                    <span class="nav_name">家居后台管理</span>
+                    <ion-icon name="chevron-down-outline" class="collapse2__link"></ion-icon>
+                    <ul class="collapse2_menu">
+                        <a href="manage/furnServlet?action=page&pageNo=1&pageSize=5" class="collapse2__sublink">家居管理</a>
+                        <a href="views/manage/furn_add.jsp?pageNo=${requestScope.page.pageNo}" class="collapse2__sublink">添加家居</a>
+                        <a href="#" class="collapse2__sublink">bbb</a>
+                        <a href="#" class="collapse2__sublink">bbb</a>
+                    </ul>
+                </div>
+                <a href="#" class="nav_link" data-page="furn_update.jsp.jsp">
+                    <ion-icon name="pie-chart-outline" class="nav_icon"></ion-icon>
+                    <span class="nav_name">统计</span>
+                </a>
+                <div class="nav_link collapse2">
+                    <ion-icon name="people-outline" class="nav_icon"></ion-icon>
+                    <span class="nav_name">用户</span>
+                    <ion-icon name="chevron-down-outline" class="collapse2__link"></ion-icon>
+                    <ul class="collapse2_menu">
+                        <a href="#" class="collapse2__sublink">aaaaaaaaaaaaaaaaaaaaaaaaaaaaa</a>
+                        <a href="#" class="collapse2__sublink">bbbb</a>
+                        <a href="#" class="collapse2__sublink">cccc</a>
+                    </ul>
+                </div>
 
-<body>
+                <a href="#" class="nav_link">
+                    <ion-icon name="settings-outline" class="nav_icon"></ion-icon>
+                    <span class="nav_name">设置</span>
+                </a>
+            </div>
+        </div>
+        <a href="#" class="nav_link">
+            <ion-icon name="log-out-outline" class="nav_icon"></ion-icon>
+            <span class="nav_name">退出登陆</span>
+        </a>
+    </nav>
+</div>
+<%--右侧内容开始--%>
 <!-- Header Area start  -->
 <div class="header section">
     <!-- Header Top  End -->
@@ -24,7 +95,7 @@
                 <!-- Header Logo Start -->
                 <div class="col-auto align-self-center">
                     <div class="header-logo">
-                        <a href="index.jsp"><img src="assets/images/logo/logo.png" alt="Site Logo"/></a>
+                        <a href="manage_menu.jsp"><img src="assets/images/logo/logo.png" alt="Site Logo"/></a>
                     </div>
                 </div>
                 <!-- Header Logo End -->
@@ -54,7 +125,7 @@
                 <!-- Header Logo Start -->
                 <div class="col-auto align-self-center">
                     <div class="header-logo">
-                        <a href="index.jsp"><img width="280px" src="assets/images/logo/logo.png" alt="Site Logo"/></a>
+                        <a href="manage_menu.jsp"><img width="280px" src="assets/images/logo/logo.png" alt="Site Logo"/></a>
                     </div>
                 </div>
                 <!-- Header Logo End -->
@@ -106,8 +177,8 @@
                                     <input name="stock" style="width: 90%" type="text" value="80"/>
                                 </td>
                                 <td>
-<!--                                    <a href="#"><i class="icon-pencil"></i></a>-->
-<!--                                    <a href="#"><i class="icon-close"></i></a>-->
+                                    <!--                                    <a href="#"><i class="icon-pencil"></i></a>-->
+                                    <!--                                    <a href="#"><i class="icon-close"></i></a>-->
                                     <input type="submit" style="width: 90%;background-color: silver;border: silver;border-radius: 20%;" value="添加家居"/>
                                 </td>
                             </tr>
@@ -194,7 +265,46 @@
 <!-- Footer Area End -->
 <script src="assets/js/vendor/vendor.min.js"></script>
 <script src="assets/js/plugins/plugins.min.js"></script>
-<!-- Main Js -->
-<script src="assets/js/main.js"></script>
+<%--右侧内容结束--%>
+<%--左侧导航栏样式与Js--%>
+<script type="module" src="https://unpkg.com/ionicons@5.1.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule="" src="https://unpkg.com/ionicons@5.1.2/dist/ionicons/ionicons.js"></script>
+<script type="text/javascript">
+    const showMenu = (toggleId,navbarId,bodyId)=>{
+        const toggle = document.getElementById(toggleId),
+            navbar = document.getElementById(navbarId);
+        bodypadding = document.getElementById(bodyId);
+
+        if(toggle && navbar){
+            toggle.addEventListener('click',()=>{
+                navbar.classList.toggle('expander')
+                bodypadding.classList.toggle('body-pd')
+            })
+        }
+    }
+
+    showMenu('nav-toggle','navbar','body-pd')
+
+
+    const linkColor = document.querySelectorAll(".nav_link")
+    function colorLink(){
+        linkColor.forEach(l=> l.classList.remove('active'))
+        this.classList.add('active')
+    }
+    linkColor.forEach(l=> l.addEventListener('click',colorLink))
+
+    const linkCollapse2 = document.getElementsByClassName('collapse2__link')
+    var i
+
+    for(i=0;i<linkCollapse2.length;i++){
+        linkCollapse2[i].addEventListener('click',function(){
+            const collapse2Menu = this.nextElementSibling
+            collapse2Menu.classList.toggle('showCollapse2')
+
+            const rotate = collapse2Menu.previousElementSibling
+            rotate.classList.toggle("rotate")
+        })
+    }
+</script>
 </body>
 </html>

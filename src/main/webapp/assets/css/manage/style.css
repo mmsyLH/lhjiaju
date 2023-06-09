@@ -1,0 +1,161 @@
+/*===== 谷歌字体 =====*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+
+:root{
+    --nav-width:92px;
+
+    /* 自定义颜色 */
+    --first-color:#0c5df4;
+    --bg-color:#12192c;
+    --sub-color:#b6cefc;
+    --white-color:#fff;
+
+    /* 规定一下字体 */
+    --body-font:'Poppins',sans-serif;
+    --normal-font-size:1rem;
+    --smal-font-size:0.875rem;
+
+    /* 设置一下z-index级别 */
+    --z-fixed: 100;
+}
+
+*,::before,::after{
+    box-sizing: border-box;
+}
+body{
+  position: relative;
+  margin: 0;
+  padding: 2rem 0 0 6.75rem;
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  transition: .5s;
+}
+h1{
+  margin: 0;
+}
+ul{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+a{
+  text-decoration: none;
+}
+
+.l-navbar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: var(--nav-width);
+    /* 100%的窗口高度 */
+    height: 100vh;
+    background-color: var(--bg-color);
+    color: var(--white-color);
+    padding: 1.5rem 1.5rem 2rem;
+    /* padding: 1.5rem 1,5rem 2rem; */
+    transition: 0.5s;
+    z-index: var(--z-fixed);
+}
+
+.nav{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* 溢出隐藏 */
+    overflow: hidden;
+}
+
+.nav_brand{
+    display: grid;
+    grid-template-columns: max-content max-content;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.nav_toggle{
+    font-size: 1.25rem;
+    padding: 0.75rem;
+    /* 鼠标放上变小手 */
+    cursor: pointer;
+}
+
+.nav_logo{
+    color: var(--white-color);
+    font-weight: 600;
+}
+
+.nav_link{
+    display: grid;
+    grid-template-columns: max-content max-content;
+    align-items: center;
+    column-gap: 0.75rem;
+    padding: 0.75rem;
+    color: var(--white-color);
+    border-radius: .5rem;
+    margin-bottom: 1rem;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.nav_link:hover{
+    background-color: var(--first-color);
+}
+
+.nav_icon{
+    font-size: 1.25rem;
+}
+
+.nav_name{
+    font-size: var(--smal-font-size);
+}
+
+.expander{
+    width: calc(var(--nav-width) + 9.25rem);
+}
+
+.body-pd{
+    padding: 2rem 0 0 16rem;
+}
+
+.active{
+    background-color: var(--first-color);
+}
+
+.collapse2{
+    /* grid-template-columns: 20px max-content 1rf; */
+    grid-template-columns: 20px max-content 1fr;
+
+}
+
+
+.collapse2__link{
+    justify-self: flex-end;
+    transition: .5s;
+}
+
+.collapse2_menu{
+    display: none;
+    padding: .75rem 2.25rem;
+}
+
+.collapse2__sublink{
+    /*display: inline-block;*/
+    color: var(--sub-color);
+    font-size: var(--smal-font-size);
+    /*font-size: 20px;*/
+}
+
+.collapse2__sublink:hover{
+    display: inline-block;
+    color: var(--white-color);
+}
+
+.showCollapse2{
+    display: block;
+}
+
+.rotate{
+    transform: rotate(180deg);
+}

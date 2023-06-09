@@ -41,7 +41,7 @@ public class CustomerFurnServlet extends BasicServlet {
         //将page放入到request域
         req.setAttribute("page", page);
         //请求转发到furn_manage.jsp
-        req.getRequestDispatcher("/views/customer/index.jsp")
+        req.getRequestDispatcher("/views/customer/manage_menu.jsp")
                 .forward(req, resp);
     }
 
@@ -75,7 +75,7 @@ public class CustomerFurnServlet extends BasicServlet {
         // }
         // System.out.println("page"+page);
         //请求转发到furn_manage.jsp
-        req.getRequestDispatcher("/views/customer/index.jsp")
+        req.getRequestDispatcher("/views/customer/manage_menu.jsp")
                 .forward(req, resp);
     }
     /*

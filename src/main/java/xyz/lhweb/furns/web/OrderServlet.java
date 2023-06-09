@@ -24,7 +24,7 @@ public class OrderServlet extends BasicServlet {
         //如果cart为空,说明会员没有购买任何家具,转发到首页
         //！！！当购买过后 cart虽然不为空，但是里面没有数据  多加一个逻辑判断
         if(cart==null||cart.isEmpty()){
-            request.getRequestDispatcher("/index.jsp").forward(request,response);
+            request.getRequestDispatcher("/manage_menu.jsp").forward(request,response);
             return;//直接返回
         }
 
