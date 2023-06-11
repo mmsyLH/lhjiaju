@@ -17,4 +17,5 @@ public class AdminServlet extends BasicServlet {
         request.getRequestDispatcher("/views/manage/manage_menu.jsp")
                 .forward(request, response);
     }
+
 }

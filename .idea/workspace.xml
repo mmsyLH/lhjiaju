@@ -9,22 +9,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d4ed239-aeac-4834-9a20-13be139fb094" name="Changes" comment="邮箱功能实现完善">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/css/manage/style.css" afterDir="false" />
+    <list default="true" id="7d4ed239-aeac-4834-9a20-13be139fb094" name="Changes" comment="后台管理页面初步实现">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/web/AdminServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/web/AdminServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/web/CustomerFurnServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/web/CustomerFurnServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/web/MemberServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/web/MemberServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/web/OrderServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/web/OrderServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/css/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/css/style2.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/js/manage/manage.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/manage/furn_add.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/manage/furn_add.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/manage/furn_manage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/manage/furn_manage.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/manage/furn_update.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/manage/furn_update.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/manage/index.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/manage/index.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/manage/manage_login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/manage/manage_login.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/views/manage/manage_menu.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/manage/manage_menu.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -428,7 +418,9 @@
       <workItem from="1686134947564" duration="6180000" />
       <workItem from="1686187076598" duration="7477000" />
       <workItem from="1686215426011" duration="11314000" />
-      <workItem from="1686274914480" duration="6319000" />
+      <workItem from="1686274914480" duration="6905000" />
+      <workItem from="1686306080328" duration="3933000" />
+      <workItem from="1686463372775" duration="1284000" />
     </task>
     <task id="LOCAL-00001" summary="测试1">
       <created>1683771492301</created>
@@ -577,7 +569,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686229363596</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="后台管理页面初步实现">
+      <created>1686281417163</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1686281417163</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -616,7 +615,8 @@
     <MESSAGE value="支付功能的完成" />
     <MESSAGE value="邮箱功能实现1、dao工厂使用单例模式来完成2023.6.7" />
     <MESSAGE value="邮箱功能实现完善" />
-    <option name="LAST_COMMIT_MESSAGE" value="邮箱功能实现完善" />
+    <MESSAGE value="后台管理页面初步实现" />
+    <option name="LAST_COMMIT_MESSAGE" value="后台管理页面初步实现" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -628,7 +628,7 @@
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/xyz/lhweb/furns/web/MemberServlet.java</url>
-          <line>188</line>
+          <line>190</line>
           <option name="timeStamp" value="12" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">

@@ -2,6 +2,8 @@ package xyz.lhweb.furns.web;
 
 import com.google.gson.Gson;
 import xyz.lhweb.furns.bean.Member;
+import xyz.lhweb.furns.bean.Order;
+import xyz.lhweb.furns.bean.Page;
 import xyz.lhweb.furns.bean.User;
 import xyz.lhweb.furns.service.MemberService;
 import xyz.lhweb.furns.service.UserService;
@@ -205,7 +207,6 @@ public class MemberServlet extends BasicServlet {
         response.sendRedirect(request.getContextPath());
     }
 
-
     /**
      * 验证用户名是否存在
      *
@@ -230,8 +231,6 @@ public class MemberServlet extends BasicServlet {
         // 5 返回
         response.getWriter().write(resJson);
     }
-
-
     protected void active(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
             String code = request.getParameter("code");
@@ -257,5 +256,16 @@ public class MemberServlet extends BasicServlet {
             e.printStackTrace();
             throw new RuntimeException();
         }
+    }
+    protected void memberPageByname(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int pageNo= DataUtils.parseInt(request.getParameter("pageNo"), 1);
+        int pageSize= DataUtils.parseInt(request.getParameter("pageSize"), 6);
+        // Page<Order> orderPage = memberService.pageByUid(pageNo, pageSize, memberId);
+        // request.setAttribute("page", orderPage);
+        // request.setAttribute("page", orderService.pageByUid(DataUtils.parseInt(request.getParameter("pageNo"), 1),
+        //         DataUtils.parseInt(request.getParameter("pageSize"), Page.PAGE_SIZE),
+        //         memberService.queryMemberByUsername(((User) request.getSession().getAttribute("member")).getUsername()).getId()));
+        // 页面转发
+        request.getRequestDispatcher("/views/order/order_list.jsp").forward(request, response);
     }
 }

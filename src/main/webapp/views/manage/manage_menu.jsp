@@ -45,11 +45,11 @@
                 </a>
                 <a class="nav_link" data-page="furn_manage.jsp">
                     <ion-icon name="chatbubbles-outline" class="nav_icon"></ion-icon>
-                    <span class="nav_name">订单管理(未做)</span>
+                    <span class="nav_name">订单管理（未做）</span>
                 </a>
                 <div class="nav_link collapse2" data-page="manage_login.jsp">
                     <ion-icon name="folder-outline" class="nav_icon"></ion-icon>
-                    <span class="nav_name">家居后台管理</span>
+                    <span class="nav_name">家居后台（未做）</span>
                     <ion-icon name="chevron-down-outline" class="collapse2__link"></ion-icon>
                     <ul class="collapse2_menu">
                         <a href="manage/furnServlet?action=page&pageNo=1&pageSize=5" class="collapse2__sublink">家居管理</a>
@@ -60,11 +60,11 @@
                 </div>
                 <a href="#" class="nav_link" data-page="furn_update.jsp.jsp">
                     <ion-icon name="pie-chart-outline" class="nav_icon"></ion-icon>
-                    <span class="nav_name">库存后天管理（未做）</span>
+                    <span class="nav_name">库存管理（未做）</span>
                 </a>
                 <div class="nav_link collapse2">
                     <ion-icon name="people-outline" class="nav_icon"></ion-icon>
-                    <span class="nav_name">用户后台管理（未做）</span>
+                    <span class="nav_name">用户(未做)</span>
                     <ion-icon name="chevron-down-outline" class="collapse2__link"></ion-icon>
                     <ul class="collapse2_menu">
                         <a href="#" class="collapse2__sublink">aaaaaaaaaaaaaaaaaaaaaaaaaaaaa</a>
@@ -73,9 +73,9 @@
                     </ul>
                 </div>
 
-                <a class="nav_link">
+                <a href="#" class="nav_link">
                     <ion-icon name="settings-outline" class="nav_icon"></ion-icon>
-                    <span class="nav_name">设置（未做）</span>
+                    <span class="nav_name">设置</span>
                 </a>
             </div>
         </div>
