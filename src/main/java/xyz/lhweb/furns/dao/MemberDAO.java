@@ -3,9 +3,8 @@ package xyz.lhweb.furns.dao;
 
 import xyz.lhweb.furns.bean.Furn;
 import xyz.lhweb.furns.bean.Member;
-import xyz.lhweb.furns.bean.User;
 
-import java.sql.SQLException;
+import java.util.List;
 
 /**
  * 会员DAO
@@ -49,8 +48,29 @@ public interface MemberDAO {
      * @param code 代码
      * @return {@link Member}
      */
-    Member findByCode(String code);
+     Member findByCode(String code);
 
      int updateMember(Member member);
 
+    /**
+     * 得到总一行名字
+     *
+     * @param name 名字
+     * @return int
+     */
+    int getTotalRowByName(String name);
+
+    /**
+     * 获得页面项别名
+     *
+     * @param begin    开始
+     * @param pageSize 页面大小
+     * @param name     名字
+     * @return {@link List}<{@link Furn}>
+     */
+    List<Member> getPageItemsByname(int begin, int pageSize, String name);
+
+    int delById(int id);
+
+    Member queryMemberById(int id);
 }

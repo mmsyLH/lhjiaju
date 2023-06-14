@@ -62,7 +62,6 @@ public class OrderServlet extends BasicServlet {
         String orderId = request.getParameter("orderId");
         System.out.println(orderId);
         request.setAttribute("orderId", orderId);
-
         Order order = orderService.queryOrderByOid(orderId);
 
         // 订单项
@@ -80,8 +79,7 @@ public class OrderServlet extends BasicServlet {
         Member loginUser = (Member) request.getSession().getAttribute("member");
         Member user = memberService.queryMemberByUsername(loginUser.getUsername());
 
-
-        InfoText infoText = new InfoText("", user.getUsername(), "", totalPrices, order.getStatus());
+        InfoText infoText = new InfoText(order.getAddress(), user.getUsername(), "18259421368", totalPrices, order.getStatus());
         // System.out.println("orderServlet_infoText:" + infoText);
         request.setAttribute("InfoText", infoText);
         // // 页面转发
@@ -92,6 +90,26 @@ public class OrderServlet extends BasicServlet {
         int pageSize= DataUtils.parseInt(request.getParameter("pageSize"), 6);
         Integer memberId = memberService.queryMemberByUsername(((Member) request.getSession().getAttribute("member")).getUsername()).getId();
         Page<Order> orderPage = orderService.pageByUid(pageNo, pageSize, memberId);
+        request.setAttribute("page", orderPage);
+        // request.setAttribute("page", orderService.pageByUid(DataUtils.parseInt(request.getParameter("pageNo"), 1),
+        //         DataUtils.parseInt(request.getParameter("pageSize"), Page.PAGE_SIZE),
+        //         memberService.queryMemberByUsername(((User) request.getSession().getAttribute("member")).getUsername()).getId()));
+        // 页面转发
+        request.getRequestDispatcher("/views/order/order_list.jsp").forward(request, response);
+    }
+    protected void OrdersByuid(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int pageNo= DataUtils.parseInt(request.getParameter("pageNo"), 1);
+        int pageSize= DataUtils.parseInt(request.getParameter("pageSize"), 6);
+
+        //1 如果参数有name但是没有值,接受到的是"" 如果参数都没有 接受到的是null
+        //2 把""和null合并处理
+        String memberId = request.getParameter("uid");
+        if(null==memberId){
+            memberId="";
+        }
+        // int memberId = DataUtils.parseInt(request.getParameter("uid"), 0);
+        // Integer memberId = memberService.queryMemberByUsername(((Member) request.getSession().getAttribute("member")).getUsername()).getId();
+        Page<Order> orderPage = orderService.pageByUid(pageNo, pageSize, Integer.valueOf(memberId));
         request.setAttribute("page", orderPage);
         // request.setAttribute("page", orderService.pageByUid(DataUtils.parseInt(request.getParameter("pageNo"), 1),
         //         DataUtils.parseInt(request.getParameter("pageSize"), Page.PAGE_SIZE),

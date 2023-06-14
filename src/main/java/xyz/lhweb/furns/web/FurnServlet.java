@@ -256,7 +256,6 @@ public class FurnServlet extends BasicServlet {
         System.out.println("furnservlet_update_furn:（更新完后）" + furn);
         // 更新furn
         furnService.updateFurn(furn);
-        // todo 请求转发到更新成功的页面
         response.sendRedirect(request.getContextPath() + "/manage/furnServlet?action=page&pageNo=" + request.getParameter("pageNo"));
     }
 

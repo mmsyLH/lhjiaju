@@ -24,17 +24,35 @@ public class Order{
     private BigDecimal price;
     private Integer status;
     private Integer memberId;
+    private String address;
 
-    public Order() {
-    }
-
-    public Order(String id, Date createTime, BigDecimal price, Integer status, Integer memberId) {
+    public Order(String id, Date createTime, BigDecimal price, Integer status, Integer memberId, String address) {
         this.id = id;
         this.createTime = createTime;
         this.price = price;
         this.status = status;
         this.memberId = memberId;
+        this.address = address;
     }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public Order() {
+    }
+
+    // public Order(String id, Date createTime, BigDecimal price, Integer status, Integer memberId) {
+    //     this.id = id;
+    //     this.createTime = createTime;
+    //     this.price = price;
+    //     this.status = status;
+    //     this.memberId = memberId;
+    // }
 
     public String getId() {
         return id;

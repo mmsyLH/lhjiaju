@@ -28,39 +28,10 @@
             })
         })
     </script>
-    <style type="text/css">
 
-        #pic {
-            position: relative;
-        }
-
-        input[type="file"] {
-            position: absolute;
-            left: 0;
-            top: 0;
-            height: 150px;
-            opacity: 0;
-            cursor: pointer;
-        }
-    </style>
-
-    <script type="text/javascript">
-        function prev(event) {
-            //获取展示图片的区域
-            var img = document.getElementById("prevView");
-            //获取文件对象
-            var file = event.files[0];
-            //获取文件阅读器： Js的一个类，直接使用即可
-            var reader = new FileReader();
-            reader.readAsDataURL(file);
-            reader.onload = function () {
-                //给img的src设置图片url
-                img.setAttribute("src", this.result);
-            }
-        }
-    </script>
 </head>
 <body id="body-pd">
+<%--左侧内容--%>
 <div class="l-navbar" id="navbar">
     <nav class="nav">
         <div>
@@ -69,37 +40,41 @@
                 <ion-icon name="menu-outline" class="nav_toggle" id="nav-toggle"></ion-icon>
             </div>
             <div class="nav_list">
-                <a href="views/manage/manage_menu.jsp" class="nav_link active" data-page="furn_add.jsp">
+                <a href="views/manage/manage_menu.jsp" class="nav_link ">
                     <ion-icon name="home-outline" class="nav_icon"></ion-icon>
                     <span class="nav_name">后台首页</span>
                 </a>
-                <a class="nav_link" data-page="furn_manage.jsp">
+                <div class="nav_link collapse2">
                     <ion-icon name="chatbubbles-outline" class="nav_icon"></ion-icon>
                     <span class="nav_name">订单管理</span>
-                </a>
-                <div class="nav_link collapse2" data-page="manage_login.jsp">
-                    <ion-icon name="folder-outline" class="nav_icon"></ion-icon>
-                    <span class="nav_name">家居后台管理</span>
                     <ion-icon name="chevron-down-outline" class="collapse2__link"></ion-icon>
                     <ul class="collapse2_menu">
-                        <a href="manage/furnServlet?action=page&pageNo=1&pageSize=5" class="collapse2__sublink">家居管理</a>
-                        <a href="views/manage/furn_add.jsp?pageNo=${requestScope.page.pageNo}" class="collapse2__sublink">添加家居</a>
-                        <a href="#" class="collapse2__sublink">bbb</a>
-                        <a href="#" class="collapse2__sublink">bbb</a>
+                        <a href="memberServlet?action=memberPageByname" class="collapse2__sublink">用户管理</a>
+                        <a href="#" class="collapse2__sublink">添加用户</a>
+                        <a href="#" class="collapse2__sublink">cccc</a>
+                    </ul>
+                </div>
+                <div class="nav_link collapse2">
+                    <ion-icon name="folder-outline" class="nav_icon"></ion-icon>
+                    <span class="nav_name">家居后台（未做）</span>
+                    <ion-icon name="chevron-down-outline" class="collapse2__link"></ion-icon>
+                    <ul class="collapse2_menu">
+                        <a href="manage/furnServlet?action=page&pageNo=1&pageSize=5" class="collapse2__sublink">用户管理</a>
+                        <a href="views/manage/furn_add.jsp?pageNo=${requestScope.page.pageNo}"
+                           class="collapse2__sublink">添加家居</a>
                     </ul>
                 </div>
                 <a href="#" class="nav_link" data-page="furn_update.jsp.jsp">
                     <ion-icon name="pie-chart-outline" class="nav_icon"></ion-icon>
-                    <span class="nav_name">统计</span>
+                    <span class="nav_name">库存管理（未做）</span>
                 </a>
-                <div class="nav_link collapse2">
+                <div class="nav_link collapse2 active">
                     <ion-icon name="people-outline" class="nav_icon"></ion-icon>
-                    <span class="nav_name">用户</span>
+                    <span class="nav_name">用户(未做)</span>
                     <ion-icon name="chevron-down-outline" class="collapse2__link"></ion-icon>
                     <ul class="collapse2_menu">
-                        <a href="#" class="collapse2__sublink">aaaaaaaaaaaaaaaaaaaaaaaaaaaaa</a>
-                        <a href="#" class="collapse2__sublink">bbbb</a>
-                        <a href="#" class="collapse2__sublink">cccc</a>
+                        <a href="memberServlet?action=memberPageByname" class="collapse2__sublink">用户管理</a>
+                        <a href="#" class="collapse2__sublink">添加用户</a>
                     </ul>
                 </div>
 
@@ -130,20 +105,7 @@
                     </div>
                 </div>
                 <!-- Header Logo End -->
-
                 <!-- Header Action Start -->
-                <div class="col align-self-center">
-                    <div class="header-actions">
-
-                        <!-- Single Wedge Start -->
-                        <div class="header-bottom-set dropdown">
-                            <a href="#">家居管理</a>
-                        </div>
-                        <div class="header-bottom-set dropdown">
-                            <a href="#">订单管理</a>
-                        </div>
-                    </div>
-                </div>
                 <!-- Header Action End -->
             </div>
         </div>
@@ -153,78 +115,59 @@
     <div class="header-bottom d-lg-none sticky-nav bg-white">
         <div class="container position-relative">
             <div class="row align-self-center">
-                <!-- Header Logo Start -->
+                <%--<!-- Header Logo Start -->--%>
                 <div class="col-auto align-self-center">
                     <div class="header-logo">
                         <a href="manage_menu.jsp"><img width="280px" src="assets/images/logo/logo.png" alt="Site Logo"/></a>
                     </div>
                 </div>
-                <!-- Header Logo End -->
+                <%--<!-- Header Logo End -->--%>
             </div>
         </div>
     </div>
-    <!-- Main Menu Start -->
+    <%--<!-- Main Menu Start -->--%>
     <div style="width: 100%;height: 50px;background-color: black"></div>
-    <!-- Main Menu End -->
+    <%--<!-- Main Menu End -->--%>
 </div>
-<!-- Cart Area Start -->
+<%--<!-- Cart Area Start -->--%>
 <div class="cart-main-area pt-100px pb-100px">
     <div class="container">
-        <h3 class="cart-page-title">家居后台管理-修改家居</h3>
+        <h3 class="cart-page-title">家居后台管理-添加家居</h3>
+        <%--显示错误--%>
+        ${requestScope.mes}
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-                <%--自己一定要多思考，多看代码, 多动手, 因为是post,所以我们需要使用到隐藏域id,action--%>
-                <form action="manage/furnServlet?id=${requestScope.furn.id}&action=update&pageNo=${param.pageNo}" method="post" enctype="multipart/form-data">
-                    <%--传id--%>
-                    <%--<input type="hidden" name="id" value="${requestScope.furn.id}">--%>
-                    <%--&lt;%&ndash;确定调用servlet的update方法&ndash;%&gt;--%>
-                    <%--<input type="hidden" name="action" value="update">--%>
-                    <%--<input type="hidden" name="pageNo" value="${param.pageNo}">--%>
+                <%--添加用户--%>
+                <form action="memberServlet" method="post">
+                    <input type="hidden" name="action" value="addMember">
                     <div class="table-content table-responsive cart-table-content">
                         <table>
                             <thead>
                             <tr>
-                                <th>图片</th>
-                                <th>家居名</th>
-                                <th>商家</th>
-                                <th>价格</th>
-                                <th>销量</th>
-                                <th>库存</th>
-                                <th>操作</th>
+                                <th>用户名</th>
+                                <th>密码</th>
+                                <th>邮箱</th>
+                                <th></th>
                             </tr>
                             </thead>
                             <tbody>
                             <tr>
-                                <td class="product-thumbnail" >
-                                    <div id="pic" >
-                                        <img id="prevView" class="img-responsive ml-3"
-                                             src="${requestScope.furn.imgPath}"
-                                             alt=""
-
-                                        />
-                                        <input type="file" name="imgPath" id="" value="${requestScope.furn.imgPath}" onchange="prev(this)"/>
-                                    </div>
+                                <td class="product-name">
+                                    <input name="name" style="width: 80%; padding: 5px;" type="text" value=""
+                                           placeholder="请输入用户名"/>
                                 </td>
-                                <td class="product-name"><input name="name" style="width: 60%" type="text"
-                                                                value="${requestScope.furn.name}"/></td>
-                                <td class="product-name"><input name="maker" style="width: 90%" type="text"
-                                                                value="${requestScope.furn.maker}"/></td>
-                                <td class="product-price-cart"><input name="price" style="width: 90%" type="text"
-                                                                      value="${requestScope.furn.price}"/></td>
-                                <td class="product-quantity">
-                                    <input name="sales" style="width: 90%" type="text"
-                                           value="${requestScope.furn.sales}"/>
+                                <td class="product-name">
+                                    <input name="pwd" style="width: 60%; padding: 5px;" type="text" value=""
+                                           placeholder="请输入商家"/>
                                 </td>
-                                <td class="product-quantity">
-                                    <input name="stock" style="width: 90%" type="text"
-                                           value="${requestScope.furn.stock}"/>
+                                <td class="product-price-cart">
+                                    <input name="email" style="width: 50%; padding: 5px;" type="text" value=""
+                                           placeholder="请输入邮箱 "/>
                                 </td>
                                 <td>
-                                    <!--                                    <a href="#"><i class="icon-pencil"></i></a>-->
-                                    <!--                                    <a href="#"><i class="icon-close"></i></a>-->
-                                    <input type="submit"
+                                    <input type="submit" class="button-box"
                                            style="width: 90%;background-color: silver;border: silver;border-radius: 20%;"
-                                           value="修改家居"/>
+                                           value="添加用户"/>
                                 </td>
                             </tr>
                             </tbody>
@@ -243,9 +186,9 @@
         <div class="footer-top">
             <div class="container">
                 <div class="row">
-                    <!-- Start single blog -->
-                    <!-- End single blog -->
-                    <!-- Start single blog -->
+                    <%--<!-- Start single blog -->--%>
+                    <%--<!-- End single blog -->--%>
+                    <%--<!-- Start single blog --> --%>
                     <div class="col-md-6 col-sm-6 col-lg-3 mb-md-30px mb-lm-30px" data-aos="fade-up"
                          data-aos-delay="400">
                         <div class="single-wedge">
@@ -263,8 +206,8 @@
                             </div>
                         </div>
                     </div>
-                    <!-- End single blog -->
-                    <!-- Start single blog -->
+                    <%--<!-- End single blog -->--%>
+                    <%--<!-- Start single blog -->--%>
                     <div class="col-md-6 col-lg-2 col-sm-6 mb-lm-30px" data-aos="fade-up" data-aos-delay="600">
                         <div class="single-wedge">
                             <h4 class="footer-herading">我的账号</h4>
@@ -307,44 +250,46 @@
         </div>
     </div>
 </div>
-<!-- Footer Area End -->
+<%--<!-- Footer Area End -->--%>
 <script src="assets/js/vendor/vendor.min.js"></script>
 <script src="assets/js/plugins/plugins.min.js"></script>
-<!-- Main Js -->
+<%--<!-- Main Js -->--%>
 <script src="assets/js/main.js"></script>
 <%--右侧内容结束--%>
 <%--左侧导航栏样式与Js--%>
 <script type="module" src="https://unpkg.com/ionicons@5.1.2/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule="" src="https://unpkg.com/ionicons@5.1.2/dist/ionicons/ionicons.js"></script>
 <script type="text/javascript">
-    const showMenu = (toggleId,navbarId,bodyId)=>{
+    const showMenu = (toggleId, navbarId, bodyId) => {
         const toggle = document.getElementById(toggleId),
             navbar = document.getElementById(navbarId);
         bodypadding = document.getElementById(bodyId);
 
-        if(toggle && navbar){
-            toggle.addEventListener('click',()=>{
+        if (toggle && navbar) {
+            toggle.addEventListener('click', () => {
                 navbar.classList.toggle('expander')
                 bodypadding.classList.toggle('body-pd')
             })
         }
     }
 
-    showMenu('nav-toggle','navbar','body-pd')
+    showMenu('nav-toggle', 'navbar', 'body-pd')
 
 
     const linkColor = document.querySelectorAll(".nav_link")
-    function colorLink(){
-        linkColor.forEach(l=> l.classList.remove('active'))
+
+    function colorLink() {
+        linkColor.forEach(l => l.classList.remove('active'))
         this.classList.add('active')
     }
-    linkColor.forEach(l=> l.addEventListener('click',colorLink))
+
+    linkColor.forEach(l => l.addEventListener('click', colorLink))
 
     const linkCollapse2 = document.getElementsByClassName('collapse2__link')
     var i
 
-    for(i=0;i<linkCollapse2.length;i++){
-        linkCollapse2[i].addEventListener('click',function(){
+    for (i = 0; i < linkCollapse2.length; i++) {
+        linkCollapse2[i].addEventListener('click', function () {
             const collapse2Menu = this.nextElementSibling
             collapse2Menu.classList.toggle('showCollapse2')
 

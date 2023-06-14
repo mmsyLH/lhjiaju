@@ -1,7 +1,7 @@
 package xyz.lhweb.furns.service;
 
 import xyz.lhweb.furns.bean.Member;
-import xyz.lhweb.furns.bean.User;
+import xyz.lhweb.furns.bean.Page;
 
 /**
  * 会员服务
@@ -44,4 +44,10 @@ public interface MemberService {
      * @return {@link Boolean}
      */
     Boolean updateMember(Member member);
+
+    Page<Member> pageByName(int pageNo, int pageSize, String name);
+
+    Boolean delById(int id);
+
+    Member queryMemberById(int id);
 }

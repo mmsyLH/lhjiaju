@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>罗汉家居网购</title>
+    <title>会员管理</title>
     <base href="<%=request.getContextPath() + "/"%>">
     <link rel="stylesheet" href="assets/css/manage/style.css">
     <%--    引入jquery--%>
@@ -28,37 +28,6 @@
             })
         })
     </script>
-    <style type="text/css">
-
-        #pic {
-            position: relative;
-        }
-
-        input[type="file"] {
-            position: absolute;
-            left: 0;
-            top: 0;
-            height: 150px;
-            opacity: 0;
-            cursor: pointer;
-        }
-    </style>
-
-    <script type="text/javascript">
-        function prev(event) {
-            //获取展示图片的区域
-            var img = document.getElementById("prevView");
-            //获取文件对象
-            var file = event.files[0];
-            //获取文件阅读器： Js的一个类，直接使用即可
-            var reader = new FileReader();
-            reader.readAsDataURL(file);
-            reader.onload = function () {
-                //给img的src设置图片url
-                img.setAttribute("src", this.result);
-            }
-        }
-    </script>
 </head>
 <body id="body-pd">
 <div class="l-navbar" id="navbar">
@@ -69,7 +38,7 @@
                 <ion-icon name="menu-outline" class="nav_toggle" id="nav-toggle"></ion-icon>
             </div>
             <div class="nav_list">
-                <a href="views/manage/manage_menu.jsp" class="nav_link active" data-page="furn_add.jsp">
+                <a href="views/manage/manage_menu.jsp" class="nav_link " data-page="furn_add.jsp">
                     <ion-icon name="home-outline" class="nav_icon"></ion-icon>
                     <span class="nav_name">后台首页</span>
                 </a>
@@ -77,15 +46,13 @@
                     <ion-icon name="chatbubbles-outline" class="nav_icon"></ion-icon>
                     <span class="nav_name">订单管理</span>
                 </a>
-                <div class="nav_link collapse2" data-page="manage_login.jsp">
+                <div class="nav_link collapse2 active" data-page="manage_login.jsp">
                     <ion-icon name="folder-outline" class="nav_icon"></ion-icon>
-                    <span class="nav_name">家居后台管理</span>
+                    <span class="nav_name">会员管理</span>
                     <ion-icon name="chevron-down-outline" class="collapse2__link"></ion-icon>
                     <ul class="collapse2_menu">
-                        <a href="manage/furnServlet?action=page&pageNo=1&pageSize=5" class="collapse2__sublink">家居管理</a>
+                        <a href="manage/furnServlet?action=page&pageNo=1&pageSize=5" class="collapse2__sublink" style="width: 100px">家居管理</a>
                         <a href="views/manage/furn_add.jsp?pageNo=${requestScope.page.pageNo}" class="collapse2__sublink">添加家居</a>
-                        <a href="#" class="collapse2__sublink">bbb</a>
-                        <a href="#" class="collapse2__sublink">bbb</a>
                     </ul>
                 </div>
                 <a href="#" class="nav_link" data-page="furn_update.jsp.jsp">
@@ -130,20 +97,7 @@
                     </div>
                 </div>
                 <!-- Header Logo End -->
-
                 <!-- Header Action Start -->
-                <div class="col align-self-center">
-                    <div class="header-actions">
-
-                        <!-- Single Wedge Start -->
-                        <div class="header-bottom-set dropdown">
-                            <a href="#">家居管理</a>
-                        </div>
-                        <div class="header-bottom-set dropdown">
-                            <a href="#">订单管理</a>
-                        </div>
-                    </div>
-                </div>
                 <!-- Header Action End -->
             </div>
         </div>
@@ -170,71 +124,129 @@
 <!-- Cart Area Start -->
 <div class="cart-main-area pt-100px pb-100px">
     <div class="container">
-        <h3 class="cart-page-title">家居后台管理-修改家居</h3>
+        <h3 class="cart-page-title">会员管理</h3>
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-                <%--自己一定要多思考，多看代码, 多动手, 因为是post,所以我们需要使用到隐藏域id,action--%>
-                <form action="manage/furnServlet?id=${requestScope.furn.id}&action=update&pageNo=${param.pageNo}" method="post" enctype="multipart/form-data">
-                    <%--传id--%>
-                    <%--<input type="hidden" name="id" value="${requestScope.furn.id}">--%>
-                    <%--&lt;%&ndash;确定调用servlet的update方法&ndash;%&gt;--%>
-                    <%--<input type="hidden" name="action" value="update">--%>
-                    <%--<input type="hidden" name="pageNo" value="${param.pageNo}">--%>
+                <form action="#">
                     <div class="table-content table-responsive cart-table-content">
                         <table>
                             <thead>
                             <tr>
-                                <th>图片</th>
-                                <th>家居名</th>
-                                <th>商家</th>
-                                <th>价格</th>
-                                <th>销量</th>
-                                <th>库存</th>
-                                <th>操作</th>
+                                <th>会员名称</th>
+                                <th>会员邮箱</th>
+                                <th>是否激活</th>
+                                <th>编辑</th>
+                                <th>删除</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td class="product-thumbnail" >
-                                    <div id="pic" >
-                                        <img id="prevView" class="img-responsive ml-3"
-                                             src="${requestScope.furn.imgPath}"
-                                             alt=""
-
-                                        />
-                                        <input type="file" name="imgPath" id="" value="${requestScope.furn.imgPath}" onchange="prev(this)"/>
-                                    </div>
-                                </td>
-                                <td class="product-name"><input name="name" style="width: 60%" type="text"
-                                                                value="${requestScope.furn.name}"/></td>
-                                <td class="product-name"><input name="maker" style="width: 90%" type="text"
-                                                                value="${requestScope.furn.maker}"/></td>
-                                <td class="product-price-cart"><input name="price" style="width: 90%" type="text"
-                                                                      value="${requestScope.furn.price}"/></td>
-                                <td class="product-quantity">
-                                    <input name="sales" style="width: 90%" type="text"
-                                           value="${requestScope.furn.sales}"/>
-                                </td>
-                                <td class="product-quantity">
-                                    <input name="stock" style="width: 90%" type="text"
-                                           value="${requestScope.furn.stock}"/>
-                                </td>
-                                <td>
-                                    <!--                                    <a href="#"><i class="icon-pencil"></i></a>-->
-                                    <!--                                    <a href="#"><i class="icon-close"></i></a>-->
-                                    <input type="submit"
-                                           style="width: 90%;background-color: silver;border: silver;border-radius: 20%;"
-                                           value="修改家居"/>
-                                </td>
-                            </tr>
+                            <%--取出members集合，循环显示--%>
+                            <c:forEach items="${requestScope.page.items}" var="member">
+                                <tr>
+                                    <td class="product-name"><a href="#">${member.username}</a></td>
+                                    <td class="product-name"><a href="#">${member.email}</a></td>
+                                    <td class="product-price-cart">
+                                        <c:choose>
+                                            <c:when test="${member.state == 1}">
+                                                <span class="amount">激活</span>
+                                            </c:when>
+                                            <c:when test="${member.state == 0}">
+                                                <span class="amount">未激活</span>
+                                            </c:when>
+                                        </c:choose>
+                                    </td>
+                                    <td class="product-remove">
+                                        <a href="memberServlet?action=showMember&id=${member.id}&pageNo=${requestScope.page.pageNo}"><i
+                                                class="icon-pencil"></i></a>
+                                    </td>
+                                    <td class="product-remove">
+                                        <a class="deleteCss"
+                                           href="memberServlet?action=del&id=${member.id}&pageNo=${requestScope.page.pageNo}"><i
+                                                class="icon-close"></i></a>
+                                    </td>
+                                </tr>
+                            </c:forEach>
                             </tbody>
                         </table>
                     </div>
                 </form>
             </div>
         </div>
+        <!--  Pagination Area Start 分页导航条 -->
+        <div class="pro-pagination-style text-center mb-md-30px mb-lm-30px mt-6" data-aos="fade-up">
+            <ul>
+                <%--如果当前页 > 1 , 就显示上一页--%>
+                <c:if test="${requestScope.page.pageNo > 1}">
+                    <li><a href="memberServlet?action=memberPageByname&pageNo=${requestScope.page.pageNo - 1}">上一页</a></li>
+                </c:if>
+                <%--<li><a class="active" href="#">3</a></li>--%>
+                <%--<li><a href="#">4</a></li>--%>
+                <%--<li><a href="#">5</a></li>--%>
+                <%--    显示所有的分页数， 先容易，再困难
+                    思路: 先确定开始页数 begin 第1页
+                            再确定结束页数 end 第pageTotalCount页
+                    困惑：如果页数很多，怎么办? => 算法最多显示5页[这个规则可以由程序员决定.]
+                    分析
+                    1. 如果总页数<=5, 就全部显示
+                    2. 如果总页数>5, 按照如下规则显示(这个规则是程序员/业务来确定):
+                    2.1 如果当前页是前3页, 就显示1-5
+                    2.2 如果当前页是后3页, 就显示最后5页
+                    2.3 如果当前页是中间页, 就显示 当前页前2页, 当前页 , 当前页后两页
+                    这里的关键就是要根据不同的情况来初始化begin, end
+                --%>
+                <c:choose>
+                    <%--1. 如果总页数<=5, 就全部显示--%>
+                    <c:when test="${requestScope.page.pageTotalCount <=5 }">
+                        <c:set var="begin" value="1"/>
+                        <c:set var="end" value="${requestScope.page.pageTotalCount}"/>
+                    </c:when>
+                    <%--2. 如果总页数>5--%>
+                    <c:when test="${requestScope.page.pageTotalCount > 5 }">
+                        <c:choose>
+                            <%--2.1 如果当前页是前3页, 就显示1-5--%>
+                            <c:when test="${requestScope.page.pageNo <=3 }">
+                                <c:set var="begin" value="1"/>
+                                <c:set var="end" value="5"/>
+                            </c:when>
+                            <%--2.2 如果当前页是后3页, 就显示最后5页--%>
+                            <c:when test="${requestScope.page.pageNo >requestScope.page.pageTotalCount-3 }">
+                                <%--总页数-4  比如1 2 3 4 5 6 7 8 当前是6,7,8 则显示4,5,6,7,8--%>
+                                <c:set var="begin" value="${requestScope.page.pageTotalCount-4}"/>
+                                <c:set var="end" value="${requestScope.page.pageTotalCount}"/>
+                            </c:when>
+                            <%--2.3 如果当前页是中间页, 就显示 当前页前2页, 当前页 , 当前页后两页--%>
+                            <c:otherwise>
+                                <%--其他情况--%>
+                                <c:set var="begin" value="${requestScope.page.pageNo-2}"/>
+                                <c:set var="end" value="${requestScope.page.pageNo+2}"/>
+                            </c:otherwise>
+                        </c:choose>
+                    </c:when>
+                </c:choose>
+                <%--                <c:set var="begin" value="1"/>--%>
+                <%--                <c:set var="end" value="${requestScope.page.pageTotalCount}"/>--%>
+                <c:forEach begin="${begin}" end="${end}" var="i">
+                    <%--如果i是当前页, 就使用class="active" 修饰--%>
+                    <c:if test="${i == requestScope.page.pageNo}">
+                        <li><a class="active" href="memberServlet?action=memberPageByname&pageNo=${i}">${i}</a></li>
+                    </c:if>
+                    <c:if test="${i != requestScope.page.pageNo}">
+                        <li><a href="memberServlet?action=memberPageByname&pageNo=${i}">${i}</a></li>
+                    </c:if>
+                </c:forEach>
+                <%--如果当前页 < 总页数 , 就显示下一页--%>
+                <c:if test="${requestScope.page.pageNo < requestScope.page.pageTotalCount}">
+                    <li><a href="memberServlet?action=memberPageByname&pageNo=${requestScope.page.pageNo + 1}">下一页</a></li>
+                </c:if>
+                <li><a>共 ${requestScope.page.pageTotalCount} 页</a></li>
+
+
+            </ul>
+        </div>
+        <!--  Pagination Area End -->
     </div>
 </div>
+
 <!-- Cart Area End -->
 
 <!-- Footer Area Start -->
@@ -296,7 +308,12 @@
                 <div class="row flex-sm-row-reverse">
                     <div class="col-md-6 text-right">
                         <div class="payment-link">
-                            <img src="#" alt="">
+                            <%--bug终于找到了！！！！！！！
+                            #会去请求当前页 =>http://localhost:8080/lhjiaju/
+
+                            ！！！！！！--%>
+
+                            <%--<img src="#" alt="">--%>
                         </div>
                     </div>
                     <div class="col-md-6 text-left">

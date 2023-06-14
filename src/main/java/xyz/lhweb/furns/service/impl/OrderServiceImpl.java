@@ -46,7 +46,7 @@ public class OrderServiceImpl extends BasicDAO<Order> implements OrderService {
         // 先生成一个UUID, 表示当前的订单号, 订单号要保证是唯一
         String orderId = System.currentTimeMillis() + "" + memberName;
         Member member = memberDAO.queryMemberByUsername(memberName);
-        Order order = new Order(orderId, new Date(), cart.getCartTotalPrice(), 0, member.getId());
+        Order order = new Order(orderId, new Date(), cart.getCartTotalPrice(), 0, member.getId(),"泉州信息工程学院");
         // 保存order到数据表.
         orderDAo.saveOrder(order);
         // 2.通过cart对象 ,遍历出CartItem, 构建OrderItem对象， 并保存到对应的表order_item
@@ -116,7 +116,7 @@ public class OrderServiceImpl extends BasicDAO<Order> implements OrderService {
     /**
      * @param pageNo
      * @param pageSize
-     * @param uid
+     * @param memberId
      * @return
      */
     @Override

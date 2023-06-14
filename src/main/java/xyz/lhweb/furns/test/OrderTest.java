@@ -35,7 +35,7 @@ public class OrderTest {
     }
 
     private static void daoSave(OrderDAo dao) {
-        Order order = new Order("001",new Date(),new BigDecimal(99),0,2);
+        Order order = new Order("001",new Date(),new BigDecimal(99),0,2,"005");
         int i = dao.saveOrder(order);
         if (i == 1) {
             System.out.println("添加成功："+order);

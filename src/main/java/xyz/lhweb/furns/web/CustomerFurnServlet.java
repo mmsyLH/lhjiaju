@@ -64,6 +64,7 @@ public class CustomerFurnServlet extends BasicServlet {
         if (!"".equals(name)){//如果name空串
             url.append("&name=").append(name);
         }
+
         page.setUrl(url.toString());
         // System.out.println(url);
         // System.out.println(page);
@@ -79,8 +80,8 @@ public class CustomerFurnServlet extends BasicServlet {
                 .forward(req, resp);
     }
     /*
-安卓测试
-* */
+       安卓测试
+    * */
     protected void text(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.getWriter().write("hello");
     }

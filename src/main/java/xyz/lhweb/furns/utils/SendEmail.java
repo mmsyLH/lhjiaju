@@ -28,7 +28,7 @@ public class SendEmail {
     /**
      * 发送邮件
      *
-     * @param to   件人邮箱地址
+     * @param to   收件人邮箱地址
      * @param code 激活码
      * @throws Exception 异常
      */

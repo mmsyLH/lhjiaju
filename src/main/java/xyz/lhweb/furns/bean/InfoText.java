@@ -15,7 +15,6 @@ public class InfoText {
     private BigDecimal totalPrices;
     private Integer state;
 
-
     public InfoText() {
     }
 

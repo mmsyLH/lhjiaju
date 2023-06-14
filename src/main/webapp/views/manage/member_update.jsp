@@ -170,11 +170,11 @@
 <!-- Cart Area Start -->
 <div class="cart-main-area pt-100px pb-100px">
     <div class="container">
-        <h3 class="cart-page-title">家居后台管理-修改家居</h3>
+        <h3 class="cart-page-title">用户后台管理-修改用户</h3>
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                 <%--自己一定要多思考，多看代码, 多动手, 因为是post,所以我们需要使用到隐藏域id,action--%>
-                <form action="manage/furnServlet?id=${requestScope.furn.id}&action=update&pageNo=${param.pageNo}" method="post" enctype="multipart/form-data">
+                <form action="memberServlet?id=${requestScope.member.id}&action=update&pageNo=${param.pageNo}" method="post">
                     <%--传id--%>
                     <%--<input type="hidden" name="id" value="${requestScope.furn.id}">--%>
                     <%--&lt;%&ndash;确定调用servlet的update方法&ndash;%&gt;--%>
@@ -184,47 +184,30 @@
                         <table>
                             <thead>
                             <tr>
-                                <th>图片</th>
-                                <th>家居名</th>
-                                <th>商家</th>
-                                <th>价格</th>
-                                <th>销量</th>
-                                <th>库存</th>
-                                <th>操作</th>
+                                <th>用户名</th>
+                                <th>邮箱</th>
+                                <th>密码</th>
+                                <th>是否激活(0未激活、1已激活)</th>
+                                <th></th>
                             </tr>
                             </thead>
                             <tbody>
                             <tr>
-                                <td class="product-thumbnail" >
-                                    <div id="pic" >
-                                        <img id="prevView" class="img-responsive ml-3"
-                                             src="${requestScope.furn.imgPath}"
-                                             alt=""
-
-                                        />
-                                        <input type="file" name="imgPath" id="" value="${requestScope.furn.imgPath}" onchange="prev(this)"/>
-                                    </div>
-                                </td>
-                                <td class="product-name"><input name="name" style="width: 60%" type="text"
-                                                                value="${requestScope.furn.name}"/></td>
-                                <td class="product-name"><input name="maker" style="width: 90%" type="text"
-                                                                value="${requestScope.furn.maker}"/></td>
-                                <td class="product-price-cart"><input name="price" style="width: 90%" type="text"
-                                                                      value="${requestScope.furn.price}"/></td>
-                                <td class="product-quantity">
-                                    <input name="sales" style="width: 90%" type="text"
-                                           value="${requestScope.furn.sales}"/>
-                                </td>
-                                <td class="product-quantity">
-                                    <input name="stock" style="width: 90%" type="text"
-                                           value="${requestScope.furn.stock}"/>
+                                <td class="product-name"><input name="membername" style="width: 50%" type="text"
+                                                                value="${requestScope.member.username}"/></td>
+                                <td class="product-name"><input name="email" style="width: 90%" type="text"
+                                                                value="${requestScope.member.email}"/></td>
+                                <td class="product-name"><input name="pwd" style="width: 90%" type="text"
+                                                                value="${requestScope.member.password}"/></td>
+                                <%--<td class="product-name"><input name="pwd" style="width: 90%" type="text"--%>
+                                <%--                                value="${requestScope.member.pwd}"/></td>--%>
+                                <td class="product-price-cart"><input name="state" style="width: 30%" type="text"
+                                                                      value="${requestScope.member.state}"/>
                                 </td>
                                 <td>
-                                    <!--                                    <a href="#"><i class="icon-pencil"></i></a>-->
-                                    <!--                                    <a href="#"><i class="icon-close"></i></a>-->
                                     <input type="submit"
-                                           style="width: 90%;background-color: silver;border: silver;border-radius: 20%;"
-                                           value="修改家居"/>
+                                           style="width: 100px;background-color: silver;border: silver;border-radius: 20%;"
+                                           value="修改用户"/>
                                 </td>
                             </tr>
                             </tbody>

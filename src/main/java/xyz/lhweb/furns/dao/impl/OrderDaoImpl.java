@@ -30,9 +30,9 @@ public class OrderDaoImpl extends BasicDAO<Order> implements OrderDAo {
      */
     @Override
     public int saveOrder(Order order) {
-        String sql="INSERT INTO `order`(`id`,`create_time`,`price`,`status`,`member_id`) " +
-                "VALUES(?,?,?,?,?)";
-        return update(sql,order.getId(),order.getCreateTime(),order.getPrice(),order.getStatus(),order.getMemberId());
+        String sql="INSERT INTO `order`(`id`,`create_time`,`price`,`status`,`member_id`,`address`) " +
+                "VALUES(?,?,?,?,?,?)";
+        return update(sql,order.getId(),order.getCreateTime(),order.getPrice(),order.getStatus(),order.getMemberId(),order.getAddress());
     }
 
     /**

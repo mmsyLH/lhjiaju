@@ -1,10 +1,7 @@
 package xyz.lhweb.furns.web;
 
 import com.google.gson.Gson;
-import xyz.lhweb.furns.bean.Member;
-import xyz.lhweb.furns.bean.Order;
-import xyz.lhweb.furns.bean.Page;
-import xyz.lhweb.furns.bean.User;
+import xyz.lhweb.furns.bean.*;
 import xyz.lhweb.furns.service.MemberService;
 import xyz.lhweb.furns.service.UserService;
 import xyz.lhweb.furns.service.impl.MemberServiceImpl;
@@ -29,19 +26,6 @@ import static com.google.code.kaptcha.Constants.KAPTCHA_SESSION_KEY;
 @WebServlet("/memberServlet")
 public class MemberServlet extends BasicServlet {
     private MemberService memberService = new MemberServiceImpl();
-
-    // @Override
-    // protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    //     String action = request.getParameter("action");
-    //     System.out.println(action);
-    //     if ("login".equals(action)){
-    //         login(request, response);
-    //     } else if ("register".equals(action)) {
-    //         register(request, response);
-    //     }else {
-    //         System.out.println("action参数错误");
-    //     }
-    // }
 
     /**
      * 登录
@@ -71,7 +55,7 @@ public class MemberServlet extends BasicServlet {
             response.addCookie(autoLoginCookie);
         }
 
-        Member member = memberService.login(new Member(null, username, password, null,null,null));
+        Member member = memberService.login(new Member(null, username, password, null, null, null));
         if (member == null) {
             // System.out.println("登录失败");
             request.setAttribute("username", username);
@@ -94,7 +78,7 @@ public class MemberServlet extends BasicServlet {
                 return;
             }
             request.setAttribute("username", username);
-            request.setAttribute("url", request.getContextPath() + "/manage_menu.jsp");
+            request.setAttribute("url", request.getContextPath() + "/index.jsp");
             request.setAttribute("second", 10);
             // System.out.println("普通会员登录成");
             request.setAttribute("infomation", "登录成功,即将进入主页");
@@ -130,10 +114,10 @@ public class MemberServlet extends BasicServlet {
             // System.out.println(username+userpassword+email);
             // 判断用户名是否存在
             if (!memberService.isExistsUsername(username)) {
-                Member member = new Member(null, username, userpassword, email,0, DataUtils.getCode());
+                Member member = new Member(null, username, userpassword, email, 0, DataUtils.getCode());
                 if (memberService.registerMember(member)) {
                     request.setAttribute("username", username);
-                    request.setAttribute("url", request.getContextPath() + "/manage_menu.jsp");
+                    request.setAttribute("url", request.getContextPath() + "/index.jsp");
                     request.setAttribute("second", 15);
                     request.setAttribute("infomation", "注册成功,收到邮件后请去邮箱激活！<br>即将返回首页");
                     request.getRequestDispatcher("/views/member/tip.jsp").forward(request, response);
@@ -190,9 +174,9 @@ public class MemberServlet extends BasicServlet {
         // 重定向到网站首页-》 刷新首页
         HttpSession session = request.getSession();
         session.invalidate();
-        //清除自动登录的cookie
+        // 清除自动登录的cookie
         Cookie[] cookies = request.getCookies();
-        for (Cookie cookie: cookies) {
+        for (Cookie cookie : cookies) {
             if (cookie.getName().equals("autoLoginCookie")) {
                 System.out.println("autoLoginCookie找到了，进行清除");
                 cookie.setMaxAge(0);
@@ -225,12 +209,13 @@ public class MemberServlet extends BasicServlet {
         // 4.1 String resJson = "{\"isExist\":" + existsUsername + "}";
         // 4.2 将返回的数据放入map再转为json
         Map<String, Object> resultMap = new HashMap<>();
-        resultMap.put("isExist",existsUsername);
+        resultMap.put("isExist", existsUsername);
         Gson gson = new Gson();
         String resJson = gson.toJson(resultMap);
         // 5 返回
         response.getWriter().write(resJson);
     }
+
     protected void active(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
             String code = request.getParameter("code");
@@ -241,13 +226,13 @@ public class MemberServlet extends BasicServlet {
                 member.setCode(null);
                 memberService.updateMember(member);
                 request.setAttribute("username", member.getUsername());
-                request.setAttribute("url", request.getContextPath() + "/manage_menu.jsp");
+                request.setAttribute("url", request.getContextPath() + "/index.jsp");
                 request.setAttribute("second", 3);
                 request.setAttribute("infomation", "激活成功！点击登录");
                 request.getRequestDispatcher("/views/member/tip.jsp").forward(request, response);
             } else {
                 request.setAttribute("username", member.getUsername());
-                request.setAttribute("url", request.getContextPath() + "/manage_menu.jsp");
+                request.setAttribute("url", request.getContextPath() + "/index.jsp");
                 request.setAttribute("second", 3);
                 request.setAttribute("infomation", "激活失败！点击返回首页");
                 request.getRequestDispatcher("/views/member/tip.jsp").forward(request, response);
@@ -257,15 +242,123 @@ public class MemberServlet extends BasicServlet {
             throw new RuntimeException();
         }
     }
+
     protected void memberPageByname(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int pageNo= DataUtils.parseInt(request.getParameter("pageNo"), 1);
-        int pageSize= DataUtils.parseInt(request.getParameter("pageSize"), 6);
-        // Page<Order> orderPage = memberService.pageByUid(pageNo, pageSize, memberId);
-        // request.setAttribute("page", orderPage);
-        // request.setAttribute("page", orderService.pageByUid(DataUtils.parseInt(request.getParameter("pageNo"), 1),
-        //         DataUtils.parseInt(request.getParameter("pageSize"), Page.PAGE_SIZE),
-        //         memberService.queryMemberByUsername(((User) request.getSession().getAttribute("member")).getUsername()).getId()));
-        // 页面转发
-        request.getRequestDispatcher("/views/order/order_list.jsp").forward(request, response);
+        int pageNo = DataUtils.parseInt(request.getParameter("pageNo"), 1);
+        int pageSize = DataUtils.parseInt(request.getParameter("pageSize"), 8);
+        // 1 如果参数有name但是没有值,接受到的是"" 如果参数都没有 接受到的是null
+        // 2 把""和null合并处理
+        String name = request.getParameter("name");
+        if (null == name) {
+            name = "";
+        }
+        // 调用service方法, 获取Page对象
+        // Page<Furn> page = furnService.pageByName(pageNo, pageSize,name);
+        Page<Member> page = memberService.pageByName(pageNo, pageSize, name);
+        // 根据
+        StringBuilder url = new StringBuilder("memberServlet?action=memberPageByname");
+        if (!"".equals(name)) {// 如果name不是空串
+            url.append("&name=").append(name);
+        }
+        page.setUrl(url.toString());
+        // 将page放入到request域
+        request.setAttribute("page", page);
+        // 请求转发到furn_manage.jsp
+        request.getRequestDispatcher("/views/manage/member_manage.jsp")
+                .forward(request, response);
+    }
+
+    protected void addMember(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String name = request.getParameter("name");
+        boolean existsUsername = memberService.isExistsUsername(name);
+        Member loginMember = (Member) request.getSession().getAttribute("member");
+        if (existsUsername) {
+            request.setAttribute("username", loginMember.getUsername());
+            String referer = request.getHeader("Referer");
+            request.setAttribute("url", referer);
+            request.setAttribute("second", 3);
+            request.setAttribute("infomation", "用户名已经存在！");
+            request.getRequestDispatcher("/views/member/tip.jsp").forward(request, response);
+        }
+        String pwd = request.getParameter("pwd");
+        String email = request.getParameter("email");
+        Member member = new Member();
+        member.setUsername(name);
+        member.setPassword(pwd);
+        member.setEmail(email);
+        member.setState(0);
+        member.setCode(DataUtils.getCode());
+        boolean res = memberService.registerMember(member);
+        if (res) {
+            request.setAttribute("username", loginMember.getUsername());
+            request.setAttribute("url", request.getContextPath() + "/memberServlet?action=memberPageByname");
+            request.setAttribute("second", 3);
+            request.setAttribute("infomation", "添加成功！");
+            request.getRequestDispatcher("/views/member/tip.jsp").forward(request, response);
+        } else {
+            request.setAttribute("username", loginMember.getUsername());
+            String referer = request.getHeader("Referer");
+            request.setAttribute("url", referer);
+            request.setAttribute("second", 3);
+            request.setAttribute("infomation", "添加失败！");
+            request.getRequestDispatcher("/views/member/tip.jsp").forward(request, response);
+        }
+
+    }
+
+    /**
+     * 根据id删除
+     *
+     * @param request  请求
+     * @param response 响应
+     * @throws ServletException servlet异常
+     * @throws IOException      ioexception
+     */
+    protected void del(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // System.out.println("del");
+        int id = DataUtils.parseInt(request.getParameter("id"), 0);
+        memberService.delById(id);
+        // 重定向到家居列表页
+        response.sendRedirect(request.getContextPath() + "/memberServlet?action=memberPageByname&pageNo=" + request.getParameter("pageNo"));
+    }
+    /**
+     * 显示会员
+     *
+     * @param request  请求
+     * @param response 响应
+     * @throws ServletException servlet异常
+     * @throws IOException      ioexception
+     */
+    protected void showMember(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int id = DataUtils.parseInt(request.getParameter("id"), 0);
+        Member member = memberService.queryMemberById(id);
+        request.setAttribute("member", member);
+        // 请求转发到
+        request.getRequestDispatcher("/views/manage/member_update.jsp").forward(request, response);
+    }
+    /**
+     * 显示会员
+     *
+     * @param request  请求
+     * @param response 响应
+     * @throws ServletException servlet异常
+     * @throws IOException      ioexception
+     */
+    protected void update(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int id = DataUtils.parseInt(request.getParameter("id"), 0);
+        String name = request.getParameter("membername");
+        String pwd = request.getParameter("pwd");
+        String email = request.getParameter("email");
+        int state = DataUtils.parseInt(request.getParameter("state"), 0);
+        Member member = memberService.queryMemberById(id);
+        member.setPassword(pwd);
+        member.setEmail(email);
+        member.setUsername(name);
+        member.setState(state);
+        member.setId(id);
+        memberService.updateMember(member);
+        request.setAttribute("member", member);
+        // 请求转发到
+        request.getRequestDispatcher("/memberServlet?action=memberPageByname").forward(request, response);
     }
 }

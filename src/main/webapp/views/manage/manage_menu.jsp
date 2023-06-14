@@ -1,6 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -35,27 +34,35 @@
     <nav class="nav">
         <div>
             <div class="nav_brand">
-                <!-- <ion-icon name="menu-outline" class="nav_toggle" id="nav_toggle"></ion-icon> -->
                 <ion-icon name="menu-outline" class="nav_toggle" id="nav-toggle"></ion-icon>
             </div>
             <div class="nav_list">
-                <a href="views/manage/manage_menu.jsp" class="nav_link active" data-page="furn_add.jsp">
+                <a href="views/manage/manage_menu.jsp" class="nav_link active">
                     <ion-icon name="home-outline" class="nav_icon"></ion-icon>
                     <span class="nav_name">后台首页</span>
                 </a>
-                <a class="nav_link" data-page="furn_manage.jsp">
-                    <ion-icon name="chatbubbles-outline" class="nav_icon"></ion-icon>
-                    <span class="nav_name">订单管理（未做）</span>
+                <a href="views/manage/manage_menu.jsp" class="nav_link">
+                    <ion-icon name="chatbubbles-outline" class="nav_icon "></ion-icon>
+                    <span class="nav_name">订单管理</span>
                 </a>
-                <div class="nav_link collapse2" data-page="manage_login.jsp">
+                <div class="nav_link collapse2">
+                    <ion-icon name="chatbubbles-outline" class="nav_icon "></ion-icon>
+                    <span class="nav_name">订单管理</span>
+                    <ion-icon name="chevron-down-outline" class="collapse2__link"></ion-icon>
+                    <ul class="collapse2_menu">
+                        <a href="memberServlet?action=memberPageByname" class="collapse2__sublink">用户管理</a>
+                        <a href="#" class="collapse2__sublink">添加用户</a>
+                        <a href="#" class="collapse2__sublink">cccc</a>
+                    </ul>
+                </div>
+                <div class="nav_link collapse2">
                     <ion-icon name="folder-outline" class="nav_icon"></ion-icon>
                     <span class="nav_name">家居后台（未做）</span>
                     <ion-icon name="chevron-down-outline" class="collapse2__link"></ion-icon>
                     <ul class="collapse2_menu">
-                        <a href="manage/furnServlet?action=page&pageNo=1&pageSize=5" class="collapse2__sublink">家居管理</a>
-                        <a href="views/manage/furn_add.jsp?pageNo=${requestScope.page.pageNo}" class="collapse2__sublink">添加家居</a>
-                        <a href="#" class="collapse2__sublink">bbb</a>
-                        <a href="#" class="collapse2__sublink">bbb</a>
+                        <a href="manage/furnServlet?action=page&pageNo=1&pageSize=5" class="collapse2__sublink">用户管理</a>
+                        <a href="views/manage/furn_add.jsp?pageNo=${requestScope.page.pageNo}"
+                           class="collapse2__sublink">添加家居</a>
                     </ul>
                 </div>
                 <a href="#" class="nav_link" data-page="furn_update.jsp.jsp">
@@ -64,12 +71,11 @@
                 </a>
                 <div class="nav_link collapse2">
                     <ion-icon name="people-outline" class="nav_icon"></ion-icon>
-                    <span class="nav_name">用户(未做)</span>
+                    <span class="nav_name">用户</span>
                     <ion-icon name="chevron-down-outline" class="collapse2__link"></ion-icon>
                     <ul class="collapse2_menu">
-                        <a href="#" class="collapse2__sublink">aaaaaaaaaaaaaaaaaaaaaaaaaaaaa</a>
-                        <a href="#" class="collapse2__sublink">bbbb</a>
-                        <a href="#" class="collapse2__sublink">cccc</a>
+                        <a href="memberServlet?action=memberPageByname" class="collapse2__sublink">用户管理</a>
+                        <a href="views/manage/member_add.jsp" class="collapse2__sublink">添加用户</a>
                     </ul>
                 </div>
 
@@ -88,8 +94,8 @@
 <%--右侧内容开始--%>
 <!-- Header Area start  -->
 <div class="header section">
-    <!-- Header Top  End -->
-    <!-- Header Bottom  Start -->
+    <%--<!-- Header Top  End -->--%>
+    <%--<!-- Header Bottom  Start -->--%>
     <div class="header-bottom d-none d-lg-block">
         <div class="container position-relative">
             <div class="row align-self-center">
@@ -102,7 +108,7 @@
                 <!-- Header Logo End -->
 
                 <!-- Header Action Start -->
-                <div class="col align-self-center">
+<%--                <div class="col align-self-center">
                     <div class="header-actions">
                         <!-- Single Wedge Start -->
                         <div class="header-bottom-set dropdown">
@@ -118,7 +124,7 @@
                             <a href="views/manage/index.jsp">index.jsp</a>
                         </div>
                     </div>
-                </div>
+                </div>--%>
                 <!-- Header Action End -->
             </div>
         </div>
@@ -148,7 +154,6 @@
         <h3 class="cart-page-title">家居后台管理-菜单</h3>
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-
             </div>
         </div>
     </div>
@@ -189,8 +194,7 @@
                             <div class="footer-links">
                                 <div class="footer-row">
                                     <ul class="align-items-center">
-                                        <li class="li"><a class="single-link" href="my-account.html">我的账号</a>
-                                        </li>
+                                        <li class="li"><a class="single-link" href="my-account.html">我的账号</a></li>
                                         <li class="li"><a class="single-link" href="cart.html">我的购物车</a></li>
                                         <li class="li"><a class="single-link" href="login.html">登录</a></li>
                                         <li class="li"><a class="single-link" href="wishlist.html">感兴趣的</a></li>
@@ -203,7 +207,6 @@
                     <!-- End single blog -->
                     <!-- Start single blog -->
                     <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="800">
-
                     </div>
                     <!-- End single blog -->
                 </div>
@@ -235,34 +238,36 @@
 <script type="module" src="https://unpkg.com/ionicons@5.1.2/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule="" src="https://unpkg.com/ionicons@5.1.2/dist/ionicons/ionicons.js"></script>
 <script type="text/javascript">
-    const showMenu = (toggleId,navbarId,bodyId)=>{
+    const showMenu = (toggleId, navbarId, bodyId) => {
         const toggle = document.getElementById(toggleId),
             navbar = document.getElementById(navbarId);
         bodypadding = document.getElementById(bodyId);
 
-        if(toggle && navbar){
-            toggle.addEventListener('click',()=>{
+        if (toggle && navbar) {
+            toggle.addEventListener('click', () => {
                 navbar.classList.toggle('expander')
                 bodypadding.classList.toggle('body-pd')
             })
         }
     }
 
-    showMenu('nav-toggle','navbar','body-pd')
+    showMenu('nav-toggle', 'navbar', 'body-pd')
 
 
     const linkColor = document.querySelectorAll(".nav_link")
-    function colorLink(){
-        linkColor.forEach(l=> l.classList.remove('active'))
+
+    function colorLink() {
+        linkColor.forEach(l => l.classList.remove('active'))
         this.classList.add('active')
     }
-    linkColor.forEach(l=> l.addEventListener('click',colorLink))
+
+    linkColor.forEach(l => l.addEventListener('click', colorLink))
 
     const linkCollapse2 = document.getElementsByClassName('collapse2__link')
     var i
 
-    for(i=0;i<linkCollapse2.length;i++){
-        linkCollapse2[i].addEventListener('click',function(){
+    for (i = 0; i < linkCollapse2.length; i++) {
+        linkCollapse2[i].addEventListener('click', function () {
             const collapse2Menu = this.nextElementSibling
             collapse2Menu.classList.toggle('showCollapse2')
 

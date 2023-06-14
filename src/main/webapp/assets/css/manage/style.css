@@ -39,7 +39,12 @@ ul{
   list-style: none;
 }
 a{
+    display: inline-block;
+    /*width: 100px;*/
   text-decoration: none;
+}
+ul.collapse2_menu a {
+    width: 100px;
 }
 
 .l-navbar{
@@ -125,7 +130,7 @@ a{
 
 .collapse2{
     /* grid-template-columns: 20px max-content 1rf; */
-    grid-template-columns: 20px max-content 1fr;
+    grid-template-columns: 20px max-content 10fr;
 
 }
 

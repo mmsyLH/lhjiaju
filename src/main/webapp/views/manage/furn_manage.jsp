@@ -38,7 +38,7 @@
                 <ion-icon name="menu-outline" class="nav_toggle" id="nav-toggle"></ion-icon>
             </div>
             <div class="nav_list">
-                <a href="views/manage/manage_menu.jsp" class="nav_link active" data-page="furn_add.jsp">
+                <a href="views/manage/manage_menu.jsp" class="nav_link " data-page="furn_add.jsp">
                     <ion-icon name="home-outline" class="nav_icon"></ion-icon>
                     <span class="nav_name">后台首页</span>
                 </a>
@@ -46,12 +46,12 @@
                     <ion-icon name="chatbubbles-outline" class="nav_icon"></ion-icon>
                     <span class="nav_name">订单管理</span>
                 </a>
-                <div class="nav_link collapse2" data-page="manage_login.jsp">
+                <div class="nav_link collapse2 active" data-page="manage_login.jsp">
                     <ion-icon name="folder-outline" class="nav_icon"></ion-icon>
                     <span class="nav_name">家居后台管理</span>
                     <ion-icon name="chevron-down-outline" class="collapse2__link"></ion-icon>
                     <ul class="collapse2_menu">
-                        <a href="manage/furnServlet?action=page&pageNo=1&pageSize=5" class="collapse2__sublink">家居管理</a>
+                        <a href="manage/furnServlet?action=page&pageNo=1&pageSize=5" class="collapse2__sublink" style="width: 100px">家居管理</a>
                         <a href="views/manage/furn_add.jsp?pageNo=${requestScope.page.pageNo}" class="collapse2__sublink">添加家居</a>
                         <a href="#" class="collapse2__sublink">bbb</a>
                         <a href="#" class="collapse2__sublink">bbb</a>

@@ -164,21 +164,24 @@
                             <tbody>
                             <tr>
                                 <td class="product-thumbnail">
-                                    <a href="#"><img class="img-responsive ml-3" src="assets/images/product-image/default.jpg"
-                                                     alt=""/></a>
+                                    <a href="#"><img class="img-responsive ml-3" src="assets/images/product-image/default.jpg" alt=""/></a>
                                 </td>
-                                <td class="product-name"><input name="name" style="width: 60%" type="text" value="Name"/></td>
-                                <td class="product-name"><input name="maker" style="width: 90%" type="text" value="蚂蚁家居"/></td>
-                                <td class="product-price-cart"><input name="price" style="width: 90%" type="text" value="60.00"/></td>
-                                <td class="product-quantity">
-                                    <input name="sales" style="width: 90%" type="text" value="100"/>
+                                <td class="product-name">
+                                    <input name="name" style="width: 80%; padding: 5px;" type="text" value="" placeholder="请输入家居名称"/>
+                                </td>
+                                <td class="product-name">
+                                    <input name="maker" style="width: 60%; padding: 5px;" type="text" value="" placeholder="请输入商家"/>
+                                </td>
+                                <td class="product-price-cart">
+                                    <input name="price" style="width: 50%; padding: 5px;" type="text" value="" placeholder="请输入价格"/>
                                 </td>
                                 <td class="product-quantity">
-                                    <input name="stock" style="width: 90%" type="text" value="80"/>
+                                    <input name="sales" style="width: 50%; padding: 5px;" type="text" value="" placeholder="请输入销量"/>
+                                </td>
+                                <td class="product-quantity">
+                                    <input name="stock" style="width: 50%; padding: 5px;" type="text" value="" placeholder="请输入库存"/>
                                 </td>
                                 <td>
-                                    <!--                                    <a href="#"><i class="icon-pencil"></i></a>-->
-                                    <!--                                    <a href="#"><i class="icon-close"></i></a>-->
                                     <input type="submit" style="width: 90%;background-color: silver;border: silver;border-radius: 20%;" value="添加家居"/>
                                 </td>
                             </tr>
