@@ -133,6 +133,13 @@ public class FurnServlet extends BasicServlet {
         response.sendRedirect(request.getContextPath() + "/manage/furnServlet?action=page&pageNo=" + request.getParameter("pageNo"));
     }
 
+    protected void delByIds(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String[] ids = request.getParameterValues("ck");
+        //n为删除的成功的次数
+        int n = furnService.deleteFurnByIds(ids);
+        // 重定向到家居列表页
+        response.sendRedirect(request.getContextPath() + "/manage/furnServlet?action=page&pageNo=" + request.getParameter("pageNo"));
+    }
     /**
      * 展示回显家具
      *
@@ -270,12 +277,45 @@ public class FurnServlet extends BasicServlet {
     protected void page(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // System.out.println("page");
         int pageNo = DataUtils.parseInt(request.getParameter("pageNo"), 1);
-        int pageSize = DataUtils.parseInt(request.getParameter("pageSize"), Page.PAGE_SIZE);
+        int pageSize = DataUtils.parseInt(request.getParameter("pageSize"), 5);
         Page<Furn> page = furnService.page(pageNo, pageSize);
         // System.out.println(page);
         request.setAttribute("page", page);
         // 请求转发
         // 请求转发
         request.getRequestDispatcher("/views/manage/furn_manage.jsp").forward(request, response);
+    }
+    protected void pageByName(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        // System.out.println("page");
+        //这里的业务逻辑和后台分页显示家居信息非常相似
+        int pageNo = DataUtils.parseInt(req.getParameter("pageNo"), 1);
+        int pageSize = DataUtils.parseInt(req.getParameter("pageSize"), 4);
+        //1 如果参数有name但是没有值,接受到的是"" 如果参数都没有 接受到的是null
+        //2 把""和null合并处理
+        String name = req.getParameter("name");
+        if(null==name){
+            name="";
+        }
+
+        //调用service方法, 获取Page对象
+        Page<Furn> page = furnService.pageByName(pageNo, pageSize,name);
+        //根据
+        StringBuilder url = new StringBuilder("furnServlet?action=pageByName");
+        if (!"".equals(name)){//如果name空串
+            url.append("&name=").append(name);
+        }
+        page.setUrl(url.toString());
+        // System.out.println(url);
+        // System.out.println(page);
+        //将page放入到request域
+        // System.out.println("page:"+page);
+        req.setAttribute("page", page);
+        // for (Furn item : page.getItems()) {
+        // System.out.println(item);
+        // }
+        // System.out.println("page"+page);
+        //请求转发到furn_manage.jsp
+        req.getRequestDispatcher("/views/manage/furn_manage.jsp")
+                .forward(req, resp);
     }
 }

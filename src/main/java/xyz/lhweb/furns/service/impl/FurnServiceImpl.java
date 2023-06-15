@@ -54,6 +54,19 @@ public class FurnServiceImpl implements FurnService {
 	}
 
 	/**
+	 * @param ids
+	 * @return
+	 */
+	@Override
+	public int deleteFurnByIds(String[] ids) {
+		int res = 0;
+		for (int i = 0; i < ids.length; i++) {
+			res+= furnDao.deleteFurnById(Integer.valueOf(ids[i]));
+		}
+		return res;
+	}
+
+	/**
 	 * 通过id查询家具
 	 *
 	 * @return {@link Furn}

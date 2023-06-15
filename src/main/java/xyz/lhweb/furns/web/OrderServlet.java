@@ -44,7 +44,6 @@ public class OrderServlet extends BasicServlet {
         //     // throw new RuntimeException(e);
         // }
         //都不为空
-
         String orderId =orderService.saveOrder(cart, member.getUsername());
         request.getSession().setAttribute("orderId",orderId);
         // orderService.saveOrder(cart,)
@@ -85,6 +84,33 @@ public class OrderServlet extends BasicServlet {
         // // 页面转发
         request.getRequestDispatcher("/views/order/order_info.jsp").forward(request, response);
     }
+    protected void showOrderInfoByManage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String orderId = request.getParameter("orderId");
+        System.out.println(orderId);
+        request.setAttribute("orderId", orderId);
+        Order order = orderService.queryOrderByOid(orderId);
+
+        // 订单项
+        List<CartItem> orderItems = orderService.getOrderInfoById(0, 5, orderId);
+        request.setAttribute("orderItems", orderItems);
+        // System.out.println("orderServlet_orderItems:"+orderItems);
+        //
+        // // 总金额
+        BigDecimal totalPrices = BigDecimal.valueOf(0);
+        for (CartItem orderItem : orderItems) {
+            totalPrices = totalPrices.add(orderItem.getTotalPrice());
+        }
+        request.setAttribute("totalPrices", totalPrices);
+        // // 显示个人信息 可设置更改
+        Member loginUser = (Member) request.getSession().getAttribute("member");
+        Member user = memberService.queryMemberByUsername(loginUser.getUsername());
+
+        InfoText infoText = new InfoText(order.getAddress(), user.getUsername(), "18259421368", totalPrices, order.getStatus());
+        // System.out.println("orderServlet_infoText:" + infoText);
+        request.setAttribute("InfoText", infoText);
+        // 页面转发
+        request.getRequestDispatcher("/views/manage/order_infoByManage.jsp").forward(request, response);
+    }
     protected void showOrdersByuid(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int pageNo= DataUtils.parseInt(request.getParameter("pageNo"), 1);
         int pageSize= DataUtils.parseInt(request.getParameter("pageSize"), 6);
@@ -100,21 +126,49 @@ public class OrderServlet extends BasicServlet {
     protected void OrdersByuid(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int pageNo= DataUtils.parseInt(request.getParameter("pageNo"), 1);
         int pageSize= DataUtils.parseInt(request.getParameter("pageSize"), 6);
-
         //1 如果参数有name但是没有值,接受到的是"" 如果参数都没有 接受到的是null
         //2 把""和null合并处理
-        String memberId = request.getParameter("uid");
+        String memberId = request.getParameter("oid");
         if(null==memberId){
             memberId="";
         }
         // int memberId = DataUtils.parseInt(request.getParameter("uid"), 0);
         // Integer memberId = memberService.queryMemberByUsername(((Member) request.getSession().getAttribute("member")).getUsername()).getId();
-        Page<Order> orderPage = orderService.pageByUid(pageNo, pageSize, Integer.valueOf(memberId));
+        Page<Order> orderPage = orderService.pageByOid(pageNo, pageSize, memberId);
         request.setAttribute("page", orderPage);
-        // request.setAttribute("page", orderService.pageByUid(DataUtils.parseInt(request.getParameter("pageNo"), 1),
-        //         DataUtils.parseInt(request.getParameter("pageSize"), Page.PAGE_SIZE),
-        //         memberService.queryMemberByUsername(((User) request.getSession().getAttribute("member")).getUsername()).getId()));
         // 页面转发
-        request.getRequestDispatcher("/views/order/order_list.jsp").forward(request, response);
+        request.getRequestDispatcher("/views/manage/order_manage.jsp").forward(request, response);
+    }
+    protected void delByOid(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // System.out.println("del");
+        String id=request.getParameter("id");
+        orderService.deleteOrderById(id);
+        // 重定向到家居列表页
+        response.sendRedirect(request.getContextPath() + "/orderServlet?action=OrdersByuid&pageNo=" + request.getParameter("pageNo"));
+    }
+    /**
+     * 确认付款
+     *
+     * @param request  请求
+     * @param response 响应
+     * @throws ServletException servlet异常
+     * @throws IOException      ioexception
+     */
+    protected void confirmPayment(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        //支付宝支付功能
+        //跳转回原来页面
+        int state= DataUtils.parseInt(request.getParameter("state"), -1);
+        String orderId = request.getParameter("orderId");
+            Order order = orderService.queryOrderByOid(orderId);
+            order.setStatus(state+1);
+        Boolean res = orderService.updateOrder(order);
+        if (res) {
+                // request.setAttribute("url", request.getContextPath() + "/jsp/order_info.jsp");
+                request.setAttribute("url", "orderServlet?action=OrdersByuid");
+                request.setAttribute("second", 5);
+                request.setAttribute("infomation", "订单状态已更新");
+                // 页面转发
+                request.getRequestDispatcher("/views/member/tip.jsp").forward(request, response);
+            }
     }
 }

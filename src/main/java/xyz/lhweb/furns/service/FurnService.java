@@ -33,6 +33,7 @@ public interface FurnService {
      * @return int 是受影响的行数
      */
     int deleteFurnById(int id);
+    int deleteFurnByIds(String[] id);
     /**
      * 通过id查询家具
      *

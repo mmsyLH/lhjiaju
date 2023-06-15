@@ -146,4 +146,62 @@ public class OrderServiceImpl extends BasicDAO<Order> implements OrderService {
         return page;
 
     }
+
+    /**
+     * 页面oid
+     *
+     * @param pageNo   页面没有
+     * @param pageSize 页面大小
+     * @param oid      oid
+     * @return {@link Page}<{@link Order}>
+     */
+    @Override
+    public Page<Order> pageByOid(int pageNo, int pageSize, String oid) {
+        // //先创建一个page对象，然后根据实际情况填充属性
+        Page<Order> page = new Page<>();
+        page.setPageNo(pageNo);
+        page.setPageSize(pageSize);
+        int totalRow = orderDAo.getTotalRowByOid(oid);
+        // System.out.println("OrderServiceImpl_totalRow"+totalRow);
+        page.setTotalRow(totalRow);
+        //比如 6 2  =》  6 / 2 = 3
+        //比如 5 2  =》  5 / 2 = 2
+        int pageTotalCount=totalRow/pageSize;
+        if (totalRow%pageSize>0){
+            pageTotalCount+=1;
+        }
+        page.setPageTotalCount(pageTotalCount);
+        // private List<T> items;
+        //验证: pageNo = 1 pageSize = 3 => begin =0
+        //验证: pageNo = 3 pageSize = 2 => begin =4
+        //OK => 但是注意这里隐藏一个坑, 现在你看不到, 后面会暴露
+        int begin=(pageNo-1)*pageSize;
+        List<Order> pageItems = orderDAo.getPageItemsByOid(begin, pageSize,oid);
+        page.setItems(pageItems);
+        return page;
+    }
+
+    /**
+     * 通过订单d去删除订单表和订单项表里的数据
+     *
+     * @param id id
+     * @return boolean
+     */
+    @Override
+    public boolean deleteOrderById(String id) {
+        int res1=orderDAo.deleteOrderById(id);
+        int res2=orderItemDAo.deleteOrderById(id);
+        return (res1+res2)==2;
+    }
+
+    /**
+     * 更新订单
+     *
+     * @param order 订单
+     * @return {@link String}
+     */
+    @Override
+    public Boolean updateOrder(Order order) {
+        return orderDAo.updateOrder(order)==1;
+    }
 }

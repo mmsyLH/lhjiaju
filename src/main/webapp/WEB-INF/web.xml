@@ -64,6 +64,7 @@
         <servlet-name>KaptchaServlet</servlet-name>
         <url-pattern>/kaptchaServlet</url-pattern>
     </servlet-mapping>
+
     <servlet-mapping>
         <servlet-name>CustomerFurnServlet</servlet-name>
         <url-pattern>/customerFurnServlet</url-pattern>
@@ -76,8 +77,6 @@
         <servlet-name>FurnServlet</servlet-name>
         <url-pattern>/manage/furnServlet</url-pattern>
     </servlet-mapping>
-
-
     <!--404错误页面-->
     <!--<error-page>-->
     <!--    <error-code>404</error-code>-->

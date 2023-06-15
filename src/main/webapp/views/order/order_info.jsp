@@ -162,7 +162,7 @@
                 <c:when test="${InfoText.state==1 || InfoText.state==0}">
                     <input type="submit" width="190" value="更改收货信息" name="submit" border="0"
                            style="background: url('${pageContext.request.contextPath}/assets/images/register.gif') no-repeat scroll 0 0 rgba(0, 0, 0, 0);
-                                   height:35px;width:130px;color:white;">
+                                   height:45px;width:130px;color:white;background-size: 500px">
                 </c:when>
             </c:choose>
 
@@ -200,12 +200,12 @@
                         <a href="">
                             <input type="submit" width="190" value="暂不付款,回到首页" name="submit" border="0"
                                    style="background: url('${pageContext.request.contextPath}/assets/images/register.gif') no-repeat scroll 0 0 rgba(0, 0, 0, 0);
-                                           height:35px;width:130px;color:white;">
+                                           height:45px;width:170px;color:white;background-size: 500px">
                         </a>
                         <a >
                             <input type="submit" width="100" value="确认付款" name="submit" border="0"
                                    style="background: url('${pageContext.request.contextPath}/assets/images/register.gif') no-repeat scroll 0 0 rgba(0, 0, 0, 0);
-                                           height:35px;width:100px;color:white;" onclick="dj()">
+                                           height:45px;width:130px;color:white;background-size: 500px" onclick="fukuan()">
                         </a>
 
                     </p>
@@ -296,7 +296,7 @@
 <!-- Main Js -->
 <script src="assets/js/main.js"></script>
 <script type="text/javascript">
-    function dj() {
+    function fukuan() {
         var id = Math.round(Math.random() * 10000 + 1000);
         window.open("http://120.78.240.231:8080/ssm-alipay/alipay/goPay.action?orderId=" + id + "&amount=" + ${InfoText.totalPrices} + "&name=商品&buyCounts=123213")
         window.close();

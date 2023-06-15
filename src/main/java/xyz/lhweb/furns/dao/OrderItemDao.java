@@ -32,4 +32,12 @@ public interface OrderItemDao {
      * @return {@link List}<{@link CartItem}>
      */
     List<CartItem> getOrderInfoById(int begin, int pageSize, String oid);
+
+    /**
+     * 删除订单id
+     *
+     * @param id id
+     * @return int
+     */
+    int deleteOrderById(String id);
 }

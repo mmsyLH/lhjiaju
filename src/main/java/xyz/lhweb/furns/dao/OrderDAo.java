@@ -32,6 +32,7 @@ public interface OrderDAo {
      * @return int
      */
     int getTotalRowByUid(Integer uid);
+    int getTotalRowByOid(String oid);
     /**
      * 通过uid显示订单
      *
@@ -47,5 +48,23 @@ public interface OrderDAo {
      * @return int
      */
     int updateOrder(Order order) ;
+
+    /**
+     * 被oid页面项目
+     *
+     * @param begin    开始
+     * @param pageSize 页面大小
+     * @param oid      oid
+     * @return {@link List}<{@link Order}>
+     */
+    List<Order> getPageItemsByOid(int begin, int pageSize, String oid);
+
+    /**
+     * 删除订单id
+     *
+     * @param id id
+     * @return int
+     */
+    int deleteOrderById(String id);
 }
 

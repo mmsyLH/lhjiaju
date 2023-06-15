@@ -77,4 +77,16 @@ public class OrderItemImpl extends BasicDAO<OrderItem> implements OrderItemDao {
         }
         return cartItem;
     }
+
+    /**
+     * 删除订单id
+     *
+     * @param id id
+     * @return int
+     */
+    @Override
+    public int deleteOrderById(String id) {
+        String sql = "delete from `order_item` where `order_id`=?";
+        return update(sql, id);
+    }
 }

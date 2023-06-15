@@ -16,23 +16,12 @@
     <link rel="stylesheet" href="assets/css/plugins/plugins.min.css"/>
     <link rel="stylesheet" href="assets/css/style.min.css">
     <script type="text/javascript">
-
-
         $(function () {
-            $('#del').click(function() {
-                if (confirm("您确定真的要批量删除吗？")) {
-                    $('#delForm').submit();
-                    return true;
-                } else {
-                    return false;
-                }
-            });
-
             // alert("引入jquery成功")
             //绑定一个点击事件 基础选择器
             $("a.deleteCss").click(function () {
                 //2个paremt找到tr          eq(1)第二个
-                var furnName = $(this).parent().parent().find("td:eq(1)").text();
+                var furnName = $(this).parent().parent().find("td:eq(0)").text();
                 //confirm 对话窗口
                 //点击确定返回ture,点击取消返回false
                 return confirm("你确定要删除[" + furnName + "]?");
@@ -53,7 +42,7 @@
                     <ion-icon name="home-outline" class="nav_icon"></ion-icon>
                     <span class="nav_name">后台首页</span>
                 </a>
-                <a href="orderServlet?action=OrdersByuid" class="nav_link">
+                <a href="orderServlet?action=OrdersByuid" class="nav_link active">
                     <ion-icon name="chatbubbles-outline" class="nav_icon "></ion-icon>
                     <span class="nav_name">订单管理</span>
                 </a>
@@ -67,7 +56,7 @@
                 <%--        <a href="#" class="collapse2__sublink">cccc</a>--%>
                 <%--    </ul>--%>
                 <%--</div>--%>
-                <div class="nav_link collapse2 active">
+                <div class="nav_link collapse2">
                     <ion-icon name="folder-outline" class="nav_icon"></ion-icon>
                     <span class="nav_name">家居后台</span>
                     <ion-icon name="chevron-down-outline" class="collapse2__link"></ion-icon>
@@ -126,21 +115,17 @@
                             <a href="javascript:void(0)" class="header-action-btn search-btn"><i
                                     class="icon-magnifier"></i></a>
                             <div class="dropdown_search">
-                                <form class="action-form" action="manage/furnServlet">
-                                    <input type="hidden" name="action" value="pageByName">
-                                    <input class="form-control" name="name" placeholder="输入家居名搜索" type="text">
+                                <form class="action-form" action="orderServlet">
+                                    <input class="form-control" name="oid" placeholder="请输入订单号" type="text">
+                                    <input class="form-control" name="action" value="OrdersByuid" type="hidden">
                                     <button class="submit" type="submit"><i class="icon-magnifier"></i></button>
                                 </form>
                             </div>
                         </div>
-                        <div>搜索家居</div>
                         <!-- Single Wedge Start -->
-                        <%--<div class="header-bottom-set dropdown">--%>
-                        <%--    <a href="views/manage/manage_menu.jsp">后台管理</a>--%>
-                        <%--</div>--%>
-                        <%--<div class="header-bottom-set dropdown">--%>
-                        <%--    <a href="views/manage/furn_add.jsp?pageNo=${requestScope.page.pageNo}">添加家居</a>--%>
-                        <%--</div>--%>
+                        <div class="header-bottom-set dropdown">
+                            <a>订单号搜索</a>
+                        </div>
                     </div>
                 </div>
                 <!-- Header Action End -->
@@ -168,124 +153,73 @@
 </div>
 <!-- Cart Area Start -->
 <div class="cart-main-area pt-100px pb-100px">
-    <div class="container">
-        <h3 class="cart-page-title">家居后台管理</h3>
+    <div class="container"><h3 class="cart-page-title">订单管理</h3>
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-                <form
-                        action="manage/furnServlet"
-                        method="get"
-                        id="delForm">
-                    <input type="hidden" name="action" value="delByIds">
+                <form action="#">
                     <div class="table-content table-responsive cart-table-content">
                         <table>
                             <thead>
                             <tr>
-                                <th><div class="button-box">
-                                    <button type="button" id="del"><span>批量删除</span></button>
-                                </div></th>
-                                <th>图片</th>
-                                <th>家居名</th>
-                                <th>商家</th>
+                                <th>订单号</th>
+                                <th>下单时间</th>
                                 <th>价格</th>
-                                <th>销量</th>
-                                <th>库存</th>
+                                <th>状态</th>
+                                <th>用户ID</th>
                                 <th>操作</th>
                             </tr>
                             </thead>
-                            <tbody>
-                            <%--取出furns集合，循环显示--%>
-                            <c:forEach items="${requestScope.page.items}" var="furn">
+                            <tbody> <%--取出orders集合，循环显示--%> <c:forEach items="${requestScope.page.items}" var="order">
                                 <tr>
-                                    <td><input style="width: 20px" type="checkbox" name="ck" value=${furn.id}></td>
-                                    <td class="product-thumbnail">
-                                        <a href="#">
-                                            <img class="img-responsive ml-3"
-                                                 src="${furn.imgPath}"
-                                                 alt=""/></a>
-                                    </td>
-                                    <td class="product-name"><a href="#">${furn.name}</a></td>
-                                    <td class="product-name"><a href="#">${furn.maker}</a></td>
-                                    <td class="product-price-cart"><span class="amount">${furn.price}</span></td>
-                                    <td class="product-quantity">
-                                            ${furn.sales}
-                                    </td>
-                                    <td class="product-quantity">
-                                            ${furn.stock}
-                                    </td>
-                                    <td class="product-remove">
-                                        <a href="manage/furnServlet?action=showFurn&id=${furn.id}&pageNo=${requestScope.page.pageNo}"><i
-                                                class="icon-pencil"></i></a>
-                                        <a class="deleteCss"
-                                           href="manage/furnServlet?action=del&id=${furn.id}&pageNo=${requestScope.page.pageNo}"><i
-                                                class="icon-close"></i></a>
-                                    </td>
+                                    <td class="product-name"><a href="#">${order.id}</a></td>
+                                    <td class="product-name"><a href="#">${order.createTime}</a></td>
+                                    <td class="product-price-cart"><span class="amount">${order.price}</span></td>
+                                    <td class="product-quantity"> ${order.status} </td>
+                                    <td class="product-quantity"> ${order.memberId} </td>
+                                    <td class="product-remove"><a
+                                            href="orderServlet?action=showOrderInfoByManage&orderId=${order.id}"><i
+                                            class="icon-pencil"></i></a> <a class="deleteCss"
+                                            href="orderServlet?action=delByOid&id=${order.id}&pageNo=${requestScope.page.pageNo}"><i
+                                            class="icon-close"></i></a></td>
                                 </tr>
-                            </c:forEach>
-                            </tbody>
+                            </c:forEach></tbody>
                         </table>
                     </div>
                 </form>
             </div>
         </div>
-        <!--  Pagination Area Start 分页导航条 -->
+        <!-- Pagination Area Start 分页导航条 -->
         <div class="pro-pagination-style text-center mb-md-30px mb-lm-30px mt-6" data-aos="fade-up">
             <ul>
+                <li><a href="orderServlet?action=OrdersByuid&pageNo=1">首页</a></li>
                 <%--如果当前页 > 1 , 就显示上一页--%>
                 <c:if test="${requestScope.page.pageNo > 1}">
-                    <li><a href="manage/furnServlet?action=page&pageNo=${requestScope.page.pageNo - 1}">上一页</a></li>
+                    <%--<li><a href="customerFurnServlet?action=OrdersByuid&pageNo=${requestScope.page.pageNo - 1}">上一页</a></li>--%>
+                    <li><a href="orderServlet?action=OrdersByuid&pageNo=${page.pageNo-1}">上一页</a></li>
                 </c:if>
-                <c:choose>
-                    <%--1. 如果总页数<=5, 就全部显示--%>
-                    <c:when test="${requestScope.page.pageTotalCount <=5 }">
-                        <c:set var="begin" value="1"/>
-                        <c:set var="end" value="${requestScope.page.pageTotalCount}"/>
-                    </c:when>
-                    <%--2. 如果总页数>5--%>
-                    <c:when test="${requestScope.page.pageTotalCount > 5 }">
-                        <c:choose>
-                            <%--2.1 如果当前页是前3页, 就显示1-5--%>
-                            <c:when test="${requestScope.page.pageNo <=3 }">
-                                <c:set var="begin" value="1"/>
-                                <c:set var="end" value="5"/>
-                            </c:when>
-                            <%--2.2 如果当前页是后3页, 就显示最后5页--%>
-                            <c:when test="${requestScope.page.pageNo >requestScope.page.pageTotalCount-3 }">
-                                <%--总页数-4  比如1 2 3 4 5 6 7 8 当前是6,7,8 则显示4,5,6,7,8--%>
-                                <c:set var="begin" value="${requestScope.page.pageTotalCount-4}"/>
-                                <c:set var="end" value="${requestScope.page.pageTotalCount}"/>
-                            </c:when>
-                            <%--2.3 如果当前页是中间页, 就显示 当前页前2页, 当前页 , 当前页后两页--%>
-                            <c:otherwise>
-                                <%--其他情况--%>
-                                <c:set var="begin" value="${requestScope.page.pageNo-2}"/>
-                                <c:set var="end" value="${requestScope.page.pageNo+2}"/>
-                            </c:otherwise>
-                        </c:choose>
-                    </c:when>
-                </c:choose>
-                <%--                <c:set var="begin" value="1"/>--%>
-                <%--                <c:set var="end" value="${requestScope.page.pageTotalCount}"/>--%>
+                <c:set var="begin" value="1"/>
+                <c:set var="end" value="${requestScope.page.pageTotalCount}"/>
                 <c:forEach begin="${begin}" end="${end}" var="i">
                     <%--如果i是当前页, 就使用class="active" 修饰--%>
                     <c:if test="${i == requestScope.page.pageNo}">
-                        <li><a class="active" href="manage/furnServlet?action=page&pageNo=${i}">${i}</a></li>
+                        <li><a class="active" href="orderServlet?action=OrdersByuid&pageNo=${i}">${i}</a></li>
                     </c:if>
                     <c:if test="${i != requestScope.page.pageNo}">
-                        <li><a href="manage/furnServlet?action=page&pageNo=${i}">${i}</a></li>
+                        <li><a href="orderServlet?action=OrdersByuid&pageNo=${i}">${i}</a></li>
                     </c:if>
                 </c:forEach>
                 <%--如果当前页 < 总页数 , 就显示下一页--%>
                 <c:if test="${requestScope.page.pageNo < requestScope.page.pageTotalCount}">
-                    <li><a href="manage/furnServlet?action=page&pageNo=${requestScope.page.pageNo + 1}">下一页</a></li>
+                    <li><a href="orderServlet?action=OrdersByuid&pageNo=${page.pageNo+1}">下一页</a>
+                    </li>
                 </c:if>
+                <li><a href="orderServlet?action=OrdersByuid&pageNo=${requestScope.page.pageTotalCount}">尾页</a></li>
                 <li><a>共 ${requestScope.page.pageTotalCount} 页</a></li>
             </ul>
         </div>
-        <!--  Pagination Area End -->
+        <!-- Pagination Area End -->
     </div>
 </div>
-
 <!-- Cart Area End -->
 
 <!-- Footer Area Start -->

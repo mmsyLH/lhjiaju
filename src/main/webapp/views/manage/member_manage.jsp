@@ -30,43 +30,53 @@
     </script>
 </head>
 <body id="body-pd">
+<%--左侧内容--%>
 <div class="l-navbar" id="navbar">
     <nav class="nav">
         <div>
             <div class="nav_brand">
-                <!-- <ion-icon name="menu-outline" class="nav_toggle" id="nav_toggle"></ion-icon> -->
                 <ion-icon name="menu-outline" class="nav_toggle" id="nav-toggle"></ion-icon>
             </div>
             <div class="nav_list">
-                <a href="views/manage/manage_menu.jsp" class="nav_link " data-page="furn_add.jsp">
+                <a href="views/manage/manage_menu.jsp" class="nav_link">
                     <ion-icon name="home-outline" class="nav_icon"></ion-icon>
                     <span class="nav_name">后台首页</span>
                 </a>
-                <a class="nav_link" data-page="furn_manage.jsp">
-                    <ion-icon name="chatbubbles-outline" class="nav_icon"></ion-icon>
+                <a href="orderServlet?action=OrdersByuid" class="nav_link">
+                    <ion-icon name="chatbubbles-outline" class="nav_icon "></ion-icon>
                     <span class="nav_name">订单管理</span>
                 </a>
-                <div class="nav_link collapse2 active" data-page="manage_login.jsp">
+                <%--<div class="nav_link collapse2">--%>
+                <%--    <ion-icon name="chatbubbles-outline" class="nav_icon "></ion-icon>--%>
+                <%--    <span class="nav_name">订单管理</span>--%>
+                <%--    <ion-icon name="chevron-down-outline" class="collapse2__link"></ion-icon>--%>
+                <%--    <ul class="collapse2_menu">--%>
+                <%--        <a href="memberServlet?action=memberPageByname" class="collapse2__sublink">用户管理</a>--%>
+                <%--        <a href="#" class="collapse2__sublink">添加用户</a>--%>
+                <%--        <a href="#" class="collapse2__sublink">cccc</a>--%>
+                <%--    </ul>--%>
+                <%--</div>--%>
+                <div class="nav_link collapse2">
                     <ion-icon name="folder-outline" class="nav_icon"></ion-icon>
-                    <span class="nav_name">会员管理</span>
+                    <span class="nav_name">家居后台</span>
                     <ion-icon name="chevron-down-outline" class="collapse2__link"></ion-icon>
                     <ul class="collapse2_menu">
-                        <a href="manage/furnServlet?action=page&pageNo=1&pageSize=5" class="collapse2__sublink" style="width: 100px">家居管理</a>
-                        <a href="views/manage/furn_add.jsp?pageNo=${requestScope.page.pageNo}" class="collapse2__sublink">添加家居</a>
+                        <a href="manage/furnServlet?action=page&pageNo=1&pageSize=5" class="collapse2__sublink">家居管理</a>
+                        <a href="views/manage/furn_add.jsp?pageNo=${requestScope.page.pageNo}"
+                           class="collapse2__sublink">添加家居</a>
                     </ul>
                 </div>
-                <a href="#" class="nav_link" data-page="furn_update.jsp.jsp">
-                    <ion-icon name="pie-chart-outline" class="nav_icon"></ion-icon>
-                    <span class="nav_name">统计</span>
-                </a>
-                <div class="nav_link collapse2">
+                <%--<a href="#" class="nav_link" data-page="furn_update.jsp.jsp">--%>
+                <%--    <ion-icon name="pie-chart-outline" class="nav_icon"></ion-icon>--%>
+                <%--    <span class="nav_name">库存管理（未做）</span>--%>
+                <%--</a>--%>
+                <div class="nav_link collapse2 active">
                     <ion-icon name="people-outline" class="nav_icon"></ion-icon>
                     <span class="nav_name">用户</span>
                     <ion-icon name="chevron-down-outline" class="collapse2__link"></ion-icon>
                     <ul class="collapse2_menu">
-                        <a href="#" class="collapse2__sublink">aaaaaaaaaaaaaaaaaaaaaaaaaaaaa</a>
-                        <a href="#" class="collapse2__sublink">bbbb</a>
-                        <a href="#" class="collapse2__sublink">cccc</a>
+                        <a href="memberServlet?action=memberPageByname" class="collapse2__sublink">用户管理</a>
+                        <a href="views/manage/member_add.jsp" class="collapse2__sublink">添加用户</a>
                     </ul>
                 </div>
 
@@ -93,7 +103,7 @@
                 <!-- Header Logo Start -->
                 <div class="col-auto align-self-center">
                     <div class="header-logo">
-                        <a href="manage_menu.jsp"><img src="assets/images/logo/logo.png" alt="Site Logo"/></a>
+                        <a href="index.jsp"><img src="assets/images/logo/logo.png" alt="Site Logo"/></a>
                     </div>
                 </div>
                 <!-- Header Logo End -->
@@ -110,7 +120,7 @@
                 <!-- Header Logo Start -->
                 <div class="col-auto align-self-center">
                     <div class="header-logo">
-                        <a href="manage_menu.jsp"><img width="280px" src="assets/images/logo/logo.png" alt="Site Logo"/></a>
+                        <a href="index.jsp"><img width="280px" src="assets/images/logo/logo.png" alt="Site Logo"/></a>
                     </div>
                 </div>
                 <!-- Header Logo End -->

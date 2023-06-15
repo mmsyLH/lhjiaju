@@ -77,10 +77,32 @@ public class OrderDaoImpl extends BasicDAO<Order> implements OrderDAo {
         String sql = "SELECT COUNT(*) FROM `order` WHERE `member_id` =?";
         try {
             conn = JDBCUtilsByDruid.getConnection();
-            // String sql = "select * from student";
-            // String sql = "delete from Product where userid=?";
             pstat = conn.prepareStatement(sql);
             pstat.setInt(1, member_id);
+            ResultSet rs = pstat.executeQuery();
+            if (rs.next()) {
+                count = rs.getInt(1);
+                // System.out.println("Table has " + count + " rows.");
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return count;
+    }
+
+    /**
+     * @param oid
+     * @return
+     */
+    @Override
+    public int getTotalRowByOid(String oid) {
+        int count = 0;
+        String sql = "SELECT COUNT(*) FROM `order` WHERE `id` LIKE CONCAT('%', ?, '%')";
+        try {
+            conn = JDBCUtilsByDruid.getConnection();
+            pstat = conn.prepareStatement(sql);
+            pstat.setString(1, oid);
             ResultSet rs = pstat.executeQuery();
             if (rs.next()) {
                 count = rs.getInt(1);
@@ -124,6 +146,48 @@ public class OrderDaoImpl extends BasicDAO<Order> implements OrderDAo {
     }
 
     /**
+     * 被oid页面项目
+     *
+     * @param begin    开始
+     * @param pageSize 页面大小
+     * @param oid      oid
+     * @return {@link List}<{@link Order}>
+     */
+    @Override
+    public List<Order> getPageItemsByOid(int begin, int pageSize, String oid) {
+        List<Order> ordersList = new ArrayList<>();
+        try {
+            conn = JDBCUtilsByDruid.getConnection();
+            String sql = "SELECT * FROM `order` WHERE `id` LIKE CONCAT('%', ?, '%') LIMIT ?, ?";
+            pstat = conn.prepareStatement(sql);
+            pstat.setString(1, oid);
+            pstat.setInt(2, begin);
+            pstat.setInt(3, pageSize);
+            res = pstat.executeQuery();
+            while (res.next()) {
+                Order orders = new Order();
+                toBean(orders);
+                ordersList.add(orders);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return ordersList;
+    }
+
+    /**
+     * 删除订单id
+     *
+     * @param id id
+     * @return int
+     */
+    @Override
+    public int deleteOrderById(String id) {
+        String sql = "delete from `order` where id=?";
+        return update(sql, id);
+    }
+
+    /**
      * 更新订单
      *
      * @param order 订单
@@ -144,5 +208,6 @@ public class OrderDaoImpl extends BasicDAO<Order> implements OrderDAo {
         order.setPrice(res.getBigDecimal("price"));
         order.setStatus(res.getInt("status"));
         order.setMemberId(res.getInt("member_id"));
+        order.setAddress(res.getString("address"));
     }
 }

@@ -43,4 +43,29 @@ public interface OrderService {
 	 */
 	List<CartItem> getOrderInfoById(int begin, int pageSize, String oid);
 	Page<Order> pageByUid(int pageNo, int pageSize, Integer uid);
+
+	/**
+	 * 页面oid
+	 *
+	 * @param pageNo   页面没有
+	 * @param pageSize 页面大小
+	 * @param oid      oid
+	 * @return {@link Page}<{@link Order}>
+	 */
+	Page<Order> pageByOid(int pageNo, int pageSize, String oid);
+
+	/**
+	 * 删除订单id
+	 *
+	 * @param id id
+	 */
+	boolean deleteOrderById(String id);
+
+	/**
+	 * 更新订单
+	 *
+	 * @param order 订单
+	 * @return {@link String}
+	 */
+	Boolean updateOrder(Order order);
 }
