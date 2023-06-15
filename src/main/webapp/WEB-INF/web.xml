@@ -78,16 +78,15 @@
         <url-pattern>/manage/furnServlet</url-pattern>
     </servlet-mapping>
     <!--404错误页面-->
-    <!--<error-page>-->
-    <!--    <error-code>404</error-code>-->
-    <!--    <location>/views/error/404.jsp</location>-->
-    <!--</error-page>-->
+    <error-page>
+        <error-code>404</error-code>
+        <location>/views/error/404.jsp</location>
+    </error-page>
     <!--500错误页面-->
-    <!--<error-page>-->
-    <!--    <error-code>500</error-code>-->
-    <!--    <location>/views/error/500.jsp</location>-->
-    <!--</error-page>-->
-
+    <error-page>
+        <error-code>500</error-code>
+        <location>/views/error/500.jsp</location>
+    </error-page>
 
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>

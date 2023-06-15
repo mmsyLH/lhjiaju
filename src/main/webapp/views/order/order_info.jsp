@@ -169,6 +169,10 @@
         </form>
 
         <hr/>
+        <form action="orderServlet" method="post">
+            <input type="hidden" name="action" value="confirmPayment2">
+            <input type="hidden" name="orderId" value="${orderId}">
+        <input type="hidden" name="state" value="${InfoText.state}">
         <%--根据订单的不同，显示不同的页面开始--%>
         <c:choose>
             <c:when test="${InfoText.state==1}">
@@ -214,7 +218,7 @@
             </c:otherwise>
         </c:choose>
         <%--根据订单的不同，显示不同的页面结束--%>
-
+        </form>
     </div>
 
 </div>

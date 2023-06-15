@@ -171,4 +171,69 @@ public class OrderServlet extends BasicServlet {
                 request.getRequestDispatcher("/views/member/tip.jsp").forward(request, response);
             }
     }
+    /**
+     * 确认付款
+     *
+     * @param request  请求
+     * @param response 响应
+     * @throws ServletException servlet异常
+     * @throws IOException      ioexception
+     */
+    protected void confirmPayment2(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        //支付宝支付功能
+        //跳转回原来页面
+        int state= DataUtils.parseInt(request.getParameter("state"), -1);
+        String orderId = request.getParameter("orderId");
+        Order order = orderService.queryOrderByOid(orderId);
+        order.setStatus(state+1);
+        Boolean res = orderService.updateOrder(order);
+        if (res) {
+            // request.setAttribute("url", request.getContextPath() + "/jsp/order_info.jsp");
+            request.setAttribute("url", "orderServlet?action=showOrdersByuid");
+            request.setAttribute("second", 5);
+            request.setAttribute("infomation", "订单状态已更新");
+            // 页面转发
+            request.getRequestDispatcher("/views/member/tip.jsp").forward(request, response);
+        }
+    }
+    /**
+     * 更新订单
+     *
+     * @param request  请求
+     * @param response 响应
+     * @throws ServletException servlet异常
+     * @throws IOException      ioexception
+     */
+    protected void updateOrder(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // 1 获取到登录的user对象
+        Member loginUser = (Member) request.getSession().getAttribute("member");
+        // System.out.println("OrderServlet_loginUser"+loginUser);
+        String username = loginUser.getUsername();
+        String orderId = request.getParameter("orderId");
+        String address = request.getParameter("address");
+        // String name = request.getParameter("username");
+        // String telephone = request.getParameter("telephone");
+        Order order = orderService.queryOrderByOid(orderId);
+        order.setAddress(address);
+        // order.setTelephone(telephone);
+        // order.se(name);
+        Boolean aBoolean = orderService.updateOrder(order);
+        if (aBoolean) {
+            // request.setAttribute("url", request.getContextPath() + "/jsp/order_info.jsp");
+            request.setAttribute("url", "orderServlet?action=showOrderInfo&orderId=" + orderId);
+            request.setAttribute("second", 5);
+            request.setAttribute("infomation", "收货信息修改成功~<br>点击跳回到订单详情");
+            request.setAttribute("username", username);
+            // 页面转发
+            request.getRequestDispatcher("/jsp/tip.jsp").forward(request, response);
+        }else {
+            request.setAttribute("url", "orderServlet?action=showOrderInfo&orderId=" + orderId);
+            request.setAttribute("second", 5);
+            request.setAttribute("infomation", "收货信息修改失败~<br>点击跳回到订单详情");
+            request.setAttribute("username", username);
+            // 页面转发
+            request.getRequestDispatcher("/jsp/tip.jsp").forward(request, response);
+        }
+    }
+
 }

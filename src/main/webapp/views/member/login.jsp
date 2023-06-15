@@ -202,7 +202,7 @@
                                         <%--增加隐藏域--%>
                                         <input type="hidden" name="action" value="register"/>
                                         <input type="text" id="username" name="username"
-                                               value="${requestScope.username}" placeholder="Username"/>
+                                               value="${requestScope.username}" placeholder="请输入用户名"/>
                                         <input type="password" id="password" value="${requestScope.userpassword}"
                                                name="userpassword" placeholder="输入密码"/>
                                         <input type="password" id="repwd" name="userrepwd" placeholder="确认密码"/>

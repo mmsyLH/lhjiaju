@@ -66,10 +66,10 @@ public class SendEmail {
         message.setSubject(Title);
         //邮箱内容
         message.setContent(
-                "<h1>来自罗汉家居网站的激活邮件，点击即可进行激活</h1><h3><a href='http://localhost:8888/2203840110_luohan/memberServlet?action=active&code="
+                "<h1>来自罗汉家居网站的激活邮件，点击即可进行激活</h1>" +
+                        "<h3><a href='http://localhost:8888/2203840110_luohan/memberServlet?action=active&code="
                         + code
                         + "'>罗汉家居网在线激活~"
-                        // + "'>http://120.78.240.231:8080/lhjiaju"
                     + "</a></h3>", "text/html;charset=utf-8");
         //创建对象
         Transport transport = session.getTransport();

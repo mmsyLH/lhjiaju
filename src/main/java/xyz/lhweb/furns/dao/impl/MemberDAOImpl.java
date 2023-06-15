@@ -15,7 +15,11 @@ import java.util.List;
  * @date 2023/04/01
  */
 public class MemberDAOImpl extends BasicDAO<Member> implements MemberDAO {
-
+    public static void main(String[] args) {
+        MemberDAOImpl memberDAO = new MemberDAOImpl();
+        Member member = memberDAO.queryMemberByUsernameAndPassword("luohan1", "123123");
+        System.out.println(member);
+    }
 
     /**
      * 查询会员通过用户名
@@ -78,7 +82,7 @@ public class MemberDAOImpl extends BasicDAO<Member> implements MemberDAO {
      */
     @Override
     public int updateMember(Member member) {
-        String sql = "UPDATE `member` SET `username` = ? , `password` = MD5(?), `email` = ? , "
+        String sql = "UPDATE `member` SET `username` = ? , `password` = ?, `email` = ? , "
                 + "`code` = ? , `state` = ? where `id`=?";
         return update(sql,member.getUsername(),member.getPassword(),member.getEmail(),member.getCode(),member.getState(),member.getId());
     }

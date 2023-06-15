@@ -108,10 +108,10 @@
                                 ${order.createTime}
                         </td>
                         <td width="15%">
-                            <span class="subtotal">${order.createTime}</span>
+                            <span class="subtotal">${order.address}</span>
                         </td>
                         <td width="15%">
-                            <span class="subtotal">${order.createTime}</span>
+                            <span class="subtotal">${sessionScope.member.username}</span>
                         </td>
                         <td width="15%">
                             <span class="subtotal">￥：${order.price}</span>

@@ -39,6 +39,7 @@ public class MemberServlet extends BasicServlet {
         // System.out.println("loginServlet被调用");
         String username = request.getParameter("username");
         String password = request.getParameter("userpassword");
+        System.out.println("密码为：--------"+password);
         // System.out.println("用户名："+username+"密码："+userpassword);
 
         // 自动登录
@@ -99,8 +100,8 @@ public class MemberServlet extends BasicServlet {
         // System.out.println("registerServlet被调用");
         String username = request.getParameter("username");
         String userpassword = request.getParameter("userpassword");
+        System.out.println("注册密码为："+userpassword);
         String email = request.getParameter("email");
-
         // 获取用户提交的验证码
         String code = request.getParameter("code");
 
@@ -114,7 +115,12 @@ public class MemberServlet extends BasicServlet {
             // System.out.println(username+userpassword+email);
             // 判断用户名是否存在
             if (!memberService.isExistsUsername(username)) {
-                Member member = new Member(null, username, userpassword, email, 0, DataUtils.getCode());
+                Member member = new Member();
+                member.setUsername(username);
+                member.setPassword(userpassword);
+                member.setEmail(email);
+                member.setState(0);
+                member.setCode(DataUtils.getCode());
                 if (memberService.registerMember(member)) {
                     request.setAttribute("username", username);
                     request.setAttribute("url", request.getContextPath() + "/index.jsp");
@@ -217,10 +223,12 @@ public class MemberServlet extends BasicServlet {
     }
 
     protected void active(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String code = request.getParameter("code");
+        System.out.println(code);
         try {
-            String code = request.getParameter("code");
             MemberService memberService = new MemberServiceImpl();
             Member member = memberService.findByCode(code);
+            System.out.println("需要更新的用户"+member);
             if (member != null) {
                 member.setState(1);
                 member.setCode(null);

@@ -60,7 +60,7 @@
                 <div class="login-register-wrapper">
                     <div class="login-register-tab-list nav">
                         <a class="active" href="index.jsp">
-                            <h4 style="color: darkblue">您访问的页面不存在（某些页面尚未完成） 返回首页</h4>
+                            <h4 style="color: darkblue">您访问的页面不存在（某些页面尚未完成哦）返回首页</h4>
                         </a>
                     </div>
                 </div>
